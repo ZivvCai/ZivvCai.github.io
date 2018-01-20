@@ -6,19 +6,19 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Regex | My Blog</title>
+  <title>JsonNote | My Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="正则表达式例 ^[0-9]+abc$ ^为匹配输入字符串的开始位置 [0-9]+匹配多个数字，[0-9]匹配单个数字，+匹配一个或多个 abc$匹配字母abc并以abc结尾 $为匹配输入字符串的结束位置">
-<meta name="keywords" content="正则表达式">
+  <meta name="description" content="JSON####Json语法 Json语法规则 ：Json语法是JavaScript对象表示法语法的子集  数据在名称/值对中 数据由逗号分隔 大括号保存对象 中括号保存数组">
+<meta name="keywords" content="JsonNote">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Regex">
-<meta property="og:url" content="http://yoursite.com/2017/10/20/Regex/index.html">
+<meta property="og:title" content="JsonNote">
+<meta property="og:url" content="http://yoursite.com/2017/12/20/JsonNote/index.html">
 <meta property="og:site_name" content="My Blog">
-<meta property="og:description" content="正则表达式例 ^[0-9]+abc$ ^为匹配输入字符串的开始位置 [0-9]+匹配多个数字，[0-9]匹配单个数字，+匹配一个或多个 abc$匹配字母abc并以abc结尾 $为匹配输入字符串的结束位置">
-<meta property="og:updated_time" content="2018-01-20T04:43:49.981Z">
+<meta property="og:description" content="JSON####Json语法 Json语法规则 ：Json语法是JavaScript对象表示法语法的子集  数据在名称/值对中 数据由逗号分隔 大括号保存对象 中括号保存数组">
+<meta property="og:updated_time" content="2018-01-20T09:19:30.628Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Regex">
-<meta name="twitter:description" content="正则表达式例 ^[0-9]+abc$ ^为匹配输入字符串的开始位置 [0-9]+匹配多个数字，[0-9]匹配单个数字，+匹配一个或多个 abc$匹配字母abc并以abc结尾 $为匹配输入字符串的结束位置">
+<meta name="twitter:title" content="JsonNote">
+<meta name="twitter:description" content="JSON####Json语法 Json语法规则 ：Json语法是JavaScript对象表示法语法的子集  数据在名称/值对中 数据由逗号分隔 大括号保存对象 中括号保存数组">
   
     <link rel="alternative" href="/atom.xml" title="My Blog" type="application/atom+xml">
   
@@ -146,124 +146,93 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-Regex" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-JsonNote" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      Regex
+      JsonNote
     </h1>
   
 
         
-        <a href="/2017/10/20/Regex/" class="archive-article-date">
-  	<time datetime="2017-10-20T02:57:32.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-10-20</time>
+        <a href="/2017/12/20/JsonNote/" class="archive-article-date">
+  	<time datetime="2017-12-20T08:03:55.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-12-20</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="正则表达式"><a href="#正则表达式" class="headerlink" title="正则表达式"></a>正则表达式</h2><p>例 ^[0-9]+abc$</p>
-<p>^为匹配输入字符串的开始位置</p>
-<p>[0-9]+匹配多个数字，[0-9]匹配单个数字，+匹配一个或多个</p>
-<p>abc$匹配字母abc并以abc结尾</p>
-<p>$为匹配输入字符串的结束位置</p>
+        <h2 id="JSON"><a href="#JSON" class="headerlink" title="JSON"></a>JSON</h2><p>####Json语法</p>
+<p><strong>Json语法规则</strong> ：Json语法是JavaScript对象表示法语法的子集</p>
+<ul>
+<li>数据在名称/值对中</li>
+<li>数据由逗号分隔</li>
+<li>大括号保存对象</li>
+<li>中括号保存数组</li>
+</ul>
 <a id="more"></a>
-<p><strong>使用正则表达式</strong>：</p>
-<p>*测试字符串内的模式（可以测试输入字符串，以查看字符串内是否出现电话模式或信用卡模式，这称为数据验证）</p>
-<p>*替换文本（可以使用正则表达式来识别文档中的特定文本，完全删除该文本或者用其他文本替换它）</p>
-<p>*基于模式匹配从字符串中提取字符串（可以查找文档内或输入域内特定的文本）</p>
-<p>java.util.regex包主要包括以下三个类：</p>
-<p>1.Pattern类：Pattern对象是一个正则表达式的编译表示。Pattern类没有公共构造方法，要创建一个Pattern对象，必须先调用其公共静态编译方法，它返回一个Pattern对象，该方法接受一个正则表达式作为它的第一个参数</p>
-<p>2.Matcher类：Matcher对象是输入字符串进行解释和匹配操作的引擎。与Pattern类一样，Matcher类也没有公共构造方法。需要调用Pattern对象的matcher方法来获得一个Matcher对象</p>
-<p>3.PatternSyntaxException：PatternSyntaxException是一个非强制异常类，它表示一个正则表达式模式中的语法错误</p>
-<p><strong>捕获组</strong>：</p>
-<p>捕获组是把多个字符当一个单独单元进行处理的方法，它通过对括号内的字符分组来创建，捕获组是通过从左至右计算其开括号来编号。例：((A)(B(C)))有四个组</p>
-<p>可以通过调用matcher对象的groupCount方法来查看表达式有多少个分组。groupCount方法返回一个int值，表示matcher对象当前有多少个捕获组。(group(0))它代表整个表达式，但不包括在groupCount的返回值中</p>
-<p><strong>正则表达式语法</strong>：</p>
-<p>其他语言中双反斜杠表示：在正则表达式中插入一个普通的反斜杠。在java中双反斜杠表示：插入一个正则表达式的反斜线，所以其后的字符具有特殊的意义。所以java的转义需要双反斜杠，java表示一位数字的正则表达式是双反斜杠d，而表示反斜杠则是四条反斜线</p>
-<table>
-<thead>
-<tr>
-<th style="text-align:center">字符</th>
-<th style="text-align:center">含义</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:center">\</td>
-<td style="text-align:center">将下一字符标记为特殊字符</td>
-</tr>
-<tr>
-<td style="text-align:center">^</td>
-<td style="text-align:center">匹配输入字符串开始的位置</td>
-</tr>
-<tr>
-<td style="text-align:center">$</td>
-<td style="text-align:center">匹配输入字符串结束的位置</td>
-</tr>
-<tr>
-<td style="text-align:center">*</td>
-<td style="text-align:center">零次或多次匹配前面的字符或子表达式</td>
-</tr>
-<tr>
-<td style="text-align:center">+</td>
-<td style="text-align:center">一次或多次匹配前面的字符或子表达式</td>
-</tr>
-<tr>
-<td style="text-align:center">?</td>
-<td style="text-align:center">零次或一次匹配前面的字符或子表达式</td>
-</tr>
-<tr>
-<td style="text-align:center">{n}</td>
-<td style="text-align:center">n是非负整数，正好匹配n次</td>
-</tr>
-<tr>
-<td style="text-align:center">{n,}</td>
-<td style="text-align:center">n是非负整数，至少匹配n次</td>
-</tr>
-<tr>
-<td style="text-align:center">{n,m}</td>
-<td style="text-align:center">n和m是非负整数，至少匹配n次，至多匹配m次</td>
-</tr>
-<tr>
-<td style="text-align:center">?</td>
-<td style="text-align:center">在限定字符后，表示匹配模式是“非贪心模式”，即匹配尽可能短的字符串，默认是“贪心模式”</td>
-</tr>
-<tr>
-<td style="text-align:center">.</td>
-<td style="text-align:center">匹配除了“\r\n”之外的任何单个字符</td>
-</tr>
-<tr>
-<td style="text-align:center">[xyz]</td>
-<td style="text-align:center">字符集，匹配包含的任一字符</td>
-</tr>
-<tr>
-<td style="text-align:center">[^xyz]</td>
-<td style="text-align:center">反字符集，匹配未包含的任一字符</td>
-</tr>
-<tr>
-<td style="text-align:center">[a-z]</td>
-<td style="text-align:center">字符范围，匹配指定范围内的任何字符</td>
-</tr>
-<tr>
-<td style="text-align:center">\b</td>
-<td style="text-align:center">匹配一个字的边界，即字与空格间的位置</td>
-</tr>
-<tr>
-<td style="text-align:center">\d</td>
-<td style="text-align:center">数字字符匹配，等效于[0-9]</td>
-</tr>
-<tr>
-<td style="text-align:center">\w</td>
-<td style="text-align:center">匹配任何字类字符，包括下划线，等效于[A-Za-z0-9]</td>
-</tr>
-</tbody>
-</table>
-<p>具体类的方法参见JDK</p>
+<p><strong>Json名称/值对 </strong>：Json数据的书写格式：名称/值对（包括字段名称（在双引号中），后面写一个冒号，然后是值）”name” : “张三”</p>
+<p>Json值可以为：</p>
+<ul>
+<li>数字（整数或浮点数）</li>
+<li>字符串（在双引号中）</li>
+<li>逻辑值（true或false）</li>
+<li>数组（在中括号中）：可以包含多个对象</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&#123;&quot;sites&quot;:[</span><br><span class="line">  &#123;&quot;name&quot; : &quot;百度&quot; , &quot;url&quot; : &quot;www.baidu.com&quot;&#125;,</span><br><span class="line">  &#123;&quot;name&quot; : &quot;谷歌&quot; , &quot;url&quot; : &quot;www.google.com&quot;&#125;,</span><br><span class="line">  &#123;&quot;name&quot; : &quot;微博&quot; , &quot;url&quot; : &quot;www.weibo.com&quot;&#125;</span><br><span class="line">]&#125;</span><br></pre></td></tr></table></figure>
+<p>Json使用JavaScript语法，和JavaScript创建对象数组，访问数组项，修改数据一样</p>
+<p>Json文件的文件类型是：.json</p>
+<p>Json文件的MIME类型是：application/json</p>
+<p><strong>Json对象</strong> ：</p>
+<p>对象语法：{“name” : “baidu” , “alexa” : 10000 , “site” : null}</p>
+<ul>
+<li>Json对象使用在大括号({})中书写</li>
+<li>对象可以包含多个key/value(键值对)</li>
+<li>key必须是字符串，value可以是合法的Json数据类型(字符串，数字，对象，数组，布尔值或null)</li>
+<li>key和value中使用冒号(:)分隔</li>
+<li>每个key/value对使用逗号(,)分隔</li>
+</ul>
+<p>访问对象值：可以使用(.)来访问对象值，也可以使用([])来访问对象值</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">var myObj,x;</span><br><span class="line">myObj = &#123;&quot;name&quot; : &quot;baidu&quot; , &quot;alexa&quot; : 10000 , &quot;site&quot; : null&#125;;</span><br><span class="line">x = myObj.name;</span><br><span class="line">x = myObj[&quot;name&quot;];</span><br></pre></td></tr></table></figure>
+<p>循环对象：可以使用(for-in)来循环对象的属性，在for-in循环对象的属性时，使用中括号([])来访问属性的值</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">var myObj = &#123;&quot;name&quot; : &quot;baidu&quot; , &quot;alexa&quot; = 10000 , &quot;site&quot; = null&#125;;</span><br><span class="line">for(x in myObj)&#123;</span><br><span class="line">  document.getElementById(&quot;demo&quot;).innerHTML += x + &quot;&lt;br&gt;&quot;;</span><br><span class="line">&#125;</span><br><span class="line">for(x in myObj)&#123;</span><br><span class="line">  document.getElementById(&quot;demo&quot;).innerHTML += myObj[x] + &quot;&lt;br&gt;&quot;;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>嵌套Json对象：Json对象中可以包含另外一个Json对象，可以使用(.)或([])来访问嵌套的Json对象</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">myObj = &#123;</span><br><span class="line">  &quot;name&quot; : &quot;baidu&quot;,</span><br><span class="line">  &quot;alexa&quot; : 10000,</span><br><span class="line">  &quot;sites&quot; : &#123;</span><br><span class="line">    &quot;site1&quot; : &quot;www.baidu.com&quot;,</span><br><span class="line">    &quot;site2&quot; : &quot;mmm.baidu.com&quot;,</span><br><span class="line">    &quot;site3&quot; : &quot;nnn.baidu.com&quot;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;;</span><br><span class="line">x = myObj.sites.site1;</span><br><span class="line">x = myObj.sites[&quot;site1&quot;];</span><br></pre></td></tr></table></figure>
+<p>修改值：可以使用(.)或者([])来修改Json对象的值</p>
+<p>删除对象属性：可以使用delete关键字来删除Json对象的属性<code>delete myObj.sites.site1</code></p>
+<p><strong>Json数组</strong> ：</p>
+<p>Json中数组值必须是合法的Json数据类型，JavaScript中，数组值可以是Json数据类型，也可以是JavaScript的表达式，包括函数，日期和undefined</p>
+<p>Json对象中的数组：对象属性的值可以是一个数组；可以使用索引值来访问数组</p>
+<p>循环数组：可以使用(for-in)来访问数组，也可以使用for循环</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">for(i in myObj.sites)&#123;</span><br><span class="line">  x += myObj.sites[i] + &quot;&lt;br&gt;&quot;;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>嵌套Json对象中的数组：可以使用两个for-in或for循环来访问</p>
+<p>修改数组值：可以使用索引值来修改数组值</p>
+<p>删除数组元素：可以使用delete关键字来删除数组元素</p>
+<p><strong>JSON.parse()</strong></p>
+<p>Json通常用于与服务器端交换数据，在接收服务器数据时一般是字符串，可以使用JSON.parse()方法将数据转换为JavaScript对象</p>
+<p>语法：JSON.parse(text[,reviver])</p>
+<p>参数说明：text：必需，一个有效的字符串；reviver：可选，一个转换结果的函数，将为对象的每个成员调用此函数</p>
+<p>从服务器端接收Json数据：可以使用Ajax从服务器请求Json数据，并解析为JavaScript对象</p>
+<p>异常：解析数据：Json不能存储Date对象，如果需要存储，需要将其转换为字符串，之后再将字符串转换为Date对象</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">var text = &apos;&#123; &quot;name&quot; : &quot;baidu&quot; , &quot;initDate&quot; : &quot;2000-01-12&quot; , &quot;site&quot; : 	www.baidu.com&quot; &#125;;</span><br><span class="line">var obj = JSON.parse(text);</span><br><span class="line">obj.initDate = new Date(obj.initDate);</span><br><span class="line">document.getElementById(&quot;demo&quot;).innerHTML = obj.name + &quot;日期:&quot; + obj.initDate;</span><br><span class="line">//也可以启用reviver参数</span><br><span class="line">var obj = JSON.parse(text,function(key,value)&#123;</span><br><span class="line">  if(key == &quot;initDate&quot;)&#123;</span><br><span class="line">    return new Date(value);</span><br><span class="line">  &#125;else&#123;</span><br><span class="line">    return value;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<p><strong>JSON.stringify()</strong></p>
+<p>在向服务器端发送数据时一般是字符串，可以使用JSON.stringify()方法将JavaScript对象转换成字符串</p>
+<p>语法：JSON.stringify(value[,replacer[,space]])</p>
+<p>参数说明：</p>
+<ul>
+<li>value：必需，一个有效的Json字符串</li>
+<li>replacer：可选，用于转换结果的函数或数组。如果replacer为函数，则JSON.stringify将调用该函数，并传入每个成员的键和值，使用返回值而不是原始值，如果此函数返回undefined，则排除成员；根对象的键是一个空字符串：””。如果replacer是一个数组，则仅转换该数组中具有键值的成员，成员的转换顺序与键在数组中的顺序一样，当value参数也为数组时，将忽略replacer数组</li>
+<li>space：可选，文本添加缩进、空格和换行符，如果space是一个数字，则返回文本在每个级别缩进指定数目的空格，如果space大于10，则文本缩进10个空格，也可以使用非数字：\t</li>
+</ul>
+<p><strong>Json使用</strong></p>
+<p>由于Json语法是JavaScript语法的自己，JavaScript函数eval()可用于将Json文本转换为JavaScript对象</p>
+<p>eval()函数使用的是JavaScript编译器，可解析Json文本，然后生成JavaScript对象，必须把文本包围在括号中<code>var obj = eval(&quot;(&quot;+txt+&quot;)&quot;);</code>，eval()函数可编译并执行任何JavaScript代码，这隐藏了潜在的安全问题</p>
+<p><strong>JSONP</strong></p>
+<p>Jsonp(JSON with Padding)是Json的一种“使用模式”，可以让网页从别的域名(网站)那获取资料，即跨域读取数据</p>
 
       
 
@@ -298,7 +267,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">正则表达式</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">JsonNote</a>
         		</li>
       		
 		</ul>
@@ -354,7 +323,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2017/10/20/Regex/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2017/12/20/JsonNote/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -368,18 +337,18 @@
   
 <nav id="article-nav">
   
-    <a href="/2017/11/12/Typora/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2018/01/19/java-Exception/" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
-          Typora
+          java Exception
         
       </div>
     </a>
   
   
-    <a href="/2017/10/10/Git/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">Git</div>
+    <a href="/2017/11/19/ajaxNote/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">ajaxNote</div>
       <i class="icon-circle-right"></i>
     </a>
   

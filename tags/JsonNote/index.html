@@ -6,19 +6,14 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Regex | My Blog</title>
+  <title>Tag: JsonNote | My Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="正则表达式例 ^[0-9]+abc$ ^为匹配输入字符串的开始位置 [0-9]+匹配多个数字，[0-9]匹配单个数字，+匹配一个或多个 abc$匹配字母abc并以abc结尾 $为匹配输入字符串的结束位置">
-<meta name="keywords" content="正则表达式">
-<meta property="og:type" content="article">
-<meta property="og:title" content="Regex">
-<meta property="og:url" content="http://yoursite.com/2017/10/20/Regex/index.html">
+  <meta property="og:type" content="website">
+<meta property="og:title" content="My Blog">
+<meta property="og:url" content="http://yoursite.com/tags/JsonNote/index.html">
 <meta property="og:site_name" content="My Blog">
-<meta property="og:description" content="正则表达式例 ^[0-9]+abc$ ^为匹配输入字符串的开始位置 [0-9]+匹配多个数字，[0-9]匹配单个数字，+匹配一个或多个 abc$匹配字母abc并以abc结尾 $为匹配输入字符串的结束位置">
-<meta property="og:updated_time" content="2018-01-20T04:43:49.981Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Regex">
-<meta name="twitter:description" content="正则表达式例 ^[0-9]+abc$ ^为匹配输入字符串的开始位置 [0-9]+匹配多个数字，[0-9]匹配单个数字，+匹配一个或多个 abc$匹配字母abc并以abc结尾 $为匹配输入字符串的结束位置">
+<meta name="twitter:title" content="My Blog">
   
     <link rel="alternative" href="/atom.xml" title="My Blog" type="application/atom+xml">
   
@@ -146,273 +141,60 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-Regex" class="article article-type-post " itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
+            
   
-    <h1 class="article-title" itemprop="name">
-      Regex
+  
+    
+    
+      
+      
+      <section class="archives-wrap">
+        <div class="archive-year-wrap">
+          <a href="/archives/2017" class="archive-year">2017</a>
+        </div>
+        <div class="archives">
+    
+    <article class="archive-article archive-type-post">
+  <div class="archive-article-inner">
+    <header class="archive-article-header">
+      	<div class="article-meta">
+	      	<a href="/2017/12/20/JsonNote/" class="archive-article-date">
+  	<time datetime="2017-12-20T08:03:55.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-12-20</time>
+</a>
+        </div>
+    	 
+  
+    <h1 itemprop="name">
+      <a class="archive-article-title" href="/2017/12/20/JsonNote/">JsonNote</a>
     </h1>
   
 
-        
-        <a href="/2017/10/20/Regex/" class="archive-article-date">
-  	<time datetime="2017-10-20T02:57:32.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-10-20</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="正则表达式"><a href="#正则表达式" class="headerlink" title="正则表达式"></a>正则表达式</h2><p>例 ^[0-9]+abc$</p>
-<p>^为匹配输入字符串的开始位置</p>
-<p>[0-9]+匹配多个数字，[0-9]匹配单个数字，+匹配一个或多个</p>
-<p>abc$匹配字母abc并以abc结尾</p>
-<p>$为匹配输入字符串的结束位置</p>
-<a id="more"></a>
-<p><strong>使用正则表达式</strong>：</p>
-<p>*测试字符串内的模式（可以测试输入字符串，以查看字符串内是否出现电话模式或信用卡模式，这称为数据验证）</p>
-<p>*替换文本（可以使用正则表达式来识别文档中的特定文本，完全删除该文本或者用其他文本替换它）</p>
-<p>*基于模式匹配从字符串中提取字符串（可以查找文档内或输入域内特定的文本）</p>
-<p>java.util.regex包主要包括以下三个类：</p>
-<p>1.Pattern类：Pattern对象是一个正则表达式的编译表示。Pattern类没有公共构造方法，要创建一个Pattern对象，必须先调用其公共静态编译方法，它返回一个Pattern对象，该方法接受一个正则表达式作为它的第一个参数</p>
-<p>2.Matcher类：Matcher对象是输入字符串进行解释和匹配操作的引擎。与Pattern类一样，Matcher类也没有公共构造方法。需要调用Pattern对象的matcher方法来获得一个Matcher对象</p>
-<p>3.PatternSyntaxException：PatternSyntaxException是一个非强制异常类，它表示一个正则表达式模式中的语法错误</p>
-<p><strong>捕获组</strong>：</p>
-<p>捕获组是把多个字符当一个单独单元进行处理的方法，它通过对括号内的字符分组来创建，捕获组是通过从左至右计算其开括号来编号。例：((A)(B(C)))有四个组</p>
-<p>可以通过调用matcher对象的groupCount方法来查看表达式有多少个分组。groupCount方法返回一个int值，表示matcher对象当前有多少个捕获组。(group(0))它代表整个表达式，但不包括在groupCount的返回值中</p>
-<p><strong>正则表达式语法</strong>：</p>
-<p>其他语言中双反斜杠表示：在正则表达式中插入一个普通的反斜杠。在java中双反斜杠表示：插入一个正则表达式的反斜线，所以其后的字符具有特殊的意义。所以java的转义需要双反斜杠，java表示一位数字的正则表达式是双反斜杠d，而表示反斜杠则是四条反斜线</p>
-<table>
-<thead>
-<tr>
-<th style="text-align:center">字符</th>
-<th style="text-align:center">含义</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:center">\</td>
-<td style="text-align:center">将下一字符标记为特殊字符</td>
-</tr>
-<tr>
-<td style="text-align:center">^</td>
-<td style="text-align:center">匹配输入字符串开始的位置</td>
-</tr>
-<tr>
-<td style="text-align:center">$</td>
-<td style="text-align:center">匹配输入字符串结束的位置</td>
-</tr>
-<tr>
-<td style="text-align:center">*</td>
-<td style="text-align:center">零次或多次匹配前面的字符或子表达式</td>
-</tr>
-<tr>
-<td style="text-align:center">+</td>
-<td style="text-align:center">一次或多次匹配前面的字符或子表达式</td>
-</tr>
-<tr>
-<td style="text-align:center">?</td>
-<td style="text-align:center">零次或一次匹配前面的字符或子表达式</td>
-</tr>
-<tr>
-<td style="text-align:center">{n}</td>
-<td style="text-align:center">n是非负整数，正好匹配n次</td>
-</tr>
-<tr>
-<td style="text-align:center">{n,}</td>
-<td style="text-align:center">n是非负整数，至少匹配n次</td>
-</tr>
-<tr>
-<td style="text-align:center">{n,m}</td>
-<td style="text-align:center">n和m是非负整数，至少匹配n次，至多匹配m次</td>
-</tr>
-<tr>
-<td style="text-align:center">?</td>
-<td style="text-align:center">在限定字符后，表示匹配模式是“非贪心模式”，即匹配尽可能短的字符串，默认是“贪心模式”</td>
-</tr>
-<tr>
-<td style="text-align:center">.</td>
-<td style="text-align:center">匹配除了“\r\n”之外的任何单个字符</td>
-</tr>
-<tr>
-<td style="text-align:center">[xyz]</td>
-<td style="text-align:center">字符集，匹配包含的任一字符</td>
-</tr>
-<tr>
-<td style="text-align:center">[^xyz]</td>
-<td style="text-align:center">反字符集，匹配未包含的任一字符</td>
-</tr>
-<tr>
-<td style="text-align:center">[a-z]</td>
-<td style="text-align:center">字符范围，匹配指定范围内的任何字符</td>
-</tr>
-<tr>
-<td style="text-align:center">\b</td>
-<td style="text-align:center">匹配一个字的边界，即字与空格间的位置</td>
-</tr>
-<tr>
-<td style="text-align:center">\d</td>
-<td style="text-align:center">数字字符匹配，等效于[0-9]</td>
-</tr>
-<tr>
-<td style="text-align:center">\w</td>
-<td style="text-align:center">匹配任何字类字符，包括下划线，等效于[A-Za-z0-9]</td>
-</tr>
-</tbody>
-</table>
-<p>具体类的方法参见JDK</p>
-
-      
-
-      
-        <div class="page-reward">
-          <a href="javascript:;" class="page-reward-btn tooltip-top">
-            <div class="tooltip tooltip-east">
-            <span class="tooltip-item">
-              赏
-            </span>
-            <span class="tooltip-content">
-              <span class="tooltip-text">
-                <span class="tooltip-inner">
-                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
-                  <div class="reward-box">
-                    
-                    
-                  </div>
-                </span>
-              </span>
-            </span>
-          </div>
-          </a>
-        </div>
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
+        <div class="article-info info-on-right">
+          
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">正则表达式</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">JsonNote</a>
         		</li>
       		
 		</ul>
 	</div>
 
-      
+          
 
-      
-
-      
-        
-<div class="share-btn share-icons tooltip-left">
-  <div class="tooltip tooltip-east">
-    <span class="tooltip-item">
-      <a href="javascript:;" class="share-sns share-outer">
-        <i class="icon icon-share"></i>
-      </a>
-    </span>
-    <span class="tooltip-content">
-      <div class="share-wrap">
-        <div class="share-icons">
-          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
-            <i class="icon icon-weibo"></i>
-          </a>
-          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
-            <i class="icon icon-weixin"></i>
-          </a>
-          <a class="qq share-sns" href="javascript:;" data-type="qq">
-            <i class="icon icon-qq"></i>
-          </a>
-          <a class="douban share-sns" href="javascript:;" data-type="douban">
-            <i class="icon icon-douban"></i>
-          </a>
-          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
-            <i class="icon icon-qzone"></i>
-          </a>
-          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
-            <i class="icon icon-facebook"></i>
-          </a>
-          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
-            <i class="icon icon-twitter"></i>
-          </a>
-          <a class="google share-sns" href="javascript:;" data-type="google">
-            <i class="icon icon-google"></i>
-          </a>
         </div>
-      </div>
-    </span>
-  </div>
-</div>
-
-<div class="page-modal wx-share js-wx-box">
-    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
-    <p>扫一扫，分享到微信</p>
-    <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2017/10/20/Regex/" alt="微信分享二维码">
-    </div>
-</div>
-
-<div class="mask js-mask"></div>
-      
-      <div class="clearfix"></div>
-    </div>
+        <div class="clearfix"></div>
+    </header>
   </div>
 </article>
-
-  
-<nav id="article-nav">
-  
-    <a href="/2017/11/12/Typora/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          Typora
-        
-      </div>
-    </a>
   
   
-    <a href="/2017/10/10/Git/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">Git</div>
-      <i class="icon-circle-right"></i>
-    </a>
-  
-</nav>
-
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-  
-  
+    </div></section>
   
 
-  
-
-  
-
-  
+    
 
 
           </div>
@@ -435,9 +217,9 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: true,
+		isPost: false,
 		isArchive: false,
-		isTag: false,
+		isTag: true,
 		isCategory: false,
 		open_in_new: false,
 		toc_hide_index: true,
