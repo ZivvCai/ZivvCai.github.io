@@ -6,14 +6,19 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Archives: 2018/1 | My Blog</title>
+  <title>Linux基础 | My Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="My Blog">
-<meta property="og:url" content="http://yoursite.com/archives/2018/01/index.html">
+  <meta name="description" content="Linux文件系统概述文件系统具有以下特点：  文件系统是由文件及目录组成  每个目录或者文件在磁盘上都对应了一定的存储空间  每个目录或者文件都可以被复制或者删除，除了一些只读的文件系统外  如果有多个存储实体，比如磁盘、U盘，那么，它们将对应多个并列的、不同的文件系统  文件系统有不同的类型">
+<meta name="keywords" content="Linux基础（《Android内核剖析》）">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Linux基础">
+<meta property="og:url" content="http://yoursite.com/2018/01/31/Linux基础/index.html">
 <meta property="og:site_name" content="My Blog">
+<meta property="og:description" content="Linux文件系统概述文件系统具有以下特点：  文件系统是由文件及目录组成  每个目录或者文件在磁盘上都对应了一定的存储空间  每个目录或者文件都可以被复制或者删除，除了一些只读的文件系统外  如果有多个存储实体，比如磁盘、U盘，那么，它们将对应多个并列的、不同的文件系统  文件系统有不同的类型">
+<meta property="og:updated_time" content="2018-02-01T05:19:38.180Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="My Blog">
+<meta name="twitter:title" content="Linux基础">
+<meta name="twitter:description" content="Linux文件系统概述文件系统具有以下特点：  文件系统是由文件及目录组成  每个目录或者文件在磁盘上都对应了一定的存储空间  每个目录或者文件都可以被复制或者删除，除了一些只读的文件系统外  如果有多个存储实体，比如磁盘、U盘，那么，它们将对应多个并列的、不同的文件系统  文件系统有不同的类型">
   
     <link rel="alternative" href="/atom.xml" title="My Blog" type="application/atom+xml">
   
@@ -141,36 +146,429 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-Linux基础" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2018" class="archive-year">2018</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/01/31/Linux基础/" class="archive-article-date">
-  	<time datetime="2018-01-31T08:50:50.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-01-31</time>
-</a>
-        </div>
-    	 
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/01/31/Linux基础/">Linux基础</a>
+    <h1 class="article-title" itemprop="name">
+      Linux基础
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
+        
+        <a href="/2018/01/31/Linux基础/" class="archive-article-date">
+  	<time datetime="2018-01-31T08:50:50.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-01-31</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="Linux文件系统概述"><a href="#Linux文件系统概述" class="headerlink" title="Linux文件系统概述"></a>Linux文件系统概述</h2><p>文件系统具有以下特点：</p>
+<ul>
+<li><p>文件系统是由文件及目录组成</p>
+</li>
+<li><p>每个目录或者文件在磁盘上都对应了一定的存储空间</p>
+</li>
+<li><p>每个目录或者文件都可以被复制或者删除，除了一些只读的文件系统外</p>
+</li>
+<li><p>如果有多个存储实体，比如磁盘、U盘，那么，它们将对应多个并列的、不同的文件系统</p>
+</li>
+<li><p>文件系统有不同的类型</p>
+<a id="more"></a>
+</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>目录名</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>bin</td>
+<td>用户级二进制工具</td>
+</tr>
+<tr>
+<td>boot</td>
+<td>Linux内核镜像文件，由bootloader程序读取并装载</td>
+</tr>
+<tr>
+<td>dev</td>
+<td>各种系统硬件设备</td>
+</tr>
+<tr>
+<td>etc</td>
+<td>系统配置文件及其他配置文件</td>
+</tr>
+<tr>
+<td>home</td>
+<td>用户工作目录</td>
+</tr>
+<tr>
+<td>lib</td>
+<td>系统运行时所需的各种库文件</td>
+</tr>
+<tr>
+<td>opt</td>
+<td>操作系统附带的一些应用程序</td>
+</tr>
+<tr>
+<td>proc</td>
+<td>内核及进程所虚拟的系统文件</td>
+</tr>
+<tr>
+<td>root</td>
+<td>管理员工作目录</td>
+</tr>
+<tr>
+<td>sbin</td>
+<td>与bin的区别在于，该目录下的二进制工具程序仅用于管理员</td>
+</tr>
+<tr>
+<td>sys</td>
+<td>一般是驱动程序对应的虚拟文件系统</td>
+</tr>
+<tr>
+<td>usr</td>
+<td>管理安装的、所有用户都可以访问的应用程序</td>
+</tr>
+<tr>
+<td>var</td>
+<td>系统运行时所产生的一些调试信息文件或者相关统计文件</td>
+</tr>
+</tbody>
+</table>
+<p><strong>注</strong>：Linux系统根目录结构</p>
+<h2 id="Linux启动过程"><a href="#Linux启动过程" class="headerlink" title="Linux启动过程"></a>Linux启动过程</h2><p>通用系统的启动过程：开机并执行bootloader程序—&gt;操作系统内核初始化—&gt;执行第一个应用程序</p>
+<p>第一步是<strong>开机</strong>，开机是给系统供电，此时硬件电路会产生一个确定的复位时序，保证CPU是最后一个被复位的器件。当正确完成复位后，CPU开始执行第一条指令，该指令所在的内存地址是固定的，这由CPU的制造者指定，这个固定地址所保存的程序往往被称为“引导程序”（Bootloader），因为其作用是装载真正的用户程序。不同的CPU会提供不同的装载方式，有的是通过普通的并口存储器，有的则是通过SD卡、RS232接口等。装载过程必须提供以下信息：</p>
+<ul>
+<li>从哪里读取用户程序？</li>
+<li>用户程序的长度是多少？</li>
+<li>装载完用户程序后，应该跳转到哪里，即用户程序的执行入口在哪里？</li>
+</ul>
+<p>第二步是<strong>执行内核程序</strong>，这里的内核程序是指上一步中的用户程序。内核程序初始化时执行的操作包括，初始化各种硬件，包括内存、网络接口、显示器、输入设备，然后建立各种内部数据结构，这些数据结构将用于多线程调度及内存的管理等</p>
+<p>第三步是<strong>运行Home程序</strong>，Home程序是指通过改程序可以很方便地启动其他应用程序，传统的Linux系统启动后，第一个运行程序一般是一个Terminal，尽管它表面上就像一个Dos界面，但它也可以被称为Home程序，因为Home程序设计的目的就是提供一个入口，用户可以通过该入口启动其他应用程序</p>
+<p>##常用Linux命令</p>
+<p><strong>man</strong>：当我们不清楚某个Linux命令的作用和用法时，可以使用<code>man command</code>进行查询，command为具体的命令名称</p>
+<p><strong>find</strong>：find命令用于查找某个文件或文件夹，比如<code>find . -name &quot;*.java&quot;</code>该命令用于查找当前目录下扩展名为Java的所有文件find后面的”点“代表当前目录，*为通配符，代表任何名称</p>
+<p><strong>grep</strong>：为正则表达式匹配命令，该命令用于字符串匹配。例：<code>grep &quot;Activity&quot; hello.java</code>。grep和find的区别在于：find用于查找目录或文件，而grep用于查找指定的字符串，并且字符串可以由正则表达式描述</p>
+<p><strong>xargs</strong>：xargs并不是一个命令，而是一个标识，代表了上一个命令的执行结果，并作为下一个命令的参数。Linux命令可以流水线执行，也称”多管道“执行，即两个命令用”|“分隔符隔开。比如，想查找当前目录下文件名中包含”oa“的所有文件，可以使用如下命令：<code>ls | xargs grep &quot;oa&quot;</code></p>
+<p><strong>cat</strong>：cat命令用于连接文件内容并在Terminal中输出文件内容，该命令后面如果只有一个文件名称，则仅输出该文件内容</p>
+<p><strong>sudo</strong>：用在命令前，含义是使用管理员权限执行后续的命令，因为有些命令要求有管理员权限</p>
+<p><strong>chmod</strong>：在Linux系统中，文件的访问者被划分为三类，并针对这三类用户指定不同的访问权限。这三类访问者是：user(u)，用户自身，即创建该文件的用户；group(g)，用户所在组，即与创建在一个组里面的用户；other(o)，其他用户。chmod命令就是用于设置这三类访问者对某文件的访问权限。访问权限分为读(r)权限、写(w)权限、执行(x)权限，文件类型不同，”执行“的含义不同。可以通过<code>ls -l</code>命令查看文件的访问权限，Linux系统使用10位(bit)数据表示访问的权限。bit 0：使用-或者d表示，前者表示这是一个文件，后者表示这是一个目录；bit 1~bit 3：用户自身(user)对该文件的访问权限；bit 4~bit 6：用户组(group)对该文件的访问权限；bit 7~bit 9：其他用户(other)对该文件的访问权限。例：某个文件的属性为<code>-rwxrwx---</code>，这表示它是个文件，用户对文件拥有读取、写入、执行权限，用户组对该文件也拥有读取、写入、执行权限，而其他用户则不能读取、不能写入、不能执行。修改文件权限<code>chmod u+x copy.sh</code>命令中u+x的含义是给user添加执行(x)的权限，类似的也可以是o+x、o+rw、g+rwx等，可以用a代表所有用户。对于某些Linux系统，chmod不识别r、w、x这样的参数，而只能使用8进制数字值来表示，<code>chmod 777 copy.sh</code>其中777为8进制的数，对应二进制数据为111 111 111，这就分别代表了u、g、o三类用户的访问权限</p>
+<p><strong>ps，kill</strong>：ps用于列出当前运行的所有进程，kill用于杀死某个进程。这两个命令多用于系统调试，比如，可以先用ps列出所有进程，从输出信息中得到每个进程的id值，即pid，然后调用<code>kill -9 pid</code>就可以杀死指定pid对应的进程。-9是一个参数，具体可用<code>man kill</code>查看</p>
+<p><strong>export</strong>：该命令用于将某个变量值的作用域设为全局范围</p>
+<p><strong>cd</strong> 、<strong>ls</strong>、<strong>cd ..</strong></p>
+<h2 id="Shell脚本备忘"><a href="#Shell脚本备忘" class="headerlink" title="Shell脚本备忘"></a>Shell脚本备忘</h2><p>凡是需要按一定的次序执行多个Linux命令的场合都可以使用脚本来完成</p>
+<p>1、<strong>获取输入</strong></p>
+<p>输入包含三种：第一种是执行脚本时用户的输入；第二种是将前一个脚本的输出作为该脚本的输入；第三种是脚本函数的参数。用户的输入可以用$n表示，n为1~9自然数，分别代表输入中的第n个参数</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">#!/bin/bash</span><br><span class="line">echo $1</span><br><span class="line">echo $2</span><br><span class="line">echo $3</span><br><span class="line">执行该脚本，输出为：</span><br><span class="line">$./me i love you</span><br><span class="line">i</span><br><span class="line">love</span><br><span class="line">you</span><br></pre></td></tr></table></figure>
+<p>2、<strong>变量定义</strong></p>
+<p>在Bash脚本中的变量没有类型，所有的变量都是字符串。变量不要单独定义，可直接赋值，赋值语句中不能有空格。引用变量时只需在变量前加一个$符号即可。为了避免混淆，常常使用双引号包含要引用的变量</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">#!/bin/bash</span><br><span class="line">A=b</span><br><span class="line">All=all</span><br><span class="line">echo &quot;$A&quot;ll</span><br><span class="line">echo $All</span><br><span class="line">执行后输出为：</span><br><span class="line">bll</span><br><span class="line">all</span><br></pre></td></tr></table></figure>
+<p>3、<strong>条件判断</strong></p>
+<p>条件判断主要是判断两个字符串 是否相等、两个数字是否相等。其语法格式如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">#!/bin/bash</span><br><span class="line">if [ &quot;$1&quot; = &quot;normal&quot; ]</span><br><span class="line">then</span><br><span class="line">	echo &quot;this is normal case&quot;</span><br><span class="line">elif [ -z &quot;$1&quot; ]</span><br><span class="line">then</span><br><span class="line">	echo &quot;no input,ignal...&quot;</span><br><span class="line">fi</span><br></pre></td></tr></table></figure>
+<p>该段代码判断用户输入的第一个参数，如果其值等于”normal“字符串，则显示”this is normal case“，如果第一个参数为空，则显示”no input，ignal…“</p>
+<p>条件判断语法中要注意：</p>
+<ul>
+<li>每个if语句后面的执行部分必须跟在then后面</li>
+<li>多个判断分支可以使用elif语句</li>
+<li>条件语句必须使用fi结束</li>
+<li>条件语句中”[”符号后面必须要有一个空格</li>
+</ul>
+<p><strong>Bash脚本的比较运算符</strong></p>
+<table>
+<thead>
+<tr>
+<th>操作符</th>
+<th>返回true的条件</th>
+<th>操作数的个数</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>-n</td>
+<td>操作数的长度不为零</td>
+<td>1</td>
+</tr>
+<tr>
+<td>-z</td>
+<td>操作数的长度为零</td>
+<td>1</td>
+</tr>
+<tr>
+<td>-d</td>
+<td>操作数对应一个目录</td>
+<td>1</td>
+</tr>
+<tr>
+<td>-f</td>
+<td>操作数对应一个文件</td>
+<td>1</td>
+</tr>
+<tr>
+<td>-eq</td>
+<td>操作数为整数，并且相等</td>
+<td>2</td>
+</tr>
+<tr>
+<td>-neq</td>
+<td>操作数为整数，但不相等，与-eq相反</td>
+<td>2</td>
+</tr>
+<tr>
+<td>=</td>
+<td>操作数为字符串，并且相等</td>
+<td>2</td>
+</tr>
+<tr>
+<td>!=</td>
+<td>操作数为字符串，但不相等，与=相反</td>
+<td>2</td>
+</tr>
+<tr>
+<td>-lt</td>
+<td>小于（less than），操作数为整数</td>
+<td>2</td>
+</tr>
+<tr>
+<td>-gt</td>
+<td>大于（great than），操作数为整数</td>
+<td>2</td>
+</tr>
+<tr>
+<td>-ge</td>
+<td>大于等于（great equal），操作数为整数</td>
+<td>2</td>
+</tr>
+<tr>
+<td>-le</td>
+<td>小于等于（less equal），操作数为整数</td>
+<td>2</td>
+</tr>
+</tbody>
+</table>
+<p>4、<strong>while []…do…done语句</strong></p>
+<p>该语句类似于C语言中的do…while语句，举例如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">#!/bin/bash</span><br><span class="line">echo &quot;please use add or delete or exit&quot;</span><br><span class="line">ACTION=&quot;default&quot;</span><br><span class="line">while [ -n $ACTION ]</span><br><span class="line">do</span><br><span class="line">	read ACTION</span><br><span class="line">	case $ACTION in</span><br><span class="line">		add)</span><br><span class="line">			echo &quot;add somebody&quot;</span><br><span class="line">			;;</span><br><span class="line">		delete)</span><br><span class="line">			echo &quot;delete somebody&quot;</span><br><span class="line">			;;</span><br><span class="line">		exit)</span><br><span class="line">			echo &quot;complete&quot;</span><br><span class="line">			break</span><br><span class="line">			;;</span><br><span class="line">		*)</span><br><span class="line">			echo &quot;invalide action,please re-enter&quot;</span><br><span class="line">			;;</span><br><span class="line">	esac</span><br><span class="line">done</span><br></pre></td></tr></table></figure>
+<p>以上脚本的作用是根据用户输入的参数，执行不同的内容。read是一个Linux命令，用于提示用户输入并以按回车键（LF）结束输入。输入的内容保存到变量ACTION中，接下来的case语句根据ACTION的值，执行不同的动作，esac也是一个Linux命令，这里可以理解为case语句的结束标识。要退出整个while循环，可以使用break语句，done语句是整个while语句的结束标识</p>
+<p>5、<strong>for循环</strong></p>
+<p>Bash中的for循环类似于Java中的foreach语句，for一般与in联合使用，用于从某个集合中逐个取出元素并对其进行操作</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">#!/bin/bash</span><br><span class="line">for X in `ls`</span><br><span class="line">do</span><br><span class="line">	echo `basename $X`</span><br><span class="line">	echo `dirname $X`</span><br><span class="line">done</span><br><span class="line">uname</span><br></pre></td></tr></table></figure>
+<p>在这段代码中，in集合的来源是Linux ls命令，即当前目录下的所有文件。需要注意的是如果要把Linux的某个命令的输出作为集合，或者作为其他命令的输入，需要把该命令包含在“`”符号之中，该符号是键盘上！符号左边的那个按键；如果仅仅是执行某个Linux命令则不需要上述符号。代码中basename和dirname命令用于显示一个字符串中的路径和文件名称，例如/user/local/lib/lib.so对应的dirname是/user/local/lib，对应的basename是lib.so。其本身并不去检测该文件是否真正存在于磁盘上，而仅仅是针对字符串的操作</p>
+<p>6、<strong>函数</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">#!/bin/bash</span><br><span class="line">strcat()</span><br><span class="line">&#123;</span><br><span class="line">  OUT=&quot;$1&quot;&quot; &quot;&quot;$2&quot;</span><br><span class="line">  return 0</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">strcat2()</span><br><span class="line">&#123;</span><br><span class="line">  echo &quot;$1&quot;&quot; &quot;&quot;$2&quot;</span><br><span class="line">  return 3</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">A=&quot;bird&quot;</span><br><span class="line">B=&quot;mouse&quot;</span><br><span class="line"></span><br><span class="line">OUT=&quot;&quot;</span><br><span class="line">strcat $A $B</span><br><span class="line">echo $OUT</span><br><span class="line">OUT2=`strcat2 $A $B`</span><br><span class="line">echo $?</span><br><span class="line">echo $OUT2</span><br><span class="line">运行该脚本的输出为：</span><br><span class="line">bird mouse</span><br><span class="line">3</span><br><span class="line">bird mouse</span><br></pre></td></tr></table></figure>
+<p>脚本中的函数具有以下特点：</p>
+<ul>
+<li>定义函数时，不需要定义参数，在函数实体中可以直接使用$1代表输入的第n个参数</li>
+<li>函数可以使用return关键字返回整数数值，但return返回数值并不能通过等号赋值给函数的调用者，函数必须使用echo命令返回内容给调用者</li>
+<li>调用函数时，如果要获得函数的输出，并且赋值给某个变量，则函数的执行必须包含在“`”符号之间</li>
+<li>如果要获得函数的返回值而不是输出，即函数中return关键字后面的数值则可以使用$?符号。该符号代表了上一个命令的返回值，所谓的上一个命令可以是一个函数，也可以是一个Linux命令，在一般情况下，return关键字返回的数值应该用于表明脚本的执行状态结果</li>
+</ul>
+<p>7、<strong>常用内置符号常量</strong></p>
+<p><strong>内置符号常量</strong></p>
+<table>
+<thead>
+<tr>
+<th>符号值</th>
+<th>意义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>$@</td>
+<td>代表全部参数，比如test a b c，此处为“a“ ”b“ ”c”，展开后为三个字符串</td>
+</tr>
+<tr>
+<td>$*</td>
+<td>全部参数，比如test a b c，此处为“a b c”，展开后为一个字符串</td>
+</tr>
+<tr>
+<td>$#</td>
+<td>参数的个数，比如test a b c，此处是3</td>
+</tr>
+<tr>
+<td>\$?</td>
+<td>上一个命令的返回结果，如果上一个命令是脚本函数，则对应函数中return的数值，比如ls\</td>
+<td>echo”$?”，结果为0</td>
+</tr>
+<tr>
+<td>$$</td>
+<td>当前命令所在的进程号（PID）</td>
+</tr>
+</tbody>
+</table>
+<p>##Make脚本备忘</p>
+<p>Linux系统中包含一个Make脚本的解释器，它可以读取Make脚本的内容，并执行之，Make脚本多用于自动编译过程。Make脚本的基本语法如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">目标(target):条件(prerequest)</span><br><span class="line">(Tab键)命令</span><br></pre></td></tr></table></figure>
+<p>在该语法中，目标可以是任意一个字符串名称，也可以是具体文件的名称，条件可以是其他目标的名称，也可以是具体文件的名称。执行Make脚本时，Make解释器会检查目标和条件中包含的文件时间戳是否相同，如果不同，解释器就会执行Tab键后面的命令，命令可以使任何可执行程序。</p>
+<p>自动编译的基本原理是将目标文件作为“目标”，将源文件作为“条件”，因此，当源文件被修改过后，目标文件的时间戳就会早于源文件，于是Make解释器便会自动执行指定的“命令”。此时可以将执行编译的命令作为这里的“命令”，从而达到自动编译的目的。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">#Filename Makefile</span><br><span class="line">#this file is used for show how to use makefile</span><br><span class="line">$(info start working)</span><br><span class="line">hello:hello.c</span><br><span class="line">	echo &quot;nothing&quot;</span><br><span class="line"></span><br><span class="line">hello.bin:hello.c</span><br><span class="line">	@echo &quot;now make hello.bin&quot;</span><br><span class="line">	gcc hello.c -o hello.bin</span><br><span class="line"></span><br><span class="line">.PHONY:he</span><br><span class="line">he:hello.c</span><br><span class="line">	@echo &quot;now make he&quot;</span><br><span class="line">	gcc hello.c -o hello.bin</span><br></pre></td></tr></table></figure>
+<p>该段代码有以下特点：</p>
+<ul>
+<li>#是注释符，可以用在代码中任何地方</li>
+<li>第三行中$是函数调用符号，info是一个函数名称，作用是输出一段信息。类似的信息输出函数还包括warning、error两个函数，不过error函数执行后会终止执行并退出</li>
+<li>目标定义前不能加任何空格，而命令行前必须以Tab键开始</li>
+<li>.PHONY关键字用于声明一个目标，被.PHONY声明的目标将总是执行其指定的命令，而如果不声明的话，则仅当目标后面的条件变动后才执行</li>
+<li>命令前面的@符号的作用是，不显示被执行的命令。因为在默认情况下，Make解释器在执行命令时会打印出执行的命令</li>
+<li>对于hello.bin目标，该目标本身是一个文件，其依赖的文件是hello.c文件。因此当hello.c文件被修改后，将会执行gcc命令重新对该c文件编译，并输出hello.bin文件</li>
+</ul>
+<p>要执行以上脚本，可运行<code>make -f Makefile hello</code>，在该命令中，-f参数用于指定要执行的脚本文件名称。如果不指定文件名称，则解释器会自动从当前目录下寻找名称为Makefile的脚本文件，如果找不到，则执行失败。hello代表要执行的具体目标，因为一个脚本文件中可能包含多个目标的定义。如果不指定目标，则解释器默认执行脚本中定义的第一个目标。指定的目标不同，执行的命令也将不同</p>
+<p>对于hello和he目标，因为它们不是文件名称，所以每次Make该目标时，都会执行指定的命令；而对于hello.bin，由于它是一个文件，因此，只有当hello.c被修改后才会执行编译命令</p>
+<p>对于hello和he目标，由于这两个目标不是文件，所以其条件中所指定的hello.c文件其实没有什么意义，其对应的命令总是会被执行</p>
+<p>1、<strong>变量的定义与赋值</strong></p>
+<p>Makefile中的变量不需要单独定义，可直接赋值</p>
+<p><strong>Make脚本中的变量赋值符号</strong></p>
+<table>
+<thead>
+<tr>
+<th>赋值符号</th>
+<th>意义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>:=</td>
+<td>简单展开型，它在该Makefile被解析时就立即展开并赋值</td>
+</tr>
+<tr>
+<td>=</td>
+<td>递归展开型，该赋值方式只有当所定义的变量在使用的时候才展开</td>
+</tr>
+<tr>
+<td>?=</td>
+<td>条件赋值，只有当该变量还没有值时才赋值</td>
+</tr>
+<tr>
+<td>+=</td>
+<td>附加赋值</td>
+</tr>
+</tbody>
+</table>
+<p>2、<strong>条件控制语句</strong></p>
+<p>Make脚本的条件控制可分为两类：一类是在解释器解析脚本文件时处理，另一类是在执行脚本时处理</p>
+<p>第一类条件控制语句的语法模型</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">if-condition</span><br><span class="line">	text if the condition is true</span><br><span class="line">endif</span><br><span class="line">或者</span><br><span class="line">if-condition</span><br><span class="line">	text if the condition is true</span><br><span class="line">else</span><br><span class="line">	text if the condition id false</span><br><span class="line">endif</span><br></pre></td></tr></table></figure>
+<p>其中condition只能进行两种判断，一种是判断表达式是否相等，另一种是判断表达式是否被定义，如下：</p>
+<ul>
+<li>ifdef var，判断变量var是否被定义过。如前所述，脚本并不需要单独定义，只要给该变量赋值过，那么它就被定义了</li>
+<li>ifndef var，与ifdef相反，判断变量var是否还没有被定义</li>
+<li>ifeq test，判断表达式test是否相等，表达式可写“a” “b“ 或（a，b）</li>
+<li>ifneq test，与ifeq相反</li>
+</ul>
+<p>3、<strong>宏（函数）定义</strong></p>
+<p>Make脚本中的函数，按被调用的方式可分为三类</p>
+<ul>
+<li>内置函数，即Make解释器内部定义好的函数，在任何脚本文件中可直接调用，调用的格式为：<code>$(filename,param...)</code>fname是函数的名称，param是参数，多个参数用逗号分隔</li>
+<li>用户定义的、带参数的函数，使用define关键字进行定义，调用的格式为：<code>$(call fname,param)</code>call是调用的关键字，fname代表函数名称，param是函数参数，多个参数使用逗号分隔</li>
+<li>用户定义的、不带参数的函数，该类函数也称之为宏，其调用的格式为：<code>$(fname)</code>即不使用call关键字，也不包含参数</li>
+</ul>
+<p>4、<strong>内置符号和变量</strong></p>
+<p><strong>内置符号</strong></p>
+<table>
+<thead>
+<tr>
+<th>符号</th>
+<th>意义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>$@</td>
+<td>target的名称</td>
+</tr>
+<tr>
+<td>$*</td>
+<td>和$@类似，只是不包含target的后缀</td>
+<td></td>
+</tr>
+<tr>
+<td>$^</td>
+<td>所有的先决条件名称，以空格分隔，如果先决条件中有重复，则自动去除重复</td>
+</tr>
+<tr>
+<td>\$?</td>
+<td>有更新的先决条件列表，比如，有4个先决条件，其中有3个刚刚被修改过，则$?就代表刚刚被修改过的先决条件，以空格分隔</td>
+</tr>
+<tr>
+<td>\$+</td>
+<td>所有的先决条件，和$^类似，只是\$+包含了重复的先决条件，而\$^会自动去除重复的先决条件</td>
+</tr>
+<tr>
+<td>$&lt;</td>
+<td>第一个先决条件名称</td>
+</tr>
+</tbody>
+</table>
+<p><strong>内置变量</strong></p>
+<table>
+<thead>
+<tr>
+<th>变量名称</th>
+<th>意义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>MAKE_VERSION</td>
+<td>make版本</td>
+</tr>
+<tr>
+<td>CURDIR</td>
+<td>执行make时的目录</td>
+</tr>
+<tr>
+<td>MAKEFILE_LIST</td>
+<td>本次make命令执行时，所有被包含的makefile列表</td>
+</tr>
+<tr>
+<td>VARIABLE</td>
+<td>所有的变量列表</td>
+</tr>
+</tbody>
+</table>
+<p>5、<strong>模板目标</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">.PHONY: test</span><br><span class="line">test: f1.o f2.o main.o</span><br><span class="line">	gcc -o main.bin fi.o f2.o main.o</span><br><span class="line"></span><br><span class="line">f1.o: f1.c</span><br><span class="line">	gcc f1.c f1.o</span><br><span class="line"></span><br><span class="line">f2.o: f2.c</span><br><span class="line">	gcc f2.c -c f2.o</span><br><span class="line">	</span><br><span class="line">main.o: main.c</span><br><span class="line">	gcc main.c -c main.o</span><br></pre></td></tr></table></figure>
+<p>使用模板目标后：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">OBJ = f1.o f2.o main.o</span><br><span class="line">.PHONY: test</span><br><span class="line">test: ($OBJ)</span><br><span class="line">	gcc $(OBJ) -o main.bin</span><br><span class="line"></span><br><span class="line">%.o: %.c</span><br><span class="line">	gcc -c -o $@ $&lt;</span><br></pre></td></tr></table></figure>
+<p>%.o就是模板目标，百分号是模板通配符，意思是所有.o文件。除了通配符外，代码中另外一个关键是使用符号常量$@和\$^，前者代表目标名称，后者代表第一个先决条件的名称</p>
+<p>6、<strong>目标特定的变量赋值</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">CFLAGS = -c</span><br><span class="line">.PHONY: tar1</span><br><span class="line">tar1 :</span><br><span class="line">	gcc $(CFLAGS) main.c</span><br><span class="line"></span><br><span class="line">tar2 : CFLAGS = </span><br><span class="line">tar2 :</span><br><span class="line">	gcc $(CFLAGS) main.c</span><br></pre></td></tr></table></figure>
+<p>CFLAGS被赋值为-c，其值在整个脚本文件范围内都是有效的。比如当Make tar1时，就会执行gcc -c main.c，但是在tar2目标中，我们希望能够执行gcc main.c，因此可以在tar2目标中对CFLAGS重新赋值，该赋值仅在tar2目标的命令中有效。这就是所谓的”目标特定“变量赋值，因为该赋值仅针对于该目标</p>
+
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
@@ -182,122 +580,106 @@
 		</ul>
 	</div>
 
-          
+      
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2018/01/31/Linux基础/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/01/29/Android内核剖析/" class="archive-article-date">
-  	<time datetime="2018-01-29T11:32:09.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-01-29</time>
-</a>
+<nav id="article-nav">
+  
+  
+    <a href="/2018/01/29/Android内核剖析/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Android内核剖析</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
+        
+        
+    </div>
+</aside>
+
+
+
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/01/29/Android内核剖析/">Android内核剖析</a>
-    </h1>
+  
   
 
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/01/21/Maven/" class="archive-article-date">
-  	<time datetime="2018-01-21T02:09:49.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-01-21</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/01/21/Maven/">Maven</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Maven笔记</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/01/19/java-Exception/" class="archive-article-date">
-  	<time datetime="2018-01-19T02:15:27.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-01-19</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/01/19/java-Exception/">java Exception</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">java异常</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
   
-  
-    </div></section>
-  
-
-    
 
 
           </div>
@@ -320,8 +702,8 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,
