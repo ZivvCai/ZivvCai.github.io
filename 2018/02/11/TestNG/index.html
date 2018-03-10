@@ -6,14 +6,19 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Archives: 2017 | My Blog</title>
+  <title>TestNG | My Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="My Blog">
-<meta property="og:url" content="http://yoursite.com/archives/2017/index.html">
+  <meta name="description" content="##关于TestNG TestNG是一个开源自动化测试框架，它消除了大部分的旧框架的限制，使开发人员能够编写更加灵活和强大的测试。因为它在很大程度上借鉴了Java注解来定义测试，它也可以显示如何使用这个新功能在真实的Java语言生产环境中。">
+<meta name="keywords" content="TestNG笔记（易百教程）">
+<meta property="og:type" content="article">
+<meta property="og:title" content="TestNG">
+<meta property="og:url" content="http://yoursite.com/2018/02/11/TestNG/index.html">
 <meta property="og:site_name" content="My Blog">
+<meta property="og:description" content="##关于TestNG TestNG是一个开源自动化测试框架，它消除了大部分的旧框架的限制，使开发人员能够编写更加灵活和强大的测试。因为它在很大程度上借鉴了Java注解来定义测试，它也可以显示如何使用这个新功能在真实的Java语言生产环境中。">
+<meta property="og:updated_time" content="2018-03-10T07:18:04.793Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="My Blog">
+<meta name="twitter:title" content="TestNG">
+<meta name="twitter:description" content="##关于TestNG TestNG是一个开源自动化测试框架，它消除了大部分的旧框架的限制，使开发人员能够编写更加灵活和强大的测试。因为它在很大程度上借鉴了Java注解来定义测试，它也可以显示如何使用这个新功能在真实的Java语言生产环境中。">
   
     <link rel="alternative" href="/atom.xml" title="My Blog" type="application/atom+xml">
   
@@ -141,212 +146,259 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-TestNG" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      TestNG
+    </h1>
+  
+
+        
+        <a href="/2018/02/11/TestNG/" class="archive-article-date">
+  	<time datetime="2018-02-11T12:59:24.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-02-11</time>
+</a>
+        
+      </header>
     
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>##关于TestNG</p>
+<p>TestNG是一个开源自动化测试框架，它消除了大部分的旧框架的限制，使开发人员能够编写更加灵活和强大的测试。因为它在很大程度上借鉴了Java注解来定义测试，它也可以显示如何使用这个新功能在真实的Java语言生产环境中。</p>
+<a id="more"></a>
+<p><strong>特点</strong></p>
+<ul>
+<li>注解</li>
+<li>TestNG使用Java和面向对象的功能</li>
+<li>支持综合类测试（例如，默认情况下，不用创建一个新的测试每个测试方法的类的实例）</li>
+<li>独立的编译时测试代码和运行时配置/数据信息</li>
+<li>灵活的运行时配置</li>
+<li>主要介绍“测试组”</li>
+<li>支持依赖测试方法，并行测试，负载测试，局部故障</li>
+<li>灵活的插件API</li>
+<li>支持多线程测试</li>
+</ul>
+<h2 id="TestNG注解列表"><a href="#TestNG注解列表" class="headerlink" title="TestNG注解列表"></a>TestNG注解列表</h2><table>
+<thead>
+<tr>
+<th>注解</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>@BeforeSuite</td>
+<td>在该套件的所有测试都运行在注释的方法之前，仅运行一次</td>
+</tr>
+<tr>
+<td>@AfterSuite</td>
+<td>在该套件的所有测试都运行在注释方法之后，仅运行一次</td>
+</tr>
+<tr>
+<td>@BeforeClass</td>
+<td>在调用当前类的第一个测试方法之前运行，注释方法仅运行一次</td>
+</tr>
+<tr>
+<td>@AfterClass</td>
+<td>在调用当前类的第一个测试方法之后运行，注释方法仅运行一次</td>
+</tr>
+<tr>
+<td>@BeforeTest</td>
+<td>注释的方法将在属于\<test>标签内的类的所有测试方法运行之前运行</test></td>
+</tr>
+<tr>
+<td>@AfterTest</td>
+<td>注释的方法将在属于\<test>标签内的类的所有测试方法运行之后运行</test></td>
+</tr>
+<tr>
+<td>@BeforeGroups</td>
+<td>配置方法将在之前运行组列表。此方法保证在调用属于这些组中的任何一个的第一个测试方法之前不久运行</td>
+</tr>
+<tr>
+<td>@AfterGroups</td>
+<td>配置方法将在之后运行组列表。该方法保证在调用属于任何这些组的最后一个测试方法之后不久运行</td>
+</tr>
+<tr>
+<td>@BeforeMethod</td>
+<td>注释方法将在每个测试方法之前运行</td>
+</tr>
+<tr>
+<td>@AfterMethod</td>
+<td>注释方法将在每个测试方法之后运行</td>
+</tr>
+<tr>
+<td>@DataProvider</td>
+<td>标记一种方法来提供测试方法的数据。注释方法必须返回一个Object[][]，其中每个Object[]可以被分配给测试方法的参数列表。要从该DataProvider接收数据的@Test方法需要使用与此注释名称相等的dataProvider名称</td>
+</tr>
+<tr>
+<td>@Factory</td>
+<td>将一个方法标记为工厂，返回TestNG被用作测试类的对象。该方法必须返回Object[]</td>
+</tr>
+<tr>
+<td>@Listeners</td>
+<td>定义测试类上的侦听器</td>
+</tr>
+<tr>
+<td>@Parameters</td>
+<td>描述如何将参数传递给@Test方法</td>
+</tr>
+<tr>
+<td>@Test</td>
+<td>将类或方法标记为测试的一部分</td>
+</tr>
+</tbody>
+</table>
+<p><strong>使用注解的好处</strong>：</p>
+<ul>
+<li>TestNG可以通过查找注解来识别它感兴趣的方法</li>
+<li>可以将其他参数传递给注释</li>
+<li>注释是强类型的，所以编译器会马上标记任何错误</li>
+<li>测试类不再需要扩展任何东西</li>
+</ul>
+<p><strong>具体用法参见</strong>：<a href="https://www.yibai.com/testng" target="_blank" rel="noopener">https://www.yibai.com/testng</a></p>
+
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
       
       
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2017" class="archive-year">2017</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/12/20/JsonNote/" class="archive-article-date">
-  	<time datetime="2017-12-20T08:03:55.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-12-20</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/12/20/JsonNote/">JsonNote</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">JsonNote</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">TestNG笔记（易百教程）</a>
         		</li>
       		
 		</ul>
 	</div>
 
-          
+      
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2018/02/11/TestNG/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/11/19/ajaxNote/" class="archive-article-date">
-  	<time datetime="2017-11-19T05:16:04.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-11-19</time>
-</a>
+<nav id="article-nav">
+  
+  
+    <a href="/2018/02/09/JUnit/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">JUnit</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
+        
+        
+    </div>
+</aside>
+
+
+
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/11/19/ajaxNote/">ajaxNote</a>
-    </h1>
+  
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Ajax</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/11/12/Typora/" class="archive-article-date">
-  	<time datetime="2017-11-12T02:54:04.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-11-12</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/11/12/Typora/">Typora</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Markdown语法</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/10/20/Regex/" class="archive-article-date">
-  	<time datetime="2017-10-20T02:57:32.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-10-20</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/10/20/Regex/">Regex</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">正则表达式</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/10/10/Git/" class="archive-article-date">
-  	<time datetime="2017-10-10T02:54:35.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-10-10</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/10/10/Git/">Git</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Git命令</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
-  
-
-    
 
 
           </div>
@@ -369,8 +421,8 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,

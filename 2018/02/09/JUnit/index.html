@@ -6,14 +6,19 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Archives: 2017 | My Blog</title>
+  <title>JUnit | My Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="My Blog">
-<meta property="og:url" content="http://yoursite.com/archives/2017/index.html">
+  <meta name="description" content="关于JUnitJUnit是一个Java编程语言的单元测试框架。JUnit在测试驱动的开发方面有很重要的发展，是起源于JUnit的一个统称为xUnit的单元测试框架之一。JUnit促进了“先测试后编码”的理念，强调建立测试数据的一段代码，可以先测试，然后再应用。增加了程序员的产量和程序的稳定性，可以减少程序员的压力和花费在排错上的时间。 所谓单元测试是测试应用程序的功能是否能够按需要正常运行，并且确">
+<meta name="keywords" content="JUnit笔记（W3Cschool）">
+<meta property="og:type" content="article">
+<meta property="og:title" content="JUnit">
+<meta property="og:url" content="http://yoursite.com/2018/02/09/JUnit/index.html">
 <meta property="og:site_name" content="My Blog">
+<meta property="og:description" content="关于JUnitJUnit是一个Java编程语言的单元测试框架。JUnit在测试驱动的开发方面有很重要的发展，是起源于JUnit的一个统称为xUnit的单元测试框架之一。JUnit促进了“先测试后编码”的理念，强调建立测试数据的一段代码，可以先测试，然后再应用。增加了程序员的产量和程序的稳定性，可以减少程序员的压力和花费在排错上的时间。 所谓单元测试是测试应用程序的功能是否能够按需要正常运行，并且确">
+<meta property="og:updated_time" content="2018-03-10T07:19:02.283Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="My Blog">
+<meta name="twitter:title" content="JUnit">
+<meta name="twitter:description" content="关于JUnitJUnit是一个Java编程语言的单元测试框架。JUnit在测试驱动的开发方面有很重要的发展，是起源于JUnit的一个统称为xUnit的单元测试框架之一。JUnit促进了“先测试后编码”的理念，强调建立测试数据的一段代码，可以先测试，然后再应用。增加了程序员的产量和程序的稳定性，可以减少程序员的压力和花费在排错上的时间。 所谓单元测试是测试应用程序的功能是否能够按需要正常运行，并且确">
   
     <link rel="alternative" href="/atom.xml" title="My Blog" type="application/atom+xml">
   
@@ -141,212 +146,357 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-JUnit" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      JUnit
+    </h1>
+  
+
+        
+        <a href="/2018/02/09/JUnit/" class="archive-article-date">
+  	<time datetime="2018-02-09T12:59:13.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-02-09</time>
+</a>
+        
+      </header>
     
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="关于JUnit"><a href="#关于JUnit" class="headerlink" title="关于JUnit"></a>关于JUnit</h2><p>JUnit是一个Java编程语言的单元测试框架。JUnit在测试驱动的开发方面有很重要的发展，是起源于JUnit的一个统称为xUnit的单元测试框架之一。JUnit促进了“先测试后编码”的理念，强调建立测试数据的一段代码，可以先测试，然后再应用。增加了程序员的产量和程序的稳定性，可以减少程序员的压力和花费在排错上的时间。</p>
+<p>所谓单元测试是测试应用程序的功能是否能够按需要正常运行，并且确保是在开发人员的水平上，单元测试生成图片。单元测试是每个软件公司提高产品质量、满足客户需求的重要环节。</p>
+<a id="more"></a>
+<p><strong>特点</strong></p>
+<ul>
+<li>JUnit是一个开放的资源框架，用于编写和运行测试。</li>
+<li>提供注释来识别测试方法。</li>
+<li>提供断言来测试预期结果。</li>
+<li>提供测试运行来运行测试。</li>
+<li>JUnit测试允许你编写代码更快，并能够提高质量。</li>
+<li>JUnit测试可以自动运行并且检查自身结果并提供即时反馈。</li>
+<li>JUnit测试可以被组织为测试套件，包含测试用例，甚至其他的测试套件。</li>
+</ul>
+<p><strong>JUnit测试框架</strong></p>
+<p>JUnit是一个回归测试框架，被开发者用于实施对应用程序的单元测试，加快程序编制速度，同时提高编码的质量。JUnit测试框架具有以下重要特性：</p>
+<p><strong>测试工具</strong>：是一整套固定的工具由于基线测试。测试工具的目的是为了确保测试能够在共享且固定的环境中运行，因此保证测试结果的可重复性。包括：在所有测试调用指令发起前的setUp()方法；在测试方法运行后的tearDown()方法。</p>
+<p><strong>测试套件</strong>：意味捆绑几个测试案例并且同时运行。在JUnit中，@RunWith和@Suite都被用作运行测试套件。</p>
+<p><strong>测试运行器</strong>：用于执行测试案例。</p>
+<p><strong>JUnit测试分类</strong></p>
+<ul>
+<li>包含一套断言方法的测试断言</li>
+<li>包含规定运行多重测试工具的测试用例</li>
+<li>包含收集测试用例结果的方法的测试结果</li>
+</ul>
+<h2 id="JUnit-API"><a href="#JUnit-API" class="headerlink" title="JUnit API"></a>JUnit API</h2><p>JUnit中的最重要的程序包是junit.framework。</p>
+<table>
+<thead>
+<tr>
+<th>类名</th>
+<th>类的功能</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Assert</td>
+<td>assert方法的集合</td>
+</tr>
+<tr>
+<td>TestCase</td>
+<td>一个定义了运行多重测试的固定装置</td>
+</tr>
+<tr>
+<td>TestResult</td>
+<td>TestResult集合了执行测试样例的所有结果</td>
+</tr>
+<tr>
+<td>TestSuite</td>
+<td>TestSuite是测试的集合</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Assert类</strong></p>
+<table>
+<thead>
+<tr>
+<th>方法</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>void assertEquals(boolean expected,boolean actual)</td>
+<td>检查两个变量或等式是否平衡</td>
+</tr>
+<tr>
+<td>void assertFalse(boolean condition)</td>
+<td>检查条件是假的</td>
+</tr>
+<tr>
+<td>void assertNotNull(Object object)</td>
+<td>检查对象不是空的</td>
+</tr>
+<tr>
+<td>void assertNull(Object object)</td>
+<td>检查对象是空的</td>
+</tr>
+<tr>
+<td>void assertTrue(boolean condition)</td>
+<td>检查条件为真</td>
+</tr>
+<tr>
+<td>void fail()</td>
+<td>在没有报告的情况下使测试不通过</td>
+</tr>
+<tr>
+<td>void assertSame(boolean condition)</td>
+<td>检查两个相关对象是否指向同一个对象</td>
+</tr>
+<tr>
+<td>void assertNotSame(boolean condition)</td>
+<td>检查两个相关对象是否不指向同一个对象</td>
+</tr>
+<tr>
+<td>void assertArrayEquals(expectedArray,resultArray)</td>
+<td>检查两个数组是否相等</td>
+</tr>
+</tbody>
+</table>
+<p><strong>TestCase</strong></p>
+<table>
+<thead>
+<tr>
+<th>方法</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>int countTestCases()</td>
+<td>为被run(TestResult result)执行的测试案例计数</td>
+</tr>
+<tr>
+<td>TestResult createResult()</td>
+<td>创建一个默认的TestResult对象</td>
+</tr>
+<tr>
+<td>String getName()</td>
+<td>获取TestCase的名称</td>
+</tr>
+<tr>
+<td>TestResult run()</td>
+<td>一个运行这个测试的方便的方法，收集由TestResult对象产生的结果</td>
+</tr>
+<tr>
+<td>void run(TestResult result)</td>
+<td>在TestResult中运行测试案例并收集结果</td>
+</tr>
+<tr>
+<td>void setName(String name)</td>
+<td>设置TestCase的名称</td>
+</tr>
+<tr>
+<td>void setUp()</td>
+<td>创建固定装置，例如：打开一个网络连接</td>
+</tr>
+<tr>
+<td>void tearDown()</td>
+<td>拆除固定装置，例如：关闭一个网络连接</td>
+</tr>
+<tr>
+<td>String toString()</td>
+<td>返回测试案例的一个字符串表示</td>
+</tr>
+</tbody>
+</table>
+<p><strong>TestResult类</strong></p>
+<p><strong>注释</strong></p>
+<table>
+<thead>
+<tr>
+<th>注释</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>@Test</td>
+<td>这个注释说明依附在JUnit的public void方法可以作为一个测试案例</td>
+</tr>
+<tr>
+<td>@Before</td>
+<td>有些测试在运行前需要创造几个相似的对象。在public void方法加该注释是因为该方法需要在test方法前运行</td>
+</tr>
+<tr>
+<td>@After</td>
+<td>如果你将外部资源在Before方法中分配，那么你需要在测试运行后释放他们。在public void方法加该注释是因为该方法需要在test方法后运行</td>
+</tr>
+<tr>
+<td>@BeforeClass</td>
+<td>在public void方法加该注释是因为该方法需要在类中所有方法前运行</td>
+</tr>
+<tr>
+<td>@AfterClass</td>
+<td>它将会使方法在所有测试结束后执行。这个可以用来清理活动</td>
+</tr>
+<tr>
+<td>@Ignore</td>
+<td>这个注释是用来忽略有关不需要执行的测试的</td>
+</tr>
+</tbody>
+</table>
+<p><strong>具体用法参见</strong>：<a href="https://www.w3cschool.cn/junit" target="_blank" rel="noopener">https://www.w3cschool.cn/junit</a></p>
+
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
       
       
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2017" class="archive-year">2017</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/12/20/JsonNote/" class="archive-article-date">
-  	<time datetime="2017-12-20T08:03:55.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-12-20</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/12/20/JsonNote/">JsonNote</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">JsonNote</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">JUnit笔记（W3Cschool）</a>
         		</li>
       		
 		</ul>
 	</div>
 
-          
+      
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2018/02/09/JUnit/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/11/19/ajaxNote/" class="archive-article-date">
-  	<time datetime="2017-11-19T05:16:04.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-11-19</time>
-</a>
+<nav id="article-nav">
+  
+    <a href="/2018/02/11/TestNG/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          TestNG
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2018/01/31/Linux基础/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Linux基础</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
+        
+        
+    </div>
+</aside>
+
+
+
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/11/19/ajaxNote/">ajaxNote</a>
-    </h1>
+  
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Ajax</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/11/12/Typora/" class="archive-article-date">
-  	<time datetime="2017-11-12T02:54:04.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-11-12</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/11/12/Typora/">Typora</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Markdown语法</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/10/20/Regex/" class="archive-article-date">
-  	<time datetime="2017-10-20T02:57:32.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-10-20</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/10/20/Regex/">Regex</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">正则表达式</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/10/10/Git/" class="archive-article-date">
-  	<time datetime="2017-10-10T02:54:35.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-10-10</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/10/10/Git/">Git</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Git命令</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
-  
-
-    
 
 
           </div>
@@ -369,8 +519,8 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,
