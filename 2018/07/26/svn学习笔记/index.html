@@ -6,19 +6,19 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Maven | My Blog</title>
+  <title>svn学习笔记 | My Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Maven定义Maven是一个跨平台的项目管理工具。Maven主要服务基于Java平台的项目构建，依赖管理，项目信息管理。无论是小型的开源类库项目，还是大型的企业级应用；无论是传统的瀑布式开发，还是流行的敏捷模式，Maven都能大显身手。">
-<meta name="keywords" content="Maven笔记">
+  <meta name="description" content="SVN简介Subversion(SVN)是一个开源的版本控制系统，Subversion管理着随时间改变的数据，这些数据放置在一个中央资料档案库中。">
+<meta name="keywords" content="svn">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Maven">
-<meta property="og:url" content="http://yoursite.com/2018/01/21/Maven/index.html">
+<meta property="og:title" content="svn学习笔记">
+<meta property="og:url" content="http://yoursite.com/2018/07/26/svn学习笔记/index.html">
 <meta property="og:site_name" content="My Blog">
-<meta property="og:description" content="Maven定义Maven是一个跨平台的项目管理工具。Maven主要服务基于Java平台的项目构建，依赖管理，项目信息管理。无论是小型的开源类库项目，还是大型的企业级应用；无论是传统的瀑布式开发，还是流行的敏捷模式，Maven都能大显身手。">
-<meta property="og:updated_time" content="2018-03-08T02:07:18.000Z">
+<meta property="og:description" content="SVN简介Subversion(SVN)是一个开源的版本控制系统，Subversion管理着随时间改变的数据，这些数据放置在一个中央资料档案库中。">
+<meta property="og:updated_time" content="2018-07-30T09:06:00.921Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Maven">
-<meta name="twitter:description" content="Maven定义Maven是一个跨平台的项目管理工具。Maven主要服务基于Java平台的项目构建，依赖管理，项目信息管理。无论是小型的开源类库项目，还是大型的企业级应用；无论是传统的瀑布式开发，还是流行的敏捷模式，Maven都能大显身手。">
+<meta name="twitter:title" content="svn学习笔记">
+<meta name="twitter:description" content="SVN简介Subversion(SVN)是一个开源的版本控制系统，Subversion管理着随时间改变的数据，这些数据放置在一个中央资料档案库中。">
   
     <link rel="alternative" href="/atom.xml" title="My Blog" type="application/atom+xml">
   
@@ -146,93 +146,88 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-Maven" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-svn学习笔记" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      Maven
+      svn学习笔记
     </h1>
   
 
         
-        <a href="/2018/01/21/Maven/" class="archive-article-date">
-  	<time datetime="2018-01-21T02:09:49.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-01-21</time>
+        <a href="/2018/07/26/svn学习笔记/" class="archive-article-date">
+  	<time datetime="2018-07-26T02:27:03.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-07-26</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="Maven定义"><a href="#Maven定义" class="headerlink" title="Maven定义"></a>Maven定义</h2><p>Maven是一个跨平台的项目管理工具。Maven主要服务基于Java平台的项目构建，依赖管理，项目信息管理。无论是小型的开源类库项目，还是大型的企业级应用；无论是传统的瀑布式开发，还是流行的敏捷模式，Maven都能大显身手。</p>
+        <h4 id="SVN简介"><a href="#SVN简介" class="headerlink" title="SVN简介"></a>SVN简介</h4><p>Subversion(SVN)是一个开源的版本控制系统，Subversion管理着随时间改变的数据，这些数据放置在一个中央资料档案库中。</p>
 <a id="more"></a>
-<p>Maven作为一个构建工具，它不仅仅能帮我们自动化构建，它还能够抽象构建过程，提供构建任务实现，它跨平台，意味着不管是在windows上，还是在Linux或者Mac上，都可以使用同样的命令，构建同样的项目，得到同样的结果，对外提供了一致的操作接口，这一切足以使它成为优秀的，流行的构建工具。</p>
-<p>Maven不仅仅是构建工具，它还是一个依赖管理工具，还是一个项目信息管理工具。它提供了中央仓库，并能帮你自动下载构件。在开源的年代里，几乎任何一个Java应用都会借用一大堆第三方的开源类库，这些类库都通过依赖的方式引入到项目中来。它通过一个坐标系统准确定位每一个构件（Artifact），也就是通过一组坐标，Maven能够找到任何一个Java类库如jar文件，Maven给这个类库世界引入经纬，带来的秩序，于是我们就能够借助它帮助我们有序的管理依赖，轻松的解决那些繁杂的以来问题。通过Maven自动生成的站点和一些已有的插件，我们还能够轻松获得项目文档，测试报告，静态分析报告，源码版本日志报告，等等非常具有价值的项目信息。Maven还给全世界Java开发者提供了一个免费的中央仓库，我们可以找到几乎任何的流行开源类库。</p>
-<h2 id="编写POM"><a href="#编写POM" class="headerlink" title="编写POM"></a>编写POM</h2><p>就像Make的Makefile，Ant的build.xml，Maven项目的核心是pom.xml。POM的意思是项目对象模型（Project Object Model），在这个模型中我们定义项目的基本信息，描述项目如何构建，声明项目依赖，等等。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;</span><br><span class="line">&lt;project xmlns=&quot;http://maven.apache.org/POM/4.0.0&quot;</span><br><span class="line">	xmlns:xsi=&quot;http://w3.org/2001/XMLSchema-instance&quot;</span><br><span class="line">	xsi:schemaLocation=&quot;http://maven.apache.org/POM/4.0.0</span><br><span class="line">	http://maven.apache.org/maven-v4_0_0.xsd&gt;</span><br><span class="line">	&lt;modelVersion&gt;4.0.0&lt;/modelVersion&gt;</span><br><span class="line">	&lt;groupId&gt;com.juvenxu.maven-book&lt;/groupId&gt;</span><br><span class="line">	&lt;artifactId&gt;ch-hello-world&lt;/artifaceId&gt;</span><br><span class="line">	&lt;version&gt;1.0-SNAPSHOT&lt;/version&gt;</span><br><span class="line">	&lt;name&gt;Maven Hello World Project&lt;/name&gt;</span><br><span class="line">&lt;/project&gt;</span><br></pre></td></tr></table></figure>
-<p>代码的第一行是XML头，指定了该xml文档的版本和编码方式。紧接着是project元素，project是所有pom.xml的根元素。注意该project根元素还声明了一些POM相关的命名空间及xsd元素，虽然这些属性不是必须的，但使用这些属性能够让第三方工具如IDE中的XML编辑器帮助我们快速编辑POM。</p>
-<p>根元素下的第一个子元素modelVersion指定了当前POM模型的版本，对于Maven2来说，它只能是4.0.0.</p>
-<p>这段代码中最重要的是groupId，artifactId和version三行。这三个元素定义了一个项目基本的坐标，就像我们的身份证号码一样，在Maven的世界，任何的jar，pom或者war都是基于这些基本的坐标进行区分的。</p>
-<p>groupId定义了项目属于哪个组，这个组往往和项目所在的组织或公司存在关联，例如com.googlecode.myapp</p>
-<p>version指定了项目当前的版本，当前这个Hello World项目的版本是1.0-SNAPSHOT。SNAPSHOT意为快照，说明该项目还出于开发中，是不稳定的版本。</p>
-<p>最后一个name元素声明了一个对于用户更为友好的项目名称，虽然这不是必须的，但还是推荐为每一个POM声明name，以方便信息交流。</p>
-<p>Maven能让项目对象模型最大程度的与实际代码相独立，这在很大程度上避免了Java代码和POM代码相互影响。比如当项目需要升级版本的时候，只需要修改POM，不需要修改Java代码；而在POM稳定后，日常的Java代码开发工作基本不会涉及到POM的修改。</p>
-<h2 id="编写主代码"><a href="#编写主代码" class="headerlink" title="编写主代码"></a>编写主代码</h2><p>关于Java主代码需要注意两点，首先，应该把项目主代码放到src/main/java/目录下，这是Maven的约定，遵循了该约定，就无需额外的配置，Maven会自动搜寻该目录找到项目主代码。其次，Java类的包名与之前在POM中定义的groupId和artifactId相吻合，一般来说，项目中Java类的包都应该基于项目的groupId和artifactId，虽然这不是必须的，但显然这样做更加清晰，更加符合逻辑，也方便搜索构件或者Java类。</p>
-<h2 id="编写测试代码"><a href="#编写测试代码" class="headerlink" title="编写测试代码"></a>编写测试代码</h2><p>为了使项目结构保持清晰，主代码与测试代码应该分别位于独立的目录，Maven项目中默认的主代码目录是src/main/java，对应的，Maven项目中默认的测试代码目录是src/test/java，因此，在编写测试用例之前，我们要先创建该目录。</p>
-<p>在Java世界中，JUnit是事实上的单元测试标准。修改项目的POM，添加JUnit依赖。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&lt;dependencies&gt;</span><br><span class="line">	&lt;dependency&gt;</span><br><span class="line">		&lt;groupId&gt;junit&lt;/groupId&gt;</span><br><span class="line">		&lt;artifactId&gt;junit&lt;/artifact&gt;</span><br><span class="line">		&lt;version&gt;4.7&lt;/version&gt;</span><br><span class="line">		&lt;scope&gt;test&lt;/scope&gt;</span><br><span class="line">	&lt;/dependency&gt;</span><br><span class="line">&lt;/dependencies&gt;</span><br></pre></td></tr></table></figure>
-<p>在XML代码中添加了dependencise元素，该元素下可以包含多个dependency元素声明项目的依赖。添加的JUnit依赖groupId是junit，artifactId是junit，version是4.7。有了这段声明，Maven就能够自动下载junit-4.7.jar。scope元素为依赖范围，当依赖范围是test的时候，表示该依赖只对测试有效。如果不声明依赖范围，默认值是compile，表示该依赖对主代码和测试代码都有效。</p>
-<h2 id="Maven2常用命令介绍"><a href="#Maven2常用命令介绍" class="headerlink" title="Maven2常用命令介绍"></a>Maven2常用命令介绍</h2><p><strong>建立项目（使用Archetype骨架）</strong></p>
-<p>建立项目的命令为：<code>mvn archetype:generate -DarchetypeArtifactId=[项目类型] -DgroupId=[组识别] -DartifactId=[项目名称（包名称）] -Dversion=[版本] -Dpackage=[包]</code></p>
-<p>项目类型（archetypeArtifactId）可以是下列选项</p>
-<p>1.maven-archetype-j2ee-simple(J2EE项目)</p>
-<p>2.maven-archetype-portlet(门户)</p>
-<p>3.maven-archetype-quickstart(一般Java project)</p>
-<p>4.maven-archetype-site(复杂站点)</p>
-<p>5.maven-archetype-site-simple(简单站点)</p>
-<p>6.maven-archetype-webapp(Java Web站点)</p>
-<p>groupId 用于项目的分组</p>
-<p>artifactId 项目的名称，也就是包名称</p>
-<p>version 版本</p>
-<p>package 主要设定目录的层次</p>
-<p><strong>编译项目</strong></p>
-<p>#mvn compile</p>
-<p><strong>执行单元测试</strong></p>
-<p>#mvn test</p>
-<p>在执行单元测试前，首先会执行编译动作</p>
-<p>测试报告放在target\site\surefire-reports下</p>
-<p><strong>生成文档</strong></p>
-<p>#mvn javadoc:javadoc</p>
-<p>生成的文档会在target\site\apidocs下</p>
-<p><strong>生成项目站点</strong></p>
-<p>#mvn site:site</p>
-<p>生成站点放在\target\site下</p>
-<p><strong>清楚项目生成文件</strong></p>
-<p>#mvn clean:clean</p>
-<p><strong>打包文件</strong></p>
-<p>#mvn package</p>
-<p>生成的包文件在target目录下（默认是jar文件）</p>
-<p><strong>将项目安装到本地仓库</strong></p>
-<p>#mvn install</p>
-<p><strong>发布项目</strong></p>
-<p>#mvn deploy</p>
-<h2 id="修改pom-xml"><a href="#修改pom-xml" class="headerlink" title="修改pom.xml"></a>修改pom.xml</h2><p><strong>调整编译参数</strong></p>
-<p>编译参数主要通过使用设定maven-compile-plugin来实现</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">&lt;build&gt;</span><br><span class="line">	&lt;plugins&gt;</span><br><span class="line">		&lt;plugin&gt;</span><br><span class="line">			&lt;artifactId&gt;maven-compiler-plugin&lt;/artifactId&gt;</span><br><span class="line">			&lt;configuration&gt;</span><br><span class="line">				&lt;encoding&gt;utf-8&lt;/encoding&gt;</span><br><span class="line">				&lt;source&gt;1.5&lt;/source&gt;</span><br><span class="line">				&lt;target&gt;1.5&lt;/target&gt;</span><br><span class="line">			&lt;/configuration&gt;</span><br><span class="line">		&lt;/plugin&gt;</span><br><span class="line">	&lt;/plugins&gt;</span><br><span class="line">&lt;/build&gt;</span><br></pre></td></tr></table></figure>
-<p>如上，可以设定编译使用UTF-8编码，源码为JDK1.5的版本，目标也为JDK1.5的版本。</p>
-<p><strong>设定使用UTF-8编码</strong></p>
-<p>除了编译外，还有资源文件、javadoc等都需要告诉maven使用UTF-8编码，可以设定如下两个插件</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">&lt;plugin&gt;</span><br><span class="line">	&lt;artifactId&gt;maven-resources-plugin&lt;/artifactId&gt;</span><br><span class="line">	&lt;configuration&gt;</span><br><span class="line">		&lt;encoding&gt;UTF-8&lt;/encoding&gt;</span><br><span class="line">	&lt;/configuration&gt;</span><br><span class="line">&lt;/plugin&gt;</span><br><span class="line">&lt;plugin&gt;</span><br><span class="line">	&lt;artifactId&gt;maven-javadoc-plugin&lt;/artifactId&gt;</span><br><span class="line">	&lt;configuration&gt;</span><br><span class="line">		&lt;encoding&gt;UTF-8&lt;/encoding&gt;</span><br><span class="line">	&lt;/configuration&gt;</span><br><span class="line">&lt;/plugin&gt;</span><br></pre></td></tr></table></figure>
-<p><strong>添加TestNG的测试框架支持</strong></p>
-<p>由于自动生成的项目为使用JUnit的测试框架，要使用TestNG的测试框架需要调整一下项目的依赖关系，并且设定项目使用的TestNG配置文件。</p>
-<p>首先需删除对于JUnit的依赖</p>
-<p>然后加入如下内容</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&lt;dependency&gt;</span><br><span class="line">	&lt;groupId&gt;org.testng&lt;/groupId&gt;</span><br><span class="line">	&lt;artifactId&gt;testng&lt;/artifactId&gt;</span><br><span class="line">	&lt;version&gt;5.8&lt;/version&gt;</span><br><span class="line">	&lt;scope&gt;test&lt;/scope&gt;</span><br><span class="line">	&lt;classifier&gt;jdk15&lt;/classifier&gt;</span><br><span class="line">&lt;/dependency&gt;</span><br></pre></td></tr></table></figure>
-<p>由于TestNG需要不同的包支持JDK15和JDK14，所以要特别指定\<classifier>属性。如果没有指定\<version>属性，maven会自动下载最新版本。\<scope>属性设定了依赖项的使用范围，如果设定为test表示仅测试时使用，在打包时不会打包该文件。可以使用插件maven-surefire-plugin设定testNG的配置文件位置，如下：</scope></version></classifier></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&lt;plugin&gt;</span><br><span class="line">	&lt;artifactId&gt;maven-surefile-plugin&lt;/artifactId&gt;</span><br><span class="line">	&lt;configuration&gt;</span><br><span class="line">		&lt;suiteXmlFiles&gt;</span><br><span class="line">			&lt;suiteXmlFile&gt;testng.xml&lt;/suiteXmlFile&gt;</span><br><span class="line">		&lt;/suiteXmlFiles&gt;</span><br><span class="line">	&lt;/configuration&gt;</span><br><span class="line">&lt;/plugin&gt;</span><br></pre></td></tr></table></figure>
-<p>表示使用testng.xml作为testNG的配置文件</p>
+<ul>
+<li>repository：源代码库</li>
+<li>Checkout：提取/检出</li>
+<li>Commit：提交</li>
+<li>Update：更新</li>
+</ul>
+<h4 id="SVN生命周期"><a href="#SVN生命周期" class="headerlink" title="SVN生命周期"></a>SVN生命周期</h4><p>创建版本库：版本库相当于一个集中的空间，使用Create来创建一个新的版本库</p>
+<p>检出：Checkout操作是用来从版本库中创建一个工作副本</p>
+<p>更新：Update操作是用来更新版本库的，将工作副本与版本库进行同步，由于版本库是整个团队共用的，当其他人提交了他们的改动之后，你的工作副本就会过期，需进行更新同步才能将改动提交</p>
+<p>执行变更：在副本中的各种操作，都只是被添加进待变更列表中</p>
+<p>复查变化：Status操作用来查看待变更列表，但并不提供变动的详细信息，可以用diff操作来查看变动的详细信息</p>
+<p>修复错误：Revert操作重置对工作副本的修改，既可以重置一个或多个文件/目录，也可以重置整个工作副本</p>
+<p>解决冲突：Merge操作会自动处理可以安全合并的东西，Resolve操作用来找出冲突并告诉版本库如何处理这些冲突</p>
+<p>提交更改：Commit操作是用来将更改从工作副本到版本库，Commit是一个原子操作，要么完全提交成功，要么失败回滚</p>
+<h4 id="SVN操作"><a href="#SVN操作" class="headerlink" title="SVN操作"></a>SVN操作</h4><p><strong>创建版本库</strong>：</p>
+<ul>
+<li>手动新建版本库目录：mkdir /opt/svn</li>
+<li>利用SVN命令创建版本库：svnadmin create /opt/svn/repository</li>
+<li>使用命令svnserver启动服务：svnserver -d -r 目录 –listen-port 端口号（-r：配置方式决定了版本库访问方式；–listen-port：指定SVN监听端口，不加此参数，SVN默认监听3690端口）</li>
+<li>/conf目录下修改默认配置文件配置相关用户和权限<ul>
+<li>SVN服务配置文件svnserver.conf：(write–可读可写,read–只读,none–无访问权限)<ul>
+<li>anon-access：控制非鉴权用户访问版本库的权限，缺省：read</li>
+<li>auth-access：控制鉴权用户访问版本库的权限，缺省：write</li>
+<li>authz-db：指定权限配置文件名，通过该文件可以实现以路径为基础的访问控制，缺省：authz</li>
+<li>realm：指定版本库的认证域，即在登录时提示的认证域名称，缺省：一个UUID(全局唯一标示)</li>
+</ul>
+</li>
+<li>用户名口令文件password：由svnserver.conf的配置项password-db指定，缺省为conf目录中的password，该文件仅由一个[users]配置段组成，格式\&lt;用户名&gt; = \&lt;口令&gt;</li>
+<li>权限配置文件：由svnserver.conf的配置项authz-db指定，缺省为conf目录中的authz，该文件由一个[groups]配置段和若干个版本库路径权限段组成，格式\&lt;用户组&gt; = \&lt;用户列表&gt;，版本库路径权限段名格式[\&lt;版本库名&gt;:\&lt;路径&gt;] <code>[groups]g_admin = admin,thinker</code> <code>[admintools:/] @g_admin = rw * =</code></li>
+</ul>
+</li>
+</ul>
+<p><strong>检出操作：</strong></p>
+<p>svn checkout <a href="http://svn.svnserver.com/svn/project_repo" target="_blank" rel="noopener">http://svn.svnserver.com/svn/project_repo</a> –username=user</p>
+<p>例：svn checkout svn://192.168.0.1/repository –username=user01</p>
+<p>在当前目录下生成repository副本，查看检出内容：ll reposiroty/</p>
+<p>info命令查看版本库信息</p>
+<p><strong>解决冲突</strong>：</p>
+<p>在提交更改之前必须先更新工作副本：svn update</p>
+<p>默认是更新到最新的版本，也可以指定更新到哪个版本：svn update -r6</p>
+<p><strong>提交操作</strong>：</p>
+<p>svn add file：将文件添加到版本控制，等待提交到版本库</p>
+<p>查看副本中的状态：svn status（?未添加到版本控制中，A表示添加到了版本控制中）</p>
+<p>svn commit -m “添加注释信息”：添加版本控制到版本库，修改版本号自动加1，忽略-m选项，SVN会打开一个可以输入多行的文本编辑器来让你输入提交信息</p>
+<p><strong>SVN版本回退</strong>：</p>
+<p>svn revert操作将撤销任何文件或目录里的局部更改</p>
+<p>svn revert file/svn revert -R 目录</p>
+<p>svn merge -r 22:21 readme 回退版本，从22回退到21</p>
+<p><strong>查看历史信息</strong>：</p>
+<ul>
+<li>svn log：用来展示svn的版本、日期、路径等，svn log -r 版本号：版本号 比较两个版本之间的信息，svn log 文件路径 查看具体文件的版本修改信息</li>
+<li>svn diff：用来显示特定修改的行级详细信息，svn diff比较工作文件与缓存在.svn的“原始”拷贝；svn diff -r 版本号 文件名 比较工作拷贝和版本库；svn diff -r 版本号:版本号 文件名 比较版本库与版本库</li>
+<li>svn cat：取得在特定版本的某文件显示在当前屏幕，svn cat -r 版本号 文件</li>
+<li>svn list：显示一个目录或某一版本存在的文件，不用下载文件到本地，svn list URL</li>
+</ul>
+<p><strong>SVN分支</strong>：</p>
+<p>svn copy trunk/ branches/my_branch 创建分支就是重新创建一个目录</p>
+<p><strong>SVN标签</strong>：</p>
+<p>标签代表一个可以固定的完整的版本，svn copy 目录trunk/ 目录tags/v1.0，提交tag内容</p>
+<p>使用TortoiseSVN，然后基本就是可视化界面，右键即可有快速入口，操作简单。。</p>
 
       
 
@@ -267,7 +262,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Maven笔记</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">svn</a>
         		</li>
       		
 		</ul>
@@ -323,7 +318,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2018/01/21/Maven/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2018/07/26/svn学习笔记/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -337,18 +332,18 @@
   
 <nav id="article-nav">
   
-    <a href="/2018/01/31/Linux基础/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2018/07/30/velocity/" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
-          Linux基础
+          velocity
         
       </div>
     </a>
   
   
-    <a href="/2018/01/19/java-Exception/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">java Exception</div>
+    <a href="/2018/07/11/金融基础知识汇总/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">金融基础知识汇总</div>
       <i class="icon-circle-right"></i>
     </a>
   
