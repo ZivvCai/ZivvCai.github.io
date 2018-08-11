@@ -6,14 +6,19 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Tag: velocity语法笔记 | My Blog</title>
+  <title>java读写Excel | My Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="My Blog">
-<meta property="og:url" content="http://yoursite.com/tags/velocity语法笔记/index.html">
+  <meta name="description" content="Apache POI是用Java编写的免费开源的跨平台Java API，具有创建和维护各种Office OpenXML(OOXML)和OLE 2符合文档格式的功能，可对Word、Excel、PowerPoint进行读写操作。这里只粗略说明了一下对Excel文件的简单读写操作，更细节的操作请阅读官方文档。">
+<meta name="keywords" content="使用Apache POI读写Excel文档">
+<meta property="og:type" content="article">
+<meta property="og:title" content="java读写Excel">
+<meta property="og:url" content="http://yoursite.com/2018/08/10/java读写Excel/index.html">
 <meta property="og:site_name" content="My Blog">
+<meta property="og:description" content="Apache POI是用Java编写的免费开源的跨平台Java API，具有创建和维护各种Office OpenXML(OOXML)和OLE 2符合文档格式的功能，可对Word、Excel、PowerPoint进行读写操作。这里只粗略说明了一下对Excel文件的简单读写操作，更细节的操作请阅读官方文档。">
+<meta property="og:updated_time" content="2018-08-11T01:25:00.331Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="My Blog">
+<meta name="twitter:title" content="java读写Excel">
+<meta name="twitter:description" content="Apache POI是用Java编写的免费开源的跨平台Java API，具有创建和维护各种Office OpenXML(OOXML)和OLE 2符合文档格式的功能，可对Word、Excel、PowerPoint进行读写操作。这里只粗略说明了一下对Excel文件的简单读写操作，更细节的操作请阅读官方文档。">
   
     <link rel="alternative" href="/atom.xml" title="My Blog" type="application/atom+xml">
   
@@ -141,60 +146,173 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-java读写Excel" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2018" class="archive-year">2018</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/07/30/velocity/" class="archive-article-date">
-  	<time datetime="2018-07-30T01:42:51.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-07-30</time>
-</a>
-        </div>
-    	 
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/07/30/velocity/">velocity</a>
+    <h1 class="article-title" itemprop="name">
+      java读写Excel
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
+        
+        <a href="/2018/08/10/java读写Excel/" class="archive-article-date">
+  	<time datetime="2018-08-10T02:48:22.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-08-10</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="Apache-POI"><a href="#Apache-POI" class="headerlink" title="Apache POI"></a>Apache POI</h3><p>是用Java编写的免费开源的跨平台Java API，具有创建和维护各种Office OpenXML(OOXML)和OLE 2符合文档格式的功能，可对Word、Excel、PowerPoint进行读写操作。这里只粗略说明了一下对Excel文件的简单读写操作，更细节的操作请阅读官方文档。</p>
+<a id="more"></a>
+<h3 id="Maven依赖"><a href="#Maven依赖" class="headerlink" title="Maven依赖"></a>Maven依赖</h3><p>既支持XLS格式，又支持XLSX格式</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;dependency&gt;</span><br><span class="line">	&lt;groupId&gt;org.apache.poi&lt;/groupId&gt;</span><br><span class="line">	&lt;artifactId&gt;poi-ooxml&lt;/artifactId&gt;</span><br><span class="line">	&lt;version&gt;3.17&lt;/version&gt;</span><br><span class="line">&lt;/dependency&gt;</span><br></pre></td></tr></table></figure>
+<h3 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h3><h5 id="首先建立与Excel表格对应的实体映射类Bean-attribute1-attribute2-…"><a href="#首先建立与Excel表格对应的实体映射类Bean-attribute1-attribute2-…" class="headerlink" title="首先建立与Excel表格对应的实体映射类Bean(attribute1,attribute2,…)"></a>首先建立与Excel表格对应的实体映射类Bean(attribute1,attribute2,…)</h5><h5 id="读取Excel文档：XLSX的文档读取类为XSSFWorkBook，其实现了WorkBook接口，可通过File类进行构造，然后从Excel文档中根据所需行号等信息读取对应的行，最后根据列号定位到列表中的单元格读取其中各种类型的数据"><a href="#读取Excel文档：XLSX的文档读取类为XSSFWorkBook，其实现了WorkBook接口，可通过File类进行构造，然后从Excel文档中根据所需行号等信息读取对应的行，最后根据列号定位到列表中的单元格读取其中各种类型的数据" class="headerlink" title="读取Excel文档：XLSX的文档读取类为XSSFWorkBook，其实现了WorkBook接口，可通过File类进行构造，然后从Excel文档中根据所需行号等信息读取对应的行，最后根据列号定位到列表中的单元格读取其中各种类型的数据"></a>读取Excel文档：XLSX的文档读取类为XSSFWorkBook，其实现了WorkBook接口，可通过File类进行构造，然后从Excel文档中根据所需行号等信息读取对应的行，最后根据列号定位到列表中的单元格读取其中各种类型的数据</h5><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//读取XLSX文档</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> List&lt;Bean&gt; <span class="title">readXLSX</span><span class="params">(File file)</span> <span class="keyword">throws</span> InvalidFormatException, IOException</span>&#123;</span><br><span class="line">    Workbook workbook = <span class="keyword">new</span> XSSFWorkbook(file);</span><br><span class="line">    Sheet sheet = <span class="keyword">new</span> XSSFWorkbook(file).getSheetAt(<span class="number">0</span>);<span class="comment">//也可以通过Sheet名获取Sheet对象，getSheet("name")</span></span><br><span class="line">    List&lt;Bean&gt; result = <span class="keyword">new</span> ArrayList&lt;Bean&gt;();</span><br><span class="line">    <span class="keyword">int</span> rowStart = sheet.getFirstRowNum() + <span class="number">1</span>;<span class="comment">//如果列表上有列表描述则+1，没有则不需要</span></span><br><span class="line">    <span class="keyword">int</span> rowEnd = sheet.getLastRowNum();</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = rowStart; i &lt; rowEnd + <span class="number">1</span>; i++)&#123;</span><br><span class="line">        Row row = sheet.getRow(i);<span class="comment">//获取sheet的行对象</span></span><br><span class="line">        Bean bean = <span class="keyword">this</span>.getBeanFromRow(row);</span><br><span class="line">        <span class="keyword">if</span>(bean != <span class="keyword">null</span>)</span><br><span class="line">            result.add(bean);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> result;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//读取XLS文档</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> List&lt;Bean&gt; <span class="title">readXLS</span><span class="params">(File file)</span> <span class="keyword">throws</span> InvalidFormatException, IOException</span>&#123;</span><br><span class="line">    POIFSFileSystem poifsFileSystem = <span class="keyword">new</span> POIFSFileSystem(<span class="keyword">new</span> FileInputStream(file));</span><br><span class="line">    Sheet sheet = <span class="keyword">new</span> HSSFWorkbook(poifsFileSystem).getSheetAt(<span class="number">0</span>);</span><br><span class="line">    <span class="keyword">int</span> rowStart = sheet.getFirstRowNum() + <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">int</span> rowEnd = sheet.getLastRowNum();</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = rowStart; i &lt; rowEnd + <span class="number">1</span>; i++)&#123;</span><br><span class="line">        Row row = sheet.getRow(i);</span><br><span class="line">        Bean bean = <span class="keyword">this</span>.getBeanFromRow(row);</span><br><span class="line">        <span class="keyword">if</span>(bean != <span class="keyword">null</span>)</span><br><span class="line">            result.add(bean);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> result;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//遍历每一行获取具体单元格中的数据并写入Bean对象中返回</span></span><br><span class="line"><span class="function"><span class="keyword">protected</span> Bean <span class="title">getBeanFromRow</span><span class="params">(Row row)</span></span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(row == <span class="keyword">null</span>)</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">null</span>;</span><br><span class="line">    <span class="keyword">int</span> index = row.getFirstCellNum();<span class="comment">//获取第一个单元格的列数</span></span><br><span class="line">    Cell cell = row.getCell(index);</span><br><span class="line">    <span class="keyword">if</span>(cell != <span class="keyword">null</span>)&#123;</span><br><span class="line">        Bean bean = <span class="keyword">new</span> Bean();</span><br><span class="line">        bean.setAttribute1(cell.getStringCellValue());</span><br><span class="line">        index++;</span><br><span class="line">        </span><br><span class="line">        cell = row.getCell(index);</span><br><span class="line">        bean.setAttribute2(cell.getStringCellValue());</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">return</span> bean;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">null</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h5 id="写入Excel文档：可以通过文件进行构造，然后创建工作表，然后通过行和列定位到具体的单元格中进行写入数据"><a href="#写入Excel文档：可以通过文件进行构造，然后创建工作表，然后通过行和列定位到具体的单元格中进行写入数据" class="headerlink" title="写入Excel文档：可以通过文件进行构造，然后创建工作表，然后通过行和列定位到具体的单元格中进行写入数据"></a>写入Excel文档：可以通过文件进行构造，然后创建工作表，然后通过行和列定位到具体的单元格中进行写入数据</h5><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//针对XLSX</span></span><br><span class="line">File file;</span><br><span class="line">OutputStream os;</span><br><span class="line">Workbook workbook = <span class="keyword">null</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">//构造函数</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="title">Construct</span><span class="params">(File file)</span> <span class="keyword">throws</span> InvalidFormatException,IOException,ClassNotFoundException</span>&#123;</span><br><span class="line">    <span class="keyword">this</span>.file = file;</span><br><span class="line">    <span class="keyword">if</span>(!file.exists())</span><br><span class="line">        file.createNewFile();</span><br><span class="line">    os = <span class="keyword">new</span> FileOutputStream(file);</span><br><span class="line">    workbook = <span class="keyword">new</span> XSSFWorkbook();<span class="comment">//如果是XLS格式则改成HSSFWorkbook</span></span><br><span class="line">    Sheet sheet = workbook.createSheet(<span class="string">"Bean"</span>);</span><br><span class="line">    Field[] fields = Class.forName(<span class="string">"Bean类名"</span>).getDeclaredFields();</span><br><span class="line">    Row titleRow = sheet.createRow(<span class="number">0</span>);</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i&lt;fields.length; i++)&#123;</span><br><span class="line">        Cell cell = titleRow.createCell(i);</span><br><span class="line">        cell.setCellValue(field[i].getName());</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//将单个Bean对象写入Excel</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">write</span><span class="params">(Bean bean)</span> <span class="keyword">throws</span> IOException,ClassNotFoundException</span>&#123;</span><br><span class="line">    Sheet sheet = workbook.getSheet(<span class="string">"Bean"</span>);</span><br><span class="line">    <span class="keyword">int</span> lastRowNum = sheet.getLastRowNum();</span><br><span class="line">    Row index = sheet.createRow(lastRowNum + <span class="number">1</span>);</span><br><span class="line">    <span class="comment">//通过反射机制获取类的属性以及get方法（通用）读取文件的时候也可以改为这种方式</span></span><br><span class="line">    Class clazz = bean.getClass();<span class="comment">//Class.forName("Bean类名");//Bean.class</span></span><br><span class="line">    Field[] fields = clazz.getDeclaredFields();</span><br><span class="line">    <span class="comment">//index.createCell(0).setCellFormula("row-1");</span></span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i&lt;fields.length; i++)&#123;</span><br><span class="line">        <span class="comment">//通过反射来执行Bean的get方法</span></span><br><span class="line">        index.createCell(i).setCellValue(</span><br><span class="line">            （String)clazz.getMethod(<span class="string">"get"</span>+toUpperFirstWord(</span><br><span class="line">                fields[i].getName()),<span class="keyword">null</span>).invoke(bean,<span class="keyword">null</span>));</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//将多个Bean对象写入Excel</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">write</span><span class="params">(Collection&lt;Bean&gt; beans)</span> <span class="keyword">throws</span> IOException</span>&#123;</span><br><span class="line">    <span class="keyword">for</span>(Bean bean : beans)&#123;</span><br><span class="line">        <span class="keyword">this</span>.write(bean);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 创建文件输出流，准备输出电子表格：这个方法发在调用前面的方法之后必须执行，否则你在sheet上做的任何操作都不会有效</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">execute</span><span class="params">()</span> <span class="keyword">throws</span> IOException</span>&#123;</span><br><span class="line">    workbook.write(os);</span><br><span class="line">    workbook.close();</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//将字符串的首字母大写</span></span><br><span class="line"><span class="function"><span class="keyword">private</span> String <span class="title">toUpperFirstWord</span><span class="params">(String str)</span></span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(str != <span class="keyword">null</span> &amp;&amp; str != <span class="string">""</span>)&#123;</span><br><span class="line">        str  = str.substring(<span class="number">0</span>,<span class="number">1</span>).toUpperCase()+str.substring(<span class="number">1</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> str;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>测试小Demo请移步GitHub：<a href="https://github.com/ZivvCai/ExcelDemo" target="_blank" rel="noopener">https://github.com/ZivvCai/ExcelDemo</a></p>
+
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">velocity语法笔记</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">使用Apache POI读写Excel文档</a>
         		</li>
       		
 		</ul>
 	</div>
 
-          
+      
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2018/08/10/java读写Excel/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
+  
+<nav id="article-nav">
   
   
-    </div></section>
+    <a href="/2018/08/07/快捷键冲突/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">快捷键冲突</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+  
+  
   
 
-    
+  
+
+  
+
+  
 
 
           </div>
@@ -217,9 +335,9 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
+		isPost: true,
 		isArchive: false,
-		isTag: true,
+		isTag: false,
 		isCategory: false,
 		open_in_new: false,
 		toc_hide_index: true,
