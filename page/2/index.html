@@ -6,16 +6,19 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>My Blog</title>
+  <title>Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="My Blog">
+  <meta name="description" content="�����Ҹ��� Ī������������������������Ӧ��">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Blog">
 <meta property="og:url" content="http://yoursite.com/page/2/index.html">
-<meta property="og:site_name" content="My Blog">
+<meta property="og:site_name" content="Blog">
+<meta property="og:description" content="�����Ҹ��� Ī������������������������Ӧ��">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="My Blog">
+<meta name="twitter:title" content="Blog">
+<meta name="twitter:description" content="�����Ҹ��� Ī������������������������Ӧ��">
   
-    <link rel="alternative" href="/atom.xml" title="My Blog" type="application/atom+xml">
+    <link rel="alternative" href="/atom.xml" title="Blog" type="application/atom+xml">
   
   
     <link rel="icon" href="/favicon.png">
@@ -52,9 +55,9 @@
 		<nav class="header-menu">
 			<ul>
 			
-				<li><a href="/">随笔</a></li>
+				<li><a href="/">主页</a></li>
 	        
-				<li><a href="/tags">笔记</a></li>
+				<li><a href="/tags/随笔/">随笔</a></li>
 	        
 			</ul>
 		</nav>
@@ -124,9 +127,9 @@
 				<ul style="width: 50%">
 				
 				
-					<li style="width: 50%"><a href="/">随笔</a></li>
+					<li style="width: 50%"><a href="/">主页</a></li>
 		        
-					<li style="width: 50%"><a href="/tags">笔记</a></li>
+					<li style="width: 50%"><a href="/tags/随笔/">随笔</a></li>
 		        
 				</ul>
 			</nav>
@@ -143,19 +146,87 @@
           <div id="js-content" class="content-ll">
             
   
-    <article id="post-tags/PL-SQL" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-tomcat-浏览器同步" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2018/08/14/tags/PL-SQL/">PL/SQL</a>
+      <a class="article-title" href="/2018/08/15/tomcat-浏览器同步/">tomcat-浏览器同步</a>
     </h1>
   
 
         
-        <a href="/2018/08/14/tags/PL-SQL/" class="archive-article-date">
+        <a href="/2018/08/15/tomcat-浏览器同步/" class="archive-article-date">
+  	<time datetime="2018-08-15T07:25:27.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-08-15</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>在项目中编辑了js脚本文件，但在浏览器中重新加载后发现所修改的js脚本并没有进行同步</p>
+<p>首先，检查Tomcat配置</p>
+<p>On ‘Update’ action : Update classes and resources</p>
+<p>On frame deactivation : Update classes and resources</p>
+<p>上面这两个配置能在进行了代码的修改后直接通过页面右击重新加载来运行程序，不需要在IDEA中重新编译运行</p>
+<p>然后在浏览器重新加载前进行<strong>浏览器缓存的清除</strong></p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2018/08/15/tomcat-浏览器同步/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-PL-SQL" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/08/14/PL-SQL/">PL/SQL</a>
+    </h1>
+  
+
+        
+        <a href="/2018/08/14/PL-SQL/" class="archive-article-date">
   	<time datetime="2018-08-14T06:39:24.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-08-14</time>
 </a>
         
@@ -165,7 +236,7 @@
       
         <h3 id="PL-SQL简介"><a href="#PL-SQL简介" class="headerlink" title="PL/SQL简介"></a>PL/SQL简介</h3><p>PL/SQL是Oracle数据库对SQL语句的扩展，用来提高SQL的功能。在普通的SQL语句的使用上增加了编程语言的特点，所以PL/SQL就是把数据操作和查询语句组织在PL/SQL代码的过程性单元中，通过逻辑判断、循环等操作实现复杂的功能或者计算的程序语言</p>
         
-          <a class="article-more-a" href="/2018/08/14/tags/PL-SQL/#more">more >></a>
+          <a class="article-more-a" href="/2018/08/14/PL-SQL/#more">more >></a>
         
       
 
@@ -189,7 +260,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2018/08/14/tags/PL-SQL/">展开全文 >></a>
+          <a class="article-more-a" href="/2018/08/14/PL-SQL/">展开全文 >></a>
         </p>
       
 
@@ -371,19 +442,19 @@
 
 
   
-    <article id="post-tags/velocity" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-velocity" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2018/07/30/tags/velocity/">velocity</a>
+      <a class="article-title" href="/2018/07/30/velocity/">velocity</a>
     </h1>
   
 
         
-        <a href="/2018/07/30/tags/velocity/" class="archive-article-date">
+        <a href="/2018/07/30/velocity/" class="archive-article-date">
   	<time datetime="2018-07-30T01:42:51.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-07-30</time>
 </a>
         
@@ -393,7 +464,7 @@
       
         <p>Velocity是一个基于java的模板引擎（template engine），它允许任何人仅仅简单的使用模板语言（template language）来引用由java代码定义的对象。</p>
         
-          <a class="article-more-a" href="/2018/07/30/tags/velocity/#more">more >></a>
+          <a class="article-more-a" href="/2018/07/30/velocity/#more">more >></a>
         
       
 
@@ -417,7 +488,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2018/07/30/tags/velocity/">展开全文 >></a>
+          <a class="article-more-a" href="/2018/07/30/velocity/">展开全文 >></a>
         </p>
       
 
@@ -447,19 +518,19 @@
 
 
   
-    <article id="post-tags/svn学习笔记" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-svn学习笔记" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2018/07/26/tags/svn学习笔记/">svn学习笔记</a>
+      <a class="article-title" href="/2018/07/26/svn学习笔记/">svn学习笔记</a>
     </h1>
   
 
         
-        <a href="/2018/07/26/tags/svn学习笔记/" class="archive-article-date">
+        <a href="/2018/07/26/svn学习笔记/" class="archive-article-date">
   	<time datetime="2018-07-26T02:27:03.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-07-26</time>
 </a>
         
@@ -469,7 +540,7 @@
       
         <h4 id="SVN简介"><a href="#SVN简介" class="headerlink" title="SVN简介"></a>SVN简介</h4><p>Subversion(SVN)是一个开源的版本控制系统，Subversion管理着随时间改变的数据，这些数据放置在一个中央资料档案库中。</p>
         
-          <a class="article-more-a" href="/2018/07/26/tags/svn学习笔记/#more">more >></a>
+          <a class="article-more-a" href="/2018/07/26/svn学习笔记/#more">more >></a>
         
       
 
@@ -493,7 +564,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2018/07/26/tags/svn学习笔记/">展开全文 >></a>
+          <a class="article-more-a" href="/2018/07/26/svn学习笔记/">展开全文 >></a>
         </p>
       
 
@@ -523,19 +594,19 @@
 
 
   
-    <article id="post-tags/金融基础知识汇总" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-金融基础知识汇总" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2018/07/11/tags/金融基础知识汇总/">金融基础知识汇总</a>
+      <a class="article-title" href="/2018/07/11/金融基础知识汇总/">金融基础知识汇总</a>
     </h1>
   
 
         
-        <a href="/2018/07/11/tags/金融基础知识汇总/" class="archive-article-date">
+        <a href="/2018/07/11/金融基础知识汇总/" class="archive-article-date">
   	<time datetime="2018-07-11T12:11:45.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-07-11</time>
 </a>
         
@@ -567,7 +638,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2018/07/11/tags/金融基础知识汇总/">展开全文 >></a>
+          <a class="article-more-a" href="/2018/07/11/金融基础知识汇总/">展开全文 >></a>
         </p>
       
 
@@ -597,19 +668,19 @@
 
 
   
-    <article id="post-tags/redis" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-redis" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2018/07/03/tags/redis/">redis</a>
+      <a class="article-title" href="/2018/07/03/redis/">redis</a>
     </h1>
   
 
         
-        <a href="/2018/07/03/tags/redis/" class="archive-article-date">
+        <a href="/2018/07/03/redis/" class="archive-article-date">
   	<time datetime="2018-07-03T12:19:38.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-07-03</time>
 </a>
         
@@ -629,7 +700,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2018/07/03/tags/redis/">展开全文 >></a>
+          <a class="article-more-a" href="/2018/07/03/redis/">展开全文 >></a>
         </p>
       
 
@@ -737,19 +808,19 @@
 
 
   
-    <article id="post-tags/TestNG" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-TestNG" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2018/02/11/tags/TestNG/">TestNG</a>
+      <a class="article-title" href="/2018/02/11/TestNG/">TestNG</a>
     </h1>
   
 
         
-        <a href="/2018/02/11/tags/TestNG/" class="archive-article-date">
+        <a href="/2018/02/11/TestNG/" class="archive-article-date">
   	<time datetime="2018-02-11T12:59:24.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-02-11</time>
 </a>
         
@@ -760,7 +831,7 @@
         <p>##关于TestNG</p>
 <p>TestNG是一个开源自动化测试框架，它消除了大部分的旧框架的限制，使开发人员能够编写更加灵活和强大的测试。因为它在很大程度上借鉴了Java注解来定义测试，它也可以显示如何使用这个新功能在真实的Java语言生产环境中。</p>
         
-          <a class="article-more-a" href="/2018/02/11/tags/TestNG/#more">more >></a>
+          <a class="article-more-a" href="/2018/02/11/TestNG/#more">more >></a>
         
       
 
@@ -784,84 +855,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2018/02/11/tags/TestNG/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-tags/JUnit" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/02/09/tags/JUnit/">JUnit</a>
-    </h1>
-  
-
-        
-        <a href="/2018/02/09/tags/JUnit/" class="archive-article-date">
-  	<time datetime="2018-02-09T12:59:13.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-02-09</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="关于JUnit"><a href="#关于JUnit" class="headerlink" title="关于JUnit"></a>关于JUnit</h2><p>JUnit是一个Java编程语言的单元测试框架。JUnit在测试驱动的开发方面有很重要的发展，是起源于JUnit的一个统称为xUnit的单元测试框架之一。JUnit促进了“先测试后编码”的理念，强调建立测试数据的一段代码，可以先测试，然后再应用。增加了程序员的产量和程序的稳定性，可以减少程序员的压力和花费在排错上的时间。</p>
-<p>所谓单元测试是测试应用程序的功能是否能够按需要正常运行，并且确保是在开发人员的水平上，单元测试生成图片。单元测试是每个软件公司提高产品质量、满足客户需求的重要环节。</p>
-        
-          <a class="article-more-a" href="/2018/02/09/tags/JUnit/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">JUnit笔记</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/02/09/tags/JUnit/">展开全文 >></a>
+          <a class="article-more-a" href="/2018/02/11/TestNG/">展开全文 >></a>
         </p>
       
 
@@ -988,11 +982,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">atom,vim</a>
+                <a href="javascript:void(0)" class="js-tag color1">Git命令</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Git命令</a>
+                <a href="javascript:void(0)" class="js-tag color4">atom,vim</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1000,15 +994,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">Oracle存储过程笔记</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">JsonNote</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">正则表达式</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1020,7 +1006,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">鸟叔的Linux私房菜</a>
+                <a href="javascript:void(0)" class="js-tag color1">正则表达式</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">Oracle存储过程笔记</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">SQL</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1040,11 +1034,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">设计模式笔记</a>
+                <a href="javascript:void(0)" class="js-tag color2">使用Apache POI读写Excel文档</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">velocity语法笔记</a>
+                <a href="javascript:void(0)" class="js-tag color2">mysql,excel</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1052,15 +1046,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">SQL</a>
+                <a href="javascript:void(0)" class="js-tag color2">鸟叔的Linux私房菜</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">使用Apache POI读写Excel文档</a>
+                <a href="javascript:void(0)" class="js-tag color3">velocity语法笔记</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">mysql,excel</a>
+                <a href="javascript:void(0)" class="js-tag color5">指令备忘</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1072,15 +1066,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">IDEA快捷键操作</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">check style</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">缓存</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">IDEA快捷键操作</a>
+                <a href="javascript:void(0)" class="js-tag color2">设计模式笔记</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1088,7 +1082,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">指令备忘</a>
+                <a href="javascript:void(0)" class="js-tag color3">随笔</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">缓存</a>
               </li>
             
             <div class="clearfix"></div>
