@@ -170,26 +170,10 @@
 <li>安装Ubuntu（VirtualBox）</li>
 <li>安装erlang，使用apt-get安装，需要root权限</li>
 <li>切换到root下：sudu su 然后输入密码，exit退出</li>
-<li>然后执行apt-get命令会报错，dpkg was interrupted…</li>
-<li>执行sudo dpkg –configure -a</li>
-<li>报Error were encountered while processing: initramfs-tools 这个好像是Ubuntu的bug，先不管</li>
-<li>apt-get install erlang-nox 安装erlang</li>
-<li>erl 查看erlang语言版本，成功执行则说明erlang安装成功（halt().退出erl）</li>
-<li>添加公钥wget -O- <a href="https://www.rabbitmq.com/rabbitmq-release-signing-key.asc" target="_blank" rel="noopener">https://www.rabbitmq.com/rabbitmq-release-signing-key.asc</a> | sudo apt-key add - </li>
-<li>更新软件包 apt-get update</li>
-<li>安装RabbitMQ apt-get install rabbitmq-server(安装成功后自动启动)</li>
-<li>查看RabbitMQ状态 systemctl status rabbitmq-server</li>
-<li>启动 service rabbitmq-server start</li>
-<li>停止 service rabbitmq-server stop</li>
-<li>重启 rabbitmq-server restart</li>
-<li>安装web可视化操作界面，需要配置management plugins插件rabbitmq-plugins enable rabbitmq_management(非root目录加上sudo)</li>
 </ul>
-<h4 id="过程截图"><a href="#过程截图" class="headerlink" title="过程截图"></a>过程截图</h4><p><img src="/picture/1.jpg" alt=""></p>
-<p><img src="/picture/2.jpg" alt=""></p>
-<p><img src="/picture/3.jpg" alt=""></p>
-<p><img src="/picture/4.jpg" alt=""></p>
-<p><img src="/picture/5.jpg" alt=""></p>
-
+        
+          <a class="article-more-a" href="/2019/03/19/RabbitMQ安装/#more">more >></a>
+        
       
 
       
