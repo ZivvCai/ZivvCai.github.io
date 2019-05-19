@@ -146,6 +146,179 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-RabbitMQ安装" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/03/19/RabbitMQ安装/">RabbitMQ安装</a>
+    </h1>
+  
+
+        
+        <a href="/2019/03/19/RabbitMQ安装/" class="archive-article-date">
+  	<time datetime="2019-03-19T05:07:29.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-03-19</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h4 id="Ubuntu安装RabbitMQ步骤、过程中的问题和解决："><a href="#Ubuntu安装RabbitMQ步骤、过程中的问题和解决：" class="headerlink" title="Ubuntu安装RabbitMQ步骤、过程中的问题和解决："></a>Ubuntu安装RabbitMQ步骤、过程中的问题和解决：</h4><ul>
+<li>安装Ubuntu（VirtualBox）</li>
+<li>安装erlang，使用apt-get安装，需要root权限</li>
+<li>切换到root下：sudu su 然后输入密码，exit退出</li>
+<li>然后执行apt-get命令会报错，dpkg was interrupted…</li>
+<li>执行sudo dpkg –configure -a</li>
+<li>报Error were encountered while processing: initramfs-tools 这个好像是Ubuntu的bug，先不管</li>
+<li>apt-get install erlang-nox 安装erlang</li>
+<li>erl 查看erlang语言版本，成功执行则说明erlang安装成功（halt().退出erl）</li>
+<li>添加公钥wget -O- <a href="https://www.rabbitmq.com/rabbitmq-release-signing-key.asc" target="_blank" rel="noopener">https://www.rabbitmq.com/rabbitmq-release-signing-key.asc</a> | sudo apt-key add - </li>
+<li>更新软件包 apt-get update</li>
+<li>安装RabbitMQ apt-get install rabbitmq-server(安装成功后自动启动)</li>
+<li>查看RabbitMQ状态 systemctl status rabbitmq-server</li>
+<li>启动 service rabbitmq-server start</li>
+<li>停止 service rabbitmq-server stop</li>
+<li>重启 rabbitmq-server restart</li>
+<li>安装web可视化操作界面，需要配置management plugins插件rabbitmq-plugins enable rabbitmq_management(非root目录加上sudo)</li>
+</ul>
+<h4 id="过程截图"><a href="#过程截图" class="headerlink" title="过程截图"></a>过程截图</h4><p><img src="/picture/1.jpg" alt=""></p>
+<p><img src="/picture/2.jpg" alt=""></p>
+<p><img src="/picture/3.jpg" alt=""></p>
+<p><img src="/picture/4.jpg" alt=""></p>
+<p><img src="/picture/5.jpg" alt=""></p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Ubuntu安装RabbitMQ</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2019/03/19/RabbitMQ安装/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-RabbitMQ小记" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/03/01/RabbitMQ小记/">RabbitMQ小记</a>
+    </h1>
+  
+
+        
+        <a href="/2019/03/01/RabbitMQ小记/" class="archive-article-date">
+  	<time datetime="2019-03-01T14:43:30.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-03-01</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="MQ"><a href="#MQ" class="headerlink" title="MQ"></a>MQ</h3><h4 id="概念…"><a href="#概念…" class="headerlink" title="概念…"></a>概念…</h4><p>AMQP 高级消息队列协议</p>
+<p>生产者、消息、代理服务器和消费者：生产者创建消息，然后发布消息到代理服务器(RabbitMQ)，代理服务器将消息路由到特定的消息队列，消费者订阅/监听消息队列，从队列中获取消息消费。消息包含：有效载荷(payload)和标签，有效载荷就是传输的数据，标签就是一个交换机的名称和可选的主题标记。在消息的路由过程中，消息的标签不会和有效载荷一同传输。</p>
+        
+          <a class="article-more-a" href="/2019/03/01/RabbitMQ小记/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">rabbitMQ 笔记</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2019/03/01/RabbitMQ小记/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-通用Mapper拓展" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -769,158 +942,6 @@
 
 
   
-    <article id="post-关于MyBatis插件" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/11/19/关于MyBatis插件/">关于MyBatis插件</a>
-    </h1>
-  
-
-        
-        <a href="/2018/11/19/关于MyBatis插件/" class="archive-article-date">
-  	<time datetime="2018-11-19T12:32:04.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-11-19</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="关于MyBatis插件"><a href="#关于MyBatis插件" class="headerlink" title="关于MyBatis插件"></a>关于MyBatis插件</h2><p>由于工作有需要进行插件的编写，所有对其进行了一些了解，在这里记录一下。在实际写插件的过程中，我们既要知其然，也要知其所以然。下面主要是一些相关的技术和MyBatis运行原理笔记摘要，这些对我们写出好的插件有很大帮助，最后附上部分实例代码。</p>
-        
-          <a class="article-more-a" href="/2018/11/19/关于MyBatis插件/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">mybatis</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/11/19/关于MyBatis插件/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-关于POI处理Excel" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/11/03/关于POI处理Excel/">关于POI处理Excel</a>
-    </h1>
-  
-
-        
-        <a href="/2018/11/03/关于POI处理Excel/" class="archive-article-date">
-  	<time datetime="2018-11-03T02:48:10.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-11-03</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>最近使用Java poi包处理了一下Excel文件，踩过的几个小坑：</p>
-        
-          <a class="article-more-a" href="/2018/11/03/关于POI处理Excel/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">java poi</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/11/03/关于POI处理Excel/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
   
     <nav id="page-nav">
       <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
@@ -1026,19 +1047,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Git命令</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">JsonNote</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">JUnit笔记</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">Maven笔记</a>
+                <a href="javascript:void(0)" class="js-tag color5">Json</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1046,11 +1055,27 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">Ubuntu安装RabbitMQ</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">Git命令</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">Maven笔记</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">rabbitMQ 笔记</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">Oracle存储过程笔记</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">SQL</a>
+                <a href="javascript:void(0)" class="js-tag color3">JUnit笔记</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1058,11 +1083,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">annotation</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Markdown语法</a>
+                <a href="javascript:void(0)" class="js-tag color4">SQL</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1070,7 +1091,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Ajax</a>
+                <a href="javascript:void(0)" class="js-tag color2">java异常</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1078,11 +1099,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">mybatis, AOP</a>
+                <a href="javascript:void(0)" class="js-tag color1">Markdown语法</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">java异常</a>
+                <a href="javascript:void(0)" class="js-tag color5">Ajax</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">鸟叔的Linux私房菜</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">annotation</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1098,11 +1127,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">鸟叔的Linux私房菜</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">svn</a>
+                <a href="javascript:void(0)" class="js-tag color3">mybatis, AOP</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1110,7 +1135,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">velocity语法笔记</a>
+                <a href="javascript:void(0)" class="js-tag color4">svn</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1118,11 +1143,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">velocity语法笔记</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">IDEA快捷键操作</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">tk.mapper</a>
+                <a href="javascript:void(0)" class="js-tag color3">mybatis</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1130,7 +1159,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">mybatis</a>
+                <a href="javascript:void(0)" class="js-tag color5">tk.mapper</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">数据库</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1139,10 +1172,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">基础金融知识</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">数据库</a>
               </li>
              
               <li class="article-tag-list-item">

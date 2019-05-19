@@ -8,17 +8,17 @@
   <link rel="dns-prefetch" href="http://yoursite.com">
   <title>JsonNote | Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="JSON####Json语法 Json语法规则 ：Json语法是JavaScript对象表示法语法的子集  数据在名称/值对中 数据由逗号分隔 大括号保存对象 中括号保存数组">
-<meta name="keywords" content="JsonNote">
+  <meta name="description" content="JSONJson语法Json语法规则 ：Json语法是JavaScript对象表示法语法的子集  数据在名称/值对中 数据由逗号分隔 大括号保存对象 中括号保存数组">
+<meta name="keywords" content="Json">
 <meta property="og:type" content="article">
 <meta property="og:title" content="JsonNote">
 <meta property="og:url" content="http://yoursite.com/2017/12/20/JsonNote/index.html">
 <meta property="og:site_name" content="Blog">
-<meta property="og:description" content="JSON####Json语法 Json语法规则 ：Json语法是JavaScript对象表示法语法的子集  数据在名称/值对中 数据由逗号分隔 大括号保存对象 中括号保存数组">
-<meta property="og:updated_time" content="2018-01-20T09:19:32.000Z">
+<meta property="og:description" content="JSONJson语法Json语法规则 ：Json语法是JavaScript对象表示法语法的子集  数据在名称/值对中 数据由逗号分隔 大括号保存对象 中括号保存数组">
+<meta property="og:updated_time" content="2019-05-19T15:05:37.137Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="JsonNote">
-<meta name="twitter:description" content="JSON####Json语法 Json语法规则 ：Json语法是JavaScript对象表示法语法的子集  数据在名称/值对中 数据由逗号分隔 大括号保存对象 中括号保存数组">
+<meta name="twitter:description" content="JSONJson语法Json语法规则 ：Json语法是JavaScript对象表示法语法的子集  数据在名称/值对中 数据由逗号分隔 大括号保存对象 中括号保存数组">
   
     <link rel="alternative" href="/atom.xml" title="Blog" type="application/atom+xml">
   
@@ -166,8 +166,7 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="JSON"><a href="#JSON" class="headerlink" title="JSON"></a>JSON</h2><p>####Json语法</p>
-<p><strong>Json语法规则</strong> ：Json语法是JavaScript对象表示法语法的子集</p>
+        <h2 id="JSON"><a href="#JSON" class="headerlink" title="JSON"></a>JSON</h2><h4 id="Json语法"><a href="#Json语法" class="headerlink" title="Json语法"></a>Json语法</h4><p><strong>Json语法规则</strong> ：Json语法是JavaScript对象表示法语法的子集</p>
 <ul>
 <li>数据在名称/值对中</li>
 <li>数据由逗号分隔</li>
@@ -228,11 +227,12 @@
 <li>replacer：可选，用于转换结果的函数或数组。如果replacer为函数，则JSON.stringify将调用该函数，并传入每个成员的键和值，使用返回值而不是原始值，如果此函数返回undefined，则排除成员；根对象的键是一个空字符串：””。如果replacer是一个数组，则仅转换该数组中具有键值的成员，成员的转换顺序与键在数组中的顺序一样，当value参数也为数组时，将忽略replacer数组</li>
 <li>space：可选，文本添加缩进、空格和换行符，如果space是一个数字，则返回文本在每个级别缩进指定数目的空格，如果space大于10，则文本缩进10个空格，也可以使用非数字：\t</li>
 </ul>
+<p>—追加—</p>
 <p><strong>Json使用</strong></p>
-<p>由于Json语法是JavaScript语法的自己，JavaScript函数eval()可用于将Json文本转换为JavaScript对象</p>
-<p>eval()函数使用的是JavaScript编译器，可解析Json文本，然后生成JavaScript对象，必须把文本包围在括号中<code>var obj = eval(&quot;(&quot;+txt+&quot;)&quot;);</code>，eval()函数可编译并执行任何JavaScript代码，这隐藏了潜在的安全问题</p>
-<p><strong>JSONP</strong></p>
-<p>Jsonp(JSON with Padding)是Json的一种“使用模式”，可以让网页从别的域名(网站)那获取资料，即跨域读取数据</p>
+<p>实体类字段json数据 驼峰转下划线     笔记</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">fastjson</span><br><span class="line"><span class="comment">//生产环境config要做singleton处理，要不然会有性能问题</span></span><br><span class="line">SerializeConfig config = <span class="keyword">new</span> SerializeConfig();</span><br><span class="line">config.propertyNamingStrategy = PropertyNamingStrategy.SnakeCase;</span><br><span class="line">String json = JSON.toJSONString(user, config);</span><br><span class="line"></span><br><span class="line">jackson</span><br><span class="line">ObjectMapper mapper = <span class="keyword">new</span> ObjectMapper();</span><br><span class="line">mapper.setPropertyNamingStrategy(com.fasterxml.jackson.databind.PropertyNamingStrategy.SNAKE_CASE);</span><br><span class="line">String json = mapper.writeValueAsString(user);</span><br></pre></td></tr></table></figure>
+<p>单例处理代码示例</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">SingletonHandle</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> Object lock = <span class="keyword">new</span> Object;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> ObjectMapper objectMapper = <span class="keyword">null</span>;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">SingletonHandle</span><span class="params">()</span> </span>&#123;</span><br><span class="line">	&#125;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> ObjectMapper <span class="title">getObjectMapper</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (objectMapper == <span class="keyword">null</span>) &#123;</span><br><span class="line">            <span class="keyword">synchronized</span>(lock) &#123;</span><br><span class="line">                <span class="keyword">if</span> (objectMapper == <span class="keyword">null</span>) &#123;</span><br><span class="line">                    objectMapper = <span class="keyword">new</span> ObjectMapper();</span><br><span class="line">                    objectMapper.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, <span class="keyword">false</span>);</span><br><span class="line">                    objectMapper.setDateFormat(<span class="keyword">new</span> SimpleDateFormat(<span class="string">"yyyy-MM-dd HH:mm:ss"</span>));</span><br><span class="line">                    objectMapper.setTimeZone(TimeZone.getTimeZone(<span class="string">"GMT+8"</span>));</span><br><span class="line">                    objectMapper.setPropertyNamingStrategy(PropertyNamingStrategy.SNAKE_CASE);</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> objectMapper;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
       
 
@@ -246,7 +246,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">JsonNote</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Json</a>
         		</li>
       		
 		</ul>
@@ -461,19 +461,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Git命令</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">JsonNote</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">JUnit笔记</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">Maven笔记</a>
+                <a href="javascript:void(0)" class="js-tag color5">Json</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -481,11 +469,27 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">Ubuntu安装RabbitMQ</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">Git命令</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">Maven笔记</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">rabbitMQ 笔记</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">Oracle存储过程笔记</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">SQL</a>
+                <a href="javascript:void(0)" class="js-tag color3">JUnit笔记</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -493,11 +497,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">annotation</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Markdown语法</a>
+                <a href="javascript:void(0)" class="js-tag color4">SQL</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -505,7 +505,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Ajax</a>
+                <a href="javascript:void(0)" class="js-tag color2">java异常</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -513,11 +513,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">mybatis, AOP</a>
+                <a href="javascript:void(0)" class="js-tag color1">Markdown语法</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">java异常</a>
+                <a href="javascript:void(0)" class="js-tag color5">Ajax</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">鸟叔的Linux私房菜</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">annotation</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -533,11 +541,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">鸟叔的Linux私房菜</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">svn</a>
+                <a href="javascript:void(0)" class="js-tag color3">mybatis, AOP</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -545,7 +549,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">velocity语法笔记</a>
+                <a href="javascript:void(0)" class="js-tag color4">svn</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -553,11 +557,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">velocity语法笔记</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">IDEA快捷键操作</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">tk.mapper</a>
+                <a href="javascript:void(0)" class="js-tag color3">mybatis</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -565,7 +573,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">mybatis</a>
+                <a href="javascript:void(0)" class="js-tag color5">tk.mapper</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">数据库</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -574,10 +586,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">基础金融知识</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">数据库</a>
               </li>
              
               <li class="article-tag-list-item">
