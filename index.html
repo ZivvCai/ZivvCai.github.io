@@ -182,30 +182,241 @@
           <div id="js-content" class="content-ll">
             
   
-    <article id="post-shell学习笔记" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-Gorm适配达梦" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2019/06/01/shell学习笔记/">shell学习笔记</a>
+      <a class="article-title" href="/2022/03/20/Gorm适配达梦/">Gorm适配达梦</a>
     </h1>
   
 
         
-        <a href="/2019/06/01/shell学习笔记/" class="archive-article-date">
-  	<time datetime="2019-06-01T14:09:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-06-01</time>
+        <a href="/2022/03/20/Gorm适配达梦/" class="archive-article-date">
+  	<time datetime="2022-03-20T13:09:16.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-03-20</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h3 id="Shell脚本学习总结"><a href="#Shell脚本学习总结" class="headerlink" title="Shell脚本学习总结"></a>Shell脚本学习总结</h3><p>​    现在很多项目后台是基于Zookeeper+Spring Boot的微服务架构，因此会经常去Linux服务器上部署项目，因为微服务接口改动频繁，每次都执行同样的Shell命令既费时又费力，使用事先编写好的Shell脚本进行部署轻松很多，如果能搭配特定界面按指定流程操作(执行特定顺序脚本)的话，基本可以实现项目自动化部署。基于以上，对于项目部署脚本的编写和部署过程中问题的排查，学习和了解Shell脚本就变得很有必要了。</p>
+        <h3 id="gorm介绍"><a href="#gorm介绍" class="headerlink" title="gorm介绍"></a>gorm介绍</h3><p>orm框架：简单来说，就是维护实体类和数据库表的映射关系，提供简单、方便使用的api接口来构造和组织具体sql执行。gorm是Golang目前比较热门的orm库，我们项目中也基本都是使用的gorm，不过目前项目都还是使用的gorm v1版本，因此本次适配都是在v1版本基础上进行。</p>
         
-          <a class="article-more-a" href="/2019/06/01/shell学习笔记/#more">more >></a>
+          <a class="article-more-a" href="/2022/03/20/Gorm适配达梦/#more">more >></a>
         
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Go</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2022/03/20/Gorm适配达梦/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-gRPC" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2022/03/20/gRPC/">gRPC</a>
+    </h1>
+  
+
+        
+        <a href="/2022/03/20/gRPC/" class="archive-article-date">
+  	<time datetime="2022-03-20T12:56:03.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-03-20</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>RPC 远程过程调用，就是提供一套机制，使得应用程序之前可以进行通信，也遵从server/client模型。使用的时候client调用server提供的接口就像是调用本地函数一样。</p>
+<p>gRPC的优势：</p>
+<ol>
+<li>gRPC使用http2.0作为底层的传输协议</li>
+<li>可以通过protobuf来定义接口，可以提供严格的接口约束，也可以和前端事先约定接口并加快并行开发速度</li>
+<li>通过protobuf可以将数据序列化为二进制编码，能大幅度减少需要传输的数据量，从而提高性能</li>
+<li>gRPC可以方便的支持流式通信</li>
+</ol>
+<p>protobuf buffer是与编程语言无关、与平台无关的可拓展机制，用于序列化结构数据，是一种数据交换格式，gRPC使用protoc作为协议处理工具</p>
+<p>Protobuf是gRPC协议</p>
+<p>message定义一个protobuf buffer（用于结构化数据的开源机制），=1这些数字编号用于标识二进制格式字段（数据传输时会被压缩），当编号1-15时，存储编号只需一个字节，也就是message中最好不要超过15个字段</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Go</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2022/03/20/gRPC/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-minikube从宿主机拉取镜像" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2021/06/20/minikube从宿主机拉取镜像/">minikube从宿主机拉取镜像</a>
+    </h1>
+  
+
+        
+        <a href="/2021/06/20/minikube从宿主机拉取镜像/" class="archive-article-date">
+  	<time datetime="2021-06-20T04:51:32.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-06-20</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>达梦数据库</p>
+<p>环境准备</p>
+<p>docker、minikube、达梦docker镜像（官网下载之后可直接docker import导入）</p>
+<p>搭建docker本地私有仓库</p>
+<ol>
+<li><p>使用官方registry镜像来启动私有仓库</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker run -d -p 5000:5000 --restart=always --name registry registry:2</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>curl验证私有仓库镜像</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">curl 127.0.0.1:5000/v2/_catalog</span><br><span class="line">&#123;&quot;repositories&quot;:[&quot;&quot;]&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>将下载好的镜像推送到私有镜像仓库</p>
+<ol>
+<li><p>查看本机ip（ifconfig en0）</p>
+</li>
+<li><p>docker配置文件修改（/etc/docker/daemon.json），mac的在如下位置修改，需要重启生效。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  &quot;debug&quot;: true,</span><br><span class="line">  &quot;experimental&quot;: false,</span><br><span class="line">  &quot;insecure-registries&quot;: [</span><br><span class="line">    &quot;10.91.40.49:5000&quot; #本机ip</span><br><span class="line">  ]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><img src="C:/Data/LearnAndGain/LearnAndGain/Users/zivvcau/Library/Application%20Support/typora-user-images/image-20211219112819744.png" alt="image-20211219112819744"></p>
+</li>
+<li><p>使用docker tag标记镜像，格式为docker tag IMAGE[:TAG][REGISTRY_HOST[:REGISTRY_PORT]/]REPOSITORY[:TAG]</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker tag dm8:v01 10.91.40.49:5000/dm8-local (本机ip)</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>push镜像到本地私有仓库</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker tag dm8:v01 10.91.40.49:5000/dm8-local (本机ip)</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>再次使用curl验证私有仓库镜像，可以看到我们刚才push的镜像</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">curl 127.0.0.1:5000/v2/_catalog</span><br><span class="line">&#123;&quot;repositories&quot;:[&quot;dm8-local&quot;]&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<p>minikube启动创建k8s</p>
+<ol>
+<li><p>配置启动minikube</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">minikube delete &amp;&amp; minikube start --registry-mirror=https://registry.docker-cn.com --insecure-registry=10.91.40.49:5000(本机ip)</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>k8s拉取本机私有仓库镜像配置</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">image: 10.91.40.49:5000/dm8-local</span><br><span class="line">imagePullPolicy: IfNotPresent</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>通过yaml文件使用kubectl进行部署（完整yaml文件见文末）</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">kubectl apply -f dm_deployment.yaml</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>查看pod是否启动正常，也可通过可视化界面查看</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"># kubectl查看</span><br><span class="line">kubectl get pod -n dmsql</span><br><span class="line">NAME                      READY   STATUS    RESTARTS   AGE</span><br><span class="line">dmsql-5ff446c755-7nskw    1/1     Running   1          10d</span><br><span class="line"></span><br><span class="line">kubectl exec -it dmsql-5ff446c755-7nskw -- /bin/bash </span><br><span class="line"></span><br><span class="line"># 可视化界面查看</span><br><span class="line">minikube dashboard</span><br></pre></td></tr></table></figure>
+<p><img src="C:/Data/LearnAndGain/LearnAndGain/Users/zivvcau/Library/Application%20Support/typora-user-images/image-20211219114625495.png" alt="image-20211219114625495"></p>
+</li>
+<li><p>登录pod之后在/dm8/bin下面有disql工具，可直接登录查看，默认账号密码为SYSDBA/SYSDBA</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">./disql SYSDBA/SYSDBA@localhost:5236</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<p>注：目前dm8的版本还需要修复下log4j的漏洞，使用的是log4j-core-2.14.0.jar包，需要进行升级，具体jar包目录一般在这三个目录下，替换完之后需要重启服务。容器的话可以先临时去容器里面加上FORMAT_MESSAGES_PATTERN_DISABLE_LOOKUPS=true环境变量，或者等达梦官方修复之后使用新的镜像。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"># 替换该目录下对应jar包</span><br><span class="line">/dm8/tool/dropins/com.dameng/plugins/com.dameng.third/</span><br><span class="line">/dm8/tool/dmagent/lib/</span><br><span class="line">/dm8/uninstall/lib/</span><br><span class="line"># 重启服务</span><br><span class="line">cd /dm8/bin</span><br><span class="line">./DmServiceDMSERVER start/stop/restart</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<p>dm_deployment.yaml文件内容如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br></pre></td><td class="code"><pre><span class="line">apiVersion: v1</span><br><span class="line">kind: Namespace</span><br><span class="line">metadata:</span><br><span class="line">  name: dmsql</span><br><span class="line">  labels:</span><br><span class="line">    name: dmsql</span><br><span class="line">---</span><br><span class="line">apiVersion: v1</span><br><span class="line">kind: Service</span><br><span class="line">metadata:</span><br><span class="line">  name: dmsql</span><br><span class="line">  namespace: dmsql</span><br><span class="line">spec:</span><br><span class="line">  type: NodePort</span><br><span class="line">  ports:</span><br><span class="line">    - port: 5236</span><br><span class="line">      nodePort: 30236</span><br><span class="line">      targetPort: dmsql</span><br><span class="line">  selector:</span><br><span class="line">    app: dmsql</span><br><span class="line">---</span><br><span class="line">apiVersion: apps/v1</span><br><span class="line">kind: Deployment</span><br><span class="line">metadata:</span><br><span class="line">  name: dmsql</span><br><span class="line">  namespace: dmsql</span><br><span class="line">spec:</span><br><span class="line">  selector:</span><br><span class="line">    matchLabels:</span><br><span class="line">      app: dmsql</span><br><span class="line">  strategy:</span><br><span class="line">    type: Recreate</span><br><span class="line">  template:</span><br><span class="line">    metadata:</span><br><span class="line">      labels:</span><br><span class="line">        app: dmsql</span><br><span class="line">    spec:</span><br><span class="line">      containers:</span><br><span class="line">        # 本地镜像，部署时需替换</span><br><span class="line">        - image: 10.91.40.49:5000/dm8-local</span><br><span class="line">          name: dmsql</span><br><span class="line">          imagePullPolicy: IfNotPresent</span><br><span class="line">          command: [&quot;./startDm.sh&quot;]</span><br><span class="line">          ports:</span><br><span class="line">            - containerPort: 5236</span><br><span class="line">              name: dmsql</span><br><span class="line">          volumeMounts:</span><br><span class="line">            - name: dmsql-persistent-storage</span><br><span class="line">              mountPath: /var/lib/dmsql</span><br><span class="line">      volumes:</span><br><span class="line">        - name: dmsql-persistent-storage</span><br><span class="line">          emptyDir: &#123;&#125;</span><br></pre></td></tr></table></figure>
+
       
 
       
@@ -228,7 +439,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2019/06/01/shell学习笔记/">展开全文 >></a>
+          <a class="article-more-a" href="/2021/06/20/minikube从宿主机拉取镜像/">展开全文 >></a>
         </p>
       
 
@@ -258,422 +469,32 @@
 
 
   
-    <article id="post-RabbitMQ安装" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-mongo" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2019/03/19/RabbitMQ安装/">RabbitMQ安装</a>
+      <a class="article-title" href="/2021/05/20/mongo/">mongo</a>
     </h1>
   
 
         
-        <a href="/2019/03/19/RabbitMQ安装/" class="archive-article-date">
-  	<time datetime="2019-03-19T05:07:29.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-03-19</time>
+        <a href="/2021/05/20/mongo/" class="archive-article-date">
+  	<time datetime="2021-05-20T13:07:26.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-05-20</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h4 id="Ubuntu安装RabbitMQ步骤、过程中的问题和解决："><a href="#Ubuntu安装RabbitMQ步骤、过程中的问题和解决：" class="headerlink" title="Ubuntu安装RabbitMQ步骤、过程中的问题和解决："></a>Ubuntu安装RabbitMQ步骤、过程中的问题和解决：</h4><ul>
-<li>安装Ubuntu（VirtualBox）</li>
-<li>安装erlang，使用apt-get安装，需要root权限</li>
-<li>切换到root下：sudu su 然后输入密码，exit退出</li>
-</ul>
+        <p>Mongo简单使用</p>
+<p>开启权限访问，conf添加如下配置（需要先添加userAdmin角色）</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">security</span><br><span class="line">  authorization: enabled</span><br></pre></td></tr></table></figure>
+<p>RBAC基于角色的权限控制</p>
         
-          <a class="article-more-a" href="/2019/03/19/RabbitMQ安装/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">中间件</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2019/03/19/RabbitMQ安装/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-RabbitMQ小记" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/03/01/RabbitMQ小记/">RabbitMQ小记</a>
-    </h1>
-  
-
-        
-        <a href="/2019/03/01/RabbitMQ小记/" class="archive-article-date">
-  	<time datetime="2019-03-01T14:43:30.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-03-01</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="MQ"><a href="#MQ" class="headerlink" title="MQ"></a>MQ</h3><h4 id="概念…"><a href="#概念…" class="headerlink" title="概念…"></a>概念…</h4><p>AMQP 高级消息队列协议</p>
-<p>生产者、消息、代理服务器和消费者：生产者创建消息，然后发布消息到代理服务器(RabbitMQ)，代理服务器将消息路由到特定的消息队列，消费者订阅/监听消息队列，从队列中获取消息消费。消息包含：有效载荷(payload)和标签，有效载荷就是传输的数据，标签就是一个交换机的名称和可选的主题标记。在消息的路由过程中，消息的标签不会和有效载荷一同传输。</p>
-        
-          <a class="article-more-a" href="/2019/03/01/RabbitMQ小记/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">中间件</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2019/03/01/RabbitMQ小记/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-通用Mapper拓展" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/02/05/通用Mapper拓展/">通用Mapper拓展</a>
-    </h1>
-  
-
-        
-        <a href="/2019/02/05/通用Mapper拓展/" class="archive-article-date">
-  	<time datetime="2019-02-05T02:47:30.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-02-05</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h4 id="通用Mapper"><a href="#通用Mapper" class="headerlink" title="通用Mapper"></a>通用Mapper</h4><p>最近在项目中有需要对这个插件进行一些拓展，便去找了一波资料学习了一波，官方文档十分详细，链接<a href="https://github.com/abel533/Mapper/wiki" target="_blank" rel="noopener">https://github.com/abel533/Mapper/wiki</a>，只是在这码一下过程中需要注意的地方以及自己实现的步骤。</p>
-<p><strong>代码生成器</strong></p>
-<p>使用MyBatis Generator插件生成实体类、Mapper接口和对应的XML文件。</p>
-        
-          <a class="article-more-a" href="/2019/02/05/通用Mapper拓展/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Java</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2019/02/05/通用Mapper拓展/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-关于tkmapper的自动生成模板" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/01/26/关于tkmapper的自动生成模板/">关于tkmapper的自动生成模板</a>
-    </h1>
-  
-
-        
-        <a href="/2019/01/26/关于tkmapper的自动生成模板/" class="archive-article-date">
-  	<time datetime="2019-01-26T12:00:53.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-01-26</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>使用MyBatis Generator插件生成实体类、XML等</p>
-<p>使用.ftl文件作为模板实现</p>
-<p>可以重写tk.mapper中的FreemarkerTemplateFormat.java文件，对其进行拓展从而实现更加个性化的生成(主要重写getFormattedContent方法，将需要的数据放入params中，然后可以在对应的.ftl文件中获取得到)</p>
-<p>在.ftl模板文件中获取数据，进行判断然后自动生成(FreeMarker语法自行查找资料)</p>
-        
-          <a class="article-more-a" href="/2019/01/26/关于tkmapper的自动生成模板/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Java</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2019/01/26/关于tkmapper的自动生成模板/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-mybatis插件和AOP拦截小记" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/01/19/mybatis插件和AOP拦截小记/">mybatis插件和AOP拦截小记</a>
-    </h1>
-  
-
-        
-        <a href="/2019/01/19/mybatis插件和AOP拦截小记/" class="archive-article-date">
-  	<time datetime="2019-01-19T12:47:27.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-01-19</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h5 id="mybatis插件"><a href="#mybatis插件" class="headerlink" title="mybatis插件"></a>mybatis插件</h5><p>具体笔记和使用往前面翻。。。这里只记一个再次使用过程中的例子</p>
-<ul>
-<li>关于拦截DAO层的insert方法以及delete方法，由于在Executor.class中只有update方法和query方法等等，没有找到insert以及delete方法，于是去看了看SqlSession中insert以及delete方法的实现，源码如下(默认采用DefaultSqlSession实现)：</li>
-</ul>
-        
-          <a class="article-more-a" href="/2019/01/19/mybatis插件和AOP拦截小记/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Java</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2019/01/19/mybatis插件和AOP拦截小记/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-数据库锁表" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/01/04/数据库锁表/">数据库锁表</a>
-    </h1>
-  
-
-        
-        <a href="/2019/01/04/数据库锁表/" class="archive-article-date">
-  	<time datetime="2019-01-04T07:03:20.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-01-04</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>在操作数据库时，使用可视化工具进行修改，忘记提交事务或者执行脚本时有死循环这种都会导致数据库锁表。</p>
-        
-          <a class="article-more-a" href="/2019/01/04/数据库锁表/#more">more >></a>
+          <a class="article-more-a" href="/2021/05/20/mongo/#more">more >></a>
         
       
 
@@ -697,7 +518,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2019/01/04/数据库锁表/">展开全文 >></a>
+          <a class="article-more-a" href="/2021/05/20/mongo/">展开全文 >></a>
         </p>
       
 
@@ -727,30 +548,29 @@
 
 
   
-    <article id="post-java注解" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-限流器" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2018/12/27/java注解/">java注解</a>
+      <a class="article-title" href="/2021/05/20/限流器/">限流器</a>
     </h1>
   
 
         
-        <a href="/2018/12/27/java注解/" class="archive-article-date">
-  	<time datetime="2018-12-27T05:06:11.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-12-27</time>
+        <a href="/2021/05/20/限流器/" class="archive-article-date">
+  	<time datetime="2021-05-20T10:28:14.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-05-20</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h3 id="Java-注解"><a href="#Java-注解" class="headerlink" title="Java 注解"></a>Java 注解</h3><p>注解示例：(java提供的Override注解)</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Target</span>(ElementType.METHOD)</span><br><span class="line"><span class="meta">@Retention</span>(RetentionPolicy.SOURCE)</span><br><span class="line"><span class="keyword">public</span> <span class="meta">@interface</span> Override &#123;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+        <p>限流算法主要有桶类算法和滑动窗口算法，这里主要介绍一下golang包里面的rate限流器的实现</p>
         
-          <a class="article-more-a" href="/2018/12/27/java注解/#more">more >></a>
+          <a class="article-more-a" href="/2021/05/20/限流器/#more">more >></a>
         
       
 
@@ -764,7 +584,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Java</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Go</a>
         		</li>
       		
 		</ul>
@@ -774,7 +594,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2018/12/27/java注解/">展开全文 >></a>
+          <a class="article-more-a" href="/2021/05/20/限流器/">展开全文 >></a>
         </p>
       
 
@@ -804,32 +624,29 @@
 
 
   
-    <article id="post-SpEL" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-cmux" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2018/12/16/SpEL/">SpEL</a>
+      <a class="article-title" href="/2021/01/20/cmux/">cmux</a>
     </h1>
   
 
         
-        <a href="/2018/12/16/SpEL/" class="archive-article-date">
-  	<time datetime="2018-12-16T12:06:52.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-12-16</time>
+        <a href="/2021/01/20/cmux/" class="archive-article-date">
+  	<time datetime="2021-01-20T12:39:52.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-01-20</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h4 id="SpEL-Spring-Expression-Language"><a href="#SpEL-Spring-Expression-Language" class="headerlink" title="SpEL(Spring Expression Language)"></a>SpEL(Spring Expression Language)</h4><p>Spring表达式语言，支持在运行时查询和操作对象</p>
-<p>基本用法：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">ExpressionParser parser = <span class="keyword">new</span> SpelExpressionParser();</span><br><span class="line">String str = <span class="string">"hello world"</span>;</span><br><span class="line">Expression exp = parser.parseExpression(str);</span><br><span class="line">Object valueObj = exp.getValue();</span><br><span class="line">String valueStr = exp.getVvlue(String.class);</span><br></pre></td></tr></table></figure>
-        
-          <a class="article-more-a" href="/2018/12/16/SpEL/#more">more >></a>
-        
+        <p>仅监听一个端口，然后根据注册的 <strong>协议匹配器（matcher）</strong> 找到对应协议的通信框架</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 创建监听端口的 Listener</span></span><br><span class="line">l, err := net.Listen(<span class="string">"tcp"</span>, <span class="string">":23456"</span>)</span><br><span class="line"><span class="keyword">if</span> err != <span class="literal">nil</span> &#123;</span><br><span class="line">    log.Fatal(err)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 根据创建成功的 Listener 初始化 cmux 实例</span></span><br><span class="line">m := cmux.New(l)</span><br><span class="line"></span><br><span class="line"><span class="comment">// 注册不同协议的 *协议匹配器*</span></span><br><span class="line">grpcL := m.Match(cmux.HTTP2HeaderField(<span class="string">"context-type"</span>, <span class="string">"application/grpc"</span>)) <span class="comment">// 使用 context-type 标识为 grpc 协议</span></span><br><span class="line">httpL := m.Match(cmux.HTTP1Fast()) <span class="comment">// 使用 cmux 内置函数标识 http1 协议</span></span><br><span class="line">trpcL := m.Match(cmux.Any()) <span class="comment">// 使用 Any 函数匹配未匹配的任意协议</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 初始化不同协议的服务实例</span></span><br><span class="line">grpcS := grpc.NewServer()</span><br><span class="line">grpchello.RegisterGreeterServer(grpcs, &amp;server&#123;&#125;)</span><br><span class="line"></span><br><span class="line">httpS := http.Server&#123;</span><br><span class="line">    Handler: &amp;helloHTTP1Handler&#123;&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">trpcS := rpc.NewServer()</span><br><span class="line">s.Register(&amp;ExampleRPCRcvr&#123;&#125;)</span><br><span class="line"></span><br><span class="line"><span class="comment">// 启动所有注册协议的服务</span></span><br><span class="line"><span class="keyword">go</span> grpcS.Serve(grpcL)</span><br><span class="line"><span class="keyword">go</span> httpS.Serve(httpL)</span><br><span class="line"><span class="keyword">go</span> trpcS.Serve(trpcL)</span><br><span class="line"></span><br><span class="line">m.Serve() <span class="comment">// 启动 cmux 服务实例</span></span><br></pre></td></tr></table></figure>
+
       
 
       
@@ -842,7 +659,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Java</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Go</a>
         		</li>
       		
 		</ul>
@@ -852,7 +669,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2018/12/16/SpEL/">展开全文 >></a>
+          <a class="article-more-a" href="/2021/01/20/cmux/">展开全文 >></a>
         </p>
       
 
@@ -882,29 +699,29 @@
 
 
   
-    <article id="post-缓存" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-context" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2018/11/27/缓存/">缓存</a>
+      <a class="article-title" href="/2020/07/20/context/">context</a>
     </h1>
   
 
         
-        <a href="/2018/11/27/缓存/" class="archive-article-date">
-  	<time datetime="2018-11-27T07:44:27.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-11-27</time>
+        <a href="/2020/07/20/context/" class="archive-article-date">
+  	<time datetime="2020-07-20T02:40:25.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-07-20</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>​    由于项目中使用了EhCache和Redis分别用作一、二级缓存，又对这个比较感兴趣，这几天花了点时间了解了一下，看了些网上关于这方面的博客，有点收获，做个笔记记录一下，码一下自己粗糙的理解。。。</p>
+        <p>Context：上下文。专门用来简化对于处理单个请求的多个goroutine之间与请求域的数据、取消信号、截止时间等相关操作</p>
         
-          <a class="article-more-a" href="/2018/11/27/缓存/#more">more >></a>
+          <a class="article-more-a" href="/2020/07/20/context/#more">more >></a>
         
       
 
@@ -918,7 +735,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">中间件</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Go</a>
         		</li>
       		
 		</ul>
@@ -928,7 +745,251 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2018/11/27/缓存/">展开全文 >></a>
+          <a class="article-more-a" href="/2020/07/20/context/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-http和https" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/06/20/http和https/">http和https</a>
+    </h1>
+  
+
+        
+        <a href="/2020/06/20/http和https/" class="archive-article-date">
+  	<time datetime="2020-06-20T04:48:54.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-06-20</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="http2-0-http1-1-http1-0区别"><a href="#http2-0-http1-1-http1-0区别" class="headerlink" title="http2.0 http1.1 http1.0区别"></a>http2.0 http1.1 http1.0区别</h2><p>http1.1和http1.0的区别：</p>
+<ol>
+<li>Host头处理</li>
+<li>http1.1支持长连接</li>
+<li>带宽优化</li>
+<li>错误通知的管理，在HTTP1.1中新增了24个错误状态响应码</li>
+<li>缓存处理</li>
+</ol>
+<p>http2.0和http1.1的区别：</p>
+<ol>
+<li>多路复用，多路复用允许单一的 HTTP/2 连接同时发起多重的请求-响应消息（单连接多资源的方式，减少服务端的链接压力,内存占用更少,连接吞吐量更大；由于减少TCP 慢启动时间，提高传输的速度）</li>
+<li>首部压缩</li>
+<li>http/2支持服务器推送资源</li>
+</ol>
+        
+          <a class="article-more-a" href="/2020/06/20/http和https/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">其他</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2020/06/20/http和https/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-Go" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/03/26/Go/">Go</a>
+    </h1>
+  
+
+        
+        <a href="/2020/03/26/Go/" class="archive-article-date">
+  	<time datetime="2020-03-26T13:00:43.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-03-26</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>Go日常使用记录</p>
+        
+          <a class="article-more-a" href="/2020/03/26/Go/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Go</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2020/03/26/Go/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-mysql" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/10/20/mysql/">mysql</a>
+    </h1>
+  
+
+        
+        <a href="/2019/10/20/mysql/" class="archive-article-date">
+  	<time datetime="2019-10-20T03:02:55.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-10-20</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>查看死锁：</p>
+<p>SELECT * FROM INFORMATION_SCHEMA.INNODB_TRX</p>
+<p>kill 线程ID（就是上面命令的trx_mysql_thread_id列）</p>
+<p>查看是否锁表show OPEN TABLES where In_use &gt; 0;</p>
+        
+          <a class="article-more-a" href="/2019/10/20/mysql/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">数据库</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2019/10/20/mysql/">展开全文 >></a>
         </p>
       
 
@@ -960,7 +1021,7 @@
   
   
     <nav id="page-nav">
-      <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
+      <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/5/">5</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
     </nav>
   
 
@@ -1055,155 +1116,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Git命令</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Json</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">atom</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">vim</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Linux基础知识笔记</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Ubuntu安装RabbitMQ</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">JUnit笔记</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">Maven笔记</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">Oracle存储过程笔记</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">rabbitMQ 笔记</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">TestNG笔记</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">正则表达式</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">SQL</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">表达式语言</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Markdown语法</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">annotation</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">java异常</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">java poi</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Ajax</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">鸟叔的Linux私房菜</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">学习笔记</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">mysql</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">excel</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">mybatis, AOP</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">velocity语法笔记</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">svn</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">随笔</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">指令备忘</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">mybatis</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">IDEA快捷键操作</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">tk.mapper</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">数据库</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">check style</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">通用Mapper拓展</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">设计模式笔记</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Spring</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Cache</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">其他</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">Go</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1211,11 +1128,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">运维</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">中间件</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">运维</a>
+                <a href="javascript:void(0)" class="js-tag color4">数据库</a>
               </li>
             
             <div class="clearfix"></div>
