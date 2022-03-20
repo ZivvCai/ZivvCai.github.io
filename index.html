@@ -189,13 +189,13 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2022/03/20/Gorm适配达梦/">Gorm适配达梦</a>
+      <a class="article-title" href="/2022/01/20/Gorm适配达梦/">Gorm适配达梦</a>
     </h1>
   
 
         
-        <a href="/2022/03/20/Gorm适配达梦/" class="archive-article-date">
-  	<time datetime="2022-03-20T13:09:16.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-03-20</time>
+        <a href="/2022/01/20/Gorm适配达梦/" class="archive-article-date">
+  	<time datetime="2022-01-20T07:09:16.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-01-20</time>
 </a>
         
       </header>
@@ -204,7 +204,7 @@
       
         <h3 id="gorm介绍"><a href="#gorm介绍" class="headerlink" title="gorm介绍"></a>gorm介绍</h3><p>orm框架：简单来说，就是维护实体类和数据库表的映射关系，提供简单、方便使用的api接口来构造和组织具体sql执行。gorm是Golang目前比较热门的orm库，我们项目中也基本都是使用的gorm，不过目前项目都还是使用的gorm v1版本，因此本次适配都是在v1版本基础上进行。</p>
         
-          <a class="article-more-a" href="/2022/03/20/Gorm适配达梦/#more">more >></a>
+          <a class="article-more-a" href="/2022/01/20/Gorm适配达梦/#more">more >></a>
         
       
 
@@ -228,7 +228,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2022/03/20/Gorm适配达梦/">展开全文 >></a>
+          <a class="article-more-a" href="/2022/01/20/Gorm适配达梦/">展开全文 >></a>
         </p>
       
 
@@ -265,13 +265,13 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2022/03/20/gRPC/">gRPC</a>
+      <a class="article-title" href="/2021/07/10/gRPC/">gRPC</a>
     </h1>
   
 
         
-        <a href="/2022/03/20/gRPC/" class="archive-article-date">
-  	<time datetime="2022-03-20T12:56:03.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-03-20</time>
+        <a href="/2021/07/10/gRPC/" class="archive-article-date">
+  	<time datetime="2021-07-10T02:56:03.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-07-10</time>
 </a>
         
       </header>
@@ -286,10 +286,9 @@
 <li>通过protobuf可以将数据序列化为二进制编码，能大幅度减少需要传输的数据量，从而提高性能</li>
 <li>gRPC可以方便的支持流式通信</li>
 </ol>
-<p>protobuf buffer是与编程语言无关、与平台无关的可拓展机制，用于序列化结构数据，是一种数据交换格式，gRPC使用protoc作为协议处理工具</p>
-<p>Protobuf是gRPC协议</p>
-<p>message定义一个protobuf buffer（用于结构化数据的开源机制），=1这些数字编号用于标识二进制格式字段（数据传输时会被压缩），当编号1-15时，存储编号只需一个字节，也就是message中最好不要超过15个字段</p>
-
+        
+          <a class="article-more-a" href="/2021/07/10/gRPC/#more">more >></a>
+        
       
 
       
@@ -312,7 +311,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2022/03/20/gRPC/">展开全文 >></a>
+          <a class="article-more-a" href="/2021/07/10/gRPC/">展开全文 >></a>
         </p>
       
 
@@ -366,57 +365,9 @@
 <p>环境准备</p>
 <p>docker、minikube、达梦docker镜像（官网下载之后可直接docker import导入）</p>
 <p>搭建docker本地私有仓库</p>
-<ol>
-<li><p>使用官方registry镜像来启动私有仓库</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker run -d -p 5000:5000 --restart=always --name registry registry:2</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>curl验证私有仓库镜像</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">curl 127.0.0.1:5000/v2/_catalog</span><br><span class="line">&#123;&quot;repositories&quot;:[&quot;&quot;]&#125;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>将下载好的镜像推送到私有镜像仓库</p>
-<ol>
-<li><p>查看本机ip（ifconfig en0）</p>
-</li>
-<li><p>docker配置文件修改（/etc/docker/daemon.json），mac的在如下位置修改，需要重启生效。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  &quot;debug&quot;: true,</span><br><span class="line">  &quot;experimental&quot;: false,</span><br><span class="line">  &quot;insecure-registries&quot;: [</span><br><span class="line">    &quot;10.91.40.49:5000&quot; #本机ip</span><br><span class="line">  ]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p><img src="C:/Data/LearnAndGain/LearnAndGain/Users/zivvcau/Library/Application%20Support/typora-user-images/image-20211219112819744.png" alt="image-20211219112819744"></p>
-</li>
-<li><p>使用docker tag标记镜像，格式为docker tag IMAGE[:TAG][REGISTRY_HOST[:REGISTRY_PORT]/]REPOSITORY[:TAG]</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker tag dm8:v01 10.91.40.49:5000/dm8-local (本机ip)</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>push镜像到本地私有仓库</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker tag dm8:v01 10.91.40.49:5000/dm8-local (本机ip)</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>再次使用curl验证私有仓库镜像，可以看到我们刚才push的镜像</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">curl 127.0.0.1:5000/v2/_catalog</span><br><span class="line">&#123;&quot;repositories&quot;:[&quot;dm8-local&quot;]&#125;</span><br></pre></td></tr></table></figure>
-</li>
-</ol>
-<p>minikube启动创建k8s</p>
-<ol>
-<li><p>配置启动minikube</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">minikube delete &amp;&amp; minikube start --registry-mirror=https://registry.docker-cn.com --insecure-registry=10.91.40.49:5000(本机ip)</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>k8s拉取本机私有仓库镜像配置</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">image: 10.91.40.49:5000/dm8-local</span><br><span class="line">imagePullPolicy: IfNotPresent</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>通过yaml文件使用kubectl进行部署（完整yaml文件见文末）</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">kubectl apply -f dm_deployment.yaml</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>查看pod是否启动正常，也可通过可视化界面查看</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"># kubectl查看</span><br><span class="line">kubectl get pod -n dmsql</span><br><span class="line">NAME                      READY   STATUS    RESTARTS   AGE</span><br><span class="line">dmsql-5ff446c755-7nskw    1/1     Running   1          10d</span><br><span class="line"></span><br><span class="line">kubectl exec -it dmsql-5ff446c755-7nskw -- /bin/bash </span><br><span class="line"></span><br><span class="line"># 可视化界面查看</span><br><span class="line">minikube dashboard</span><br></pre></td></tr></table></figure>
-<p><img src="C:/Data/LearnAndGain/LearnAndGain/Users/zivvcau/Library/Application%20Support/typora-user-images/image-20211219114625495.png" alt="image-20211219114625495"></p>
-</li>
-<li><p>登录pod之后在/dm8/bin下面有disql工具，可直接登录查看，默认账号密码为SYSDBA/SYSDBA</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">./disql SYSDBA/SYSDBA@localhost:5236</span><br></pre></td></tr></table></figure>
-</li>
-</ol>
-<p>注：目前dm8的版本还需要修复下log4j的漏洞，使用的是log4j-core-2.14.0.jar包，需要进行升级，具体jar包目录一般在这三个目录下，替换完之后需要重启服务。容器的话可以先临时去容器里面加上FORMAT_MESSAGES_PATTERN_DISABLE_LOOKUPS=true环境变量，或者等达梦官方修复之后使用新的镜像。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"># 替换该目录下对应jar包</span><br><span class="line">/dm8/tool/dropins/com.dameng/plugins/com.dameng.third/</span><br><span class="line">/dm8/tool/dmagent/lib/</span><br><span class="line">/dm8/uninstall/lib/</span><br><span class="line"># 重启服务</span><br><span class="line">cd /dm8/bin</span><br><span class="line">./DmServiceDMSERVER start/stop/restart</span><br></pre></td></tr></table></figure>
-</li>
-</ol>
-<p>dm_deployment.yaml文件内容如下：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br></pre></td><td class="code"><pre><span class="line">apiVersion: v1</span><br><span class="line">kind: Namespace</span><br><span class="line">metadata:</span><br><span class="line">  name: dmsql</span><br><span class="line">  labels:</span><br><span class="line">    name: dmsql</span><br><span class="line">---</span><br><span class="line">apiVersion: v1</span><br><span class="line">kind: Service</span><br><span class="line">metadata:</span><br><span class="line">  name: dmsql</span><br><span class="line">  namespace: dmsql</span><br><span class="line">spec:</span><br><span class="line">  type: NodePort</span><br><span class="line">  ports:</span><br><span class="line">    - port: 5236</span><br><span class="line">      nodePort: 30236</span><br><span class="line">      targetPort: dmsql</span><br><span class="line">  selector:</span><br><span class="line">    app: dmsql</span><br><span class="line">---</span><br><span class="line">apiVersion: apps/v1</span><br><span class="line">kind: Deployment</span><br><span class="line">metadata:</span><br><span class="line">  name: dmsql</span><br><span class="line">  namespace: dmsql</span><br><span class="line">spec:</span><br><span class="line">  selector:</span><br><span class="line">    matchLabels:</span><br><span class="line">      app: dmsql</span><br><span class="line">  strategy:</span><br><span class="line">    type: Recreate</span><br><span class="line">  template:</span><br><span class="line">    metadata:</span><br><span class="line">      labels:</span><br><span class="line">        app: dmsql</span><br><span class="line">    spec:</span><br><span class="line">      containers:</span><br><span class="line">        # 本地镜像，部署时需替换</span><br><span class="line">        - image: 10.91.40.49:5000/dm8-local</span><br><span class="line">          name: dmsql</span><br><span class="line">          imagePullPolicy: IfNotPresent</span><br><span class="line">          command: [&quot;./startDm.sh&quot;]</span><br><span class="line">          ports:</span><br><span class="line">            - containerPort: 5236</span><br><span class="line">              name: dmsql</span><br><span class="line">          volumeMounts:</span><br><span class="line">            - name: dmsql-persistent-storage</span><br><span class="line">              mountPath: /var/lib/dmsql</span><br><span class="line">      volumes:</span><br><span class="line">        - name: dmsql-persistent-storage</span><br><span class="line">          emptyDir: &#123;&#125;</span><br></pre></td></tr></table></figure>
-
+        
+          <a class="article-more-a" href="/2021/06/20/minikube从宿主机拉取镜像/#more">more >></a>
+        
       
 
       
@@ -476,13 +427,13 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2021/05/20/mongo/">mongo</a>
+      <a class="article-title" href="/2021/05/25/mongo/">mongo</a>
     </h1>
   
 
         
-        <a href="/2021/05/20/mongo/" class="archive-article-date">
-  	<time datetime="2021-05-20T13:07:26.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-05-20</time>
+        <a href="/2021/05/25/mongo/" class="archive-article-date">
+  	<time datetime="2021-05-25T13:07:26.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-05-25</time>
 </a>
         
       </header>
@@ -494,7 +445,7 @@
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">security</span><br><span class="line">  authorization: enabled</span><br></pre></td></tr></table></figure>
 <p>RBAC基于角色的权限控制</p>
         
-          <a class="article-more-a" href="/2021/05/20/mongo/#more">more >></a>
+          <a class="article-more-a" href="/2021/05/25/mongo/#more">more >></a>
         
       
 
@@ -518,7 +469,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2021/05/20/mongo/">展开全文 >></a>
+          <a class="article-more-a" href="/2021/05/25/mongo/">展开全文 >></a>
         </p>
       
 
