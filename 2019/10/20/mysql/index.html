@@ -15,7 +15,7 @@
 <meta property="og:url" content="http://yoursite.com/2019/10/20/mysql/index.html">
 <meta property="og:site_name" content="Blog">
 <meta property="og:description" content="查看死锁： SELECT * FROM INFORMATION_SCHEMA.INNODB_TRX kill 线程ID（就是上面命令的trx_mysql_thread_id列） 查看是否锁表show OPEN TABLES where In_use &amp;gt; 0;">
-<meta property="og:updated_time" content="2022-03-20T13:03:59.043Z">
+<meta property="og:updated_time" content="2022-11-14T23:25:03.894Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="mysql">
 <meta name="twitter:description" content="查看死锁： SELECT * FROM INFORMATION_SCHEMA.INNODB_TRX kill 线程ID（就是上面命令的trx_mysql_thread_id列） 查看是否锁表show OPEN TABLES where In_use &amp;gt; 0;">
@@ -272,7 +272,6 @@
 <p>[root@test01 ~]# cat /proc/cpuinfo |grep “processor”|wc -l<br>24</p>
 <p>③ 查看CPU是几核</p>
 <p>[root@test01 ~]# cat /proc/cpuinfo |grep “cores”|uniq<br>cpu cores    : 6</p>
-<p>mysql的锁，真奇葩。。</p>
 <p>next-key锁 ：record-lock + gap-lock 所以是左开右闭</p>
 <p>加锁都是和索引有关，如果一个锁定读不能命中索引，则会退化为表锁（全表扫描全行加锁，也就类似表锁了）</p>
 <p>主键索引（聚簇索引）/唯一索引</p>
@@ -514,6 +513,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">Go,数据库</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">Java</a>
               </li>
              
@@ -527,6 +530,14 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">中间件</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">网络</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">K8s</a>
               </li>
             
             <div class="clearfix"></div>

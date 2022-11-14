@@ -8,17 +8,17 @@
   <link rel="dns-prefetch" href="http://yoursite.com">
   <title>mybatis插件和AOP拦截小记 | Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="mybatis插件具体笔记和使用往前面翻。。。这里只记一个再次使用过程中的例子  关于拦截DAO层的insert方法以及delete方法，由于在Executor.class中只有update方法和query方法等等，没有找到insert以及delete方法，于是去看了看SqlSession中insert以及delete方法的实现，源码如下(默认采用DefaultSqlSession实现)：">
+  <meta name="description" content="mybatis插件具体笔记和使用往前面翻。这里只记一个再次使用过程中的例子  关于拦截DAO层的insert方法以及delete方法，由于在Executor.class中只有update方法和query方法等等，没有找到insert以及delete方法，于是去看了看SqlSession中insert以及delete方法的实现，源码如下(默认采用DefaultSqlSession实现)：">
 <meta name="keywords" content="Java">
 <meta property="og:type" content="article">
 <meta property="og:title" content="mybatis插件和AOP拦截小记">
 <meta property="og:url" content="http://yoursite.com/2019/01/19/mybatis插件和AOP拦截小记/index.html">
 <meta property="og:site_name" content="Blog">
-<meta property="og:description" content="mybatis插件具体笔记和使用往前面翻。。。这里只记一个再次使用过程中的例子  关于拦截DAO层的insert方法以及delete方法，由于在Executor.class中只有update方法和query方法等等，没有找到insert以及delete方法，于是去看了看SqlSession中insert以及delete方法的实现，源码如下(默认采用DefaultSqlSession实现)：">
-<meta property="og:updated_time" content="2022-03-16T00:27:44.637Z">
+<meta property="og:description" content="mybatis插件具体笔记和使用往前面翻。这里只记一个再次使用过程中的例子  关于拦截DAO层的insert方法以及delete方法，由于在Executor.class中只有update方法和query方法等等，没有找到insert以及delete方法，于是去看了看SqlSession中insert以及delete方法的实现，源码如下(默认采用DefaultSqlSession实现)：">
+<meta property="og:updated_time" content="2022-11-14T23:26:31.054Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="mybatis插件和AOP拦截小记">
-<meta name="twitter:description" content="mybatis插件具体笔记和使用往前面翻。。。这里只记一个再次使用过程中的例子  关于拦截DAO层的insert方法以及delete方法，由于在Executor.class中只有update方法和query方法等等，没有找到insert以及delete方法，于是去看了看SqlSession中insert以及delete方法的实现，源码如下(默认采用DefaultSqlSession实现)：">
+<meta name="twitter:description" content="mybatis插件具体笔记和使用往前面翻。这里只记一个再次使用过程中的例子  关于拦截DAO层的insert方法以及delete方法，由于在Executor.class中只有update方法和query方法等等，没有找到insert以及delete方法，于是去看了看SqlSession中insert以及delete方法的实现，源码如下(默认采用DefaultSqlSession实现)：">
   
     <link rel="alternative" href="/atom.xml" title="Blog" type="application/atom+xml">
   
@@ -202,7 +202,7 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h5 id="mybatis插件"><a href="#mybatis插件" class="headerlink" title="mybatis插件"></a>mybatis插件</h5><p>具体笔记和使用往前面翻。。。这里只记一个再次使用过程中的例子</p>
+        <h5 id="mybatis插件"><a href="#mybatis插件" class="headerlink" title="mybatis插件"></a>mybatis插件</h5><p>具体笔记和使用往前面翻。这里只记一个再次使用过程中的例子</p>
 <ul>
 <li>关于拦截DAO层的insert方法以及delete方法，由于在Executor.class中只有update方法和query方法等等，没有找到insert以及delete方法，于是去看了看SqlSession中insert以及delete方法的实现，源码如下(默认采用DefaultSqlSession实现)：</li>
 </ul>
@@ -503,6 +503,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">Go,数据库</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">Java</a>
               </li>
              
@@ -516,6 +520,14 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">中间件</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">网络</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">K8s</a>
               </li>
             
             <div class="clearfix"></div>

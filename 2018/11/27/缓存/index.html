@@ -6,19 +6,19 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>缓存 | Blog</title>
+  <title>缓存实操 | Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="​    由于项目中使用了EhCache和Redis分别用作一、二级缓存，又对这个比较感兴趣，这几天花了点时间了解了一下，看了些网上关于这方面的博客，有点收获，做个笔记记录一下，码一下自己粗糙的理解。。。">
+  <meta name="description" content="​    由于项目中使用了EhCache和Redis分别用作一、二级缓存，又对这个比较感兴趣，这几天花了点时间了解了一下，看了些网上关于这方面的博客，有点收获，做个笔记记录一下，码一下自己粗糙的理解。">
 <meta name="keywords" content="中间件">
 <meta property="og:type" content="article">
-<meta property="og:title" content="缓存">
+<meta property="og:title" content="缓存实操">
 <meta property="og:url" content="http://yoursite.com/2018/11/27/缓存/index.html">
 <meta property="og:site_name" content="Blog">
-<meta property="og:description" content="​    由于项目中使用了EhCache和Redis分别用作一、二级缓存，又对这个比较感兴趣，这几天花了点时间了解了一下，看了些网上关于这方面的博客，有点收获，做个笔记记录一下，码一下自己粗糙的理解。。。">
-<meta property="og:updated_time" content="2022-03-16T00:29:57.448Z">
+<meta property="og:description" content="​    由于项目中使用了EhCache和Redis分别用作一、二级缓存，又对这个比较感兴趣，这几天花了点时间了解了一下，看了些网上关于这方面的博客，有点收获，做个笔记记录一下，码一下自己粗糙的理解。">
+<meta property="og:updated_time" content="2022-11-14T23:58:52.548Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="缓存">
-<meta name="twitter:description" content="​    由于项目中使用了EhCache和Redis分别用作一、二级缓存，又对这个比较感兴趣，这几天花了点时间了解了一下，看了些网上关于这方面的博客，有点收获，做个笔记记录一下，码一下自己粗糙的理解。。。">
+<meta name="twitter:title" content="缓存实操">
+<meta name="twitter:description" content="​    由于项目中使用了EhCache和Redis分别用作一、二级缓存，又对这个比较感兴趣，这几天花了点时间了解了一下，看了些网上关于这方面的博客，有点收获，做个笔记记录一下，码一下自己粗糙的理解。">
   
     <link rel="alternative" href="/atom.xml" title="Blog" type="application/atom+xml">
   
@@ -189,7 +189,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      缓存
+      缓存实操
     </h1>
   
 
@@ -202,7 +202,7 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>​    由于项目中使用了EhCache和Redis分别用作一、二级缓存，又对这个比较感兴趣，这几天花了点时间了解了一下，看了些网上关于这方面的博客，有点收获，做个笔记记录一下，码一下自己粗糙的理解。。。</p>
+        <p>​    由于项目中使用了EhCache和Redis分别用作一、二级缓存，又对这个比较感兴趣，这几天花了点时间了解了一下，看了些网上关于这方面的博客，有点收获，做个笔记记录一下，码一下自己粗糙的理解。</p>
 <a id="more"></a>
 <h4 id="关于缓存"><a href="#关于缓存" class="headerlink" title="关于缓存"></a>关于缓存</h4><p>​    缓存是将那些经常读取且不经常修改的数据或者那些复杂IO、数据读取等耗时操作获取到的数据暂存起来，等到下次需要这些数据时，先从缓存中读取数据，如果没找到则从内存或数据库或磁盘中去查找数据。对于一个服务，其性能瓶颈往往都在DB，尤其是使用传统的关系型数据库进行存储时，缓存的目的是为了提高性能，使用EhCache作为一级缓存，意味着当请求数据时，会先去EhCache中去查找数据，未找到时便去二级缓存Redis中去查找，还未找到便去数据库中查找，查找速度EhCache&gt;Redis&gt;&gt;关系数据库（内存&gt;&gt;磁盘）。</p>
 <p><strong>缓存命中率</strong> = 从缓存中读取次数/总读取次数（从缓存中读取次数+从慢速设备中读取次数）</p>
@@ -474,6 +474,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">Go,数据库</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">Java</a>
               </li>
              
@@ -487,6 +491,14 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">中间件</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">网络</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">K8s</a>
               </li>
             
             <div class="clearfix"></div>
