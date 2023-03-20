@@ -182,27 +182,31 @@
           <div id="js-content" class="content-ll">
             
   
-    <article id="post-K8s" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-mysql学习笔记（1）-存储引擎-md" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2021/09/11/K8s/">K8s</a>
+      <a class="article-title" href="/2021/11/14/mysql学习笔记（1）-存储引擎-md/">mysql学习笔记（1）--存储引擎</a>
     </h1>
   
 
         
-        <a href="/2021/09/11/K8s/" class="archive-article-date">
-  	<time datetime="2021-09-11T03:05:31.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-09-11</time>
+        <a href="/2021/11/14/mysql学习笔记（1）-存储引擎-md/" class="archive-article-date">
+  	<time datetime="2021-11-13T23:55:52.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-11-14</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h3 id="K8s介绍"><a href="#K8s介绍" class="headerlink" title="K8s介绍"></a>K8s介绍</h3><h3 id="基础组件"><a href="#基础组件" class="headerlink" title="基础组件"></a>基础组件</h3><h3 id="常用命令"><a href="#常用命令" class="headerlink" title="常用命令"></a>常用命令</h3>
+        <h3 id="Mysql常用的存储引擎"><a href="#Mysql常用的存储引擎" class="headerlink" title="Mysql常用的存储引擎"></a>Mysql常用的存储引擎</h3><p>所谓存储引擎，就是提供存取真实数据的功能。</p>
+<p>Mysql查看当前服务器支持的存储引擎命令<figure class="highlight plain"><figcaption><span>ENGINES``` 根据SUPPORT列判断即可。</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">设置表的存储引擎</span><br><span class="line"></span><br><span class="line">```mysql</span><br><span class="line">CREATE TABLE 表名(</span><br><span class="line">建表语句;</span><br><span class="line">) ENGINE = 存储引擎名称;</span><br><span class="line"></span><br><span class="line">ALTER TABLE 表名 ENGINE = 存储引擎名称;</span><br></pre></td></tr></table></figure></p>
+        
+          <a class="article-more-a" href="/2021/11/14/mysql学习笔记（1）-存储引擎-md/#more">more >></a>
+        
       
 
       
@@ -215,7 +219,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">运维</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">数据库</a>
         		</li>
       		
 		</ul>
@@ -225,7 +229,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2021/09/11/K8s/">展开全文 >></a>
+          <a class="article-more-a" href="/2021/11/14/mysql学习笔记（1）-存储引擎-md/">展开全文 >></a>
         </p>
       
 
@@ -255,27 +259,32 @@
 
 
   
-    <article id="post-docker" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-kong" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2021/08/15/docker/">docker</a>
+      <a class="article-title" href="/2021/07/23/kong/">Kong</a>
     </h1>
   
 
         
-        <a href="/2021/08/15/docker/" class="archive-article-date">
-  	<time datetime="2021-08-15T00:05:25.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-08-15</time>
+        <a href="/2021/07/23/kong/" class="archive-article-date">
+  	<time datetime="2021-07-23T00:23:27.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-07-23</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h3 id="Docker介绍"><a href="#Docker介绍" class="headerlink" title="Docker介绍"></a>Docker介绍</h3><h4 id="镜像仓库"><a href="#镜像仓库" class="headerlink" title="镜像仓库"></a>镜像仓库</h4><h4 id="容器网络"><a href="#容器网络" class="headerlink" title="容器网络"></a>容器网络</h4><h4 id="使用示例"><a href="#使用示例" class="headerlink" title="使用示例"></a>使用示例</h4>
+        <h3 id="Kong网关"><a href="#Kong网关" class="headerlink" title="Kong网关"></a>Kong网关</h3><p>Kong是一款基于OpenResty（Nginx + Lua模块）编写的高可用、易扩展的开源网关。</p>
+<p>Kong是基于NGINX和Apache Cassandra或PostgreSQL构建的，能提供易于使用的RESTful API来操作和配置API管理系统，所以它可以水平扩展多个Kong服务器，通过前置的负载均衡配置把请求均匀地分发到各个Server，来应对大批量的网络请求。 </p>
+<p>Kong是一个在 Nginx 中运行的Lua应用程序，并且可以通过lua-nginx模块实现，Kong不是用这个模块编译Nginx，而是 OpenResty 一起发布，OpenResty已经包含了 lua-nginx-module， OpenResty 不是 Nginx的分支，而是一组扩展其功能的模块。它的核心是实现数据库抽象，路由和插件管理，插件可以存在于单独的代码库中，并且可以在几行代码中注入到请求生命周期的任何位置。</p>
+        
+          <a class="article-more-a" href="/2021/07/23/kong/#more">more >></a>
+        
       
 
       
@@ -288,7 +297,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">运维</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">中间件</a>
         		</li>
       		
 		</ul>
@@ -298,7 +307,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2021/08/15/docker/">展开全文 >></a>
+          <a class="article-more-a" href="/2021/07/23/kong/">展开全文 >></a>
         </p>
       
 
@@ -666,8 +675,9 @@
     <div class="article-entry" itemprop="articleBody">
       
         <p>仅监听一个端口，然后根据注册的 <strong>协议匹配器（matcher）</strong> 找到对应协议的通信框架</p>
-<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 创建监听端口的 Listener</span></span><br><span class="line">l, err := net.Listen(<span class="string">"tcp"</span>, <span class="string">":23456"</span>)</span><br><span class="line"><span class="keyword">if</span> err != <span class="literal">nil</span> &#123;</span><br><span class="line">    log.Fatal(err)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 根据创建成功的 Listener 初始化 cmux 实例</span></span><br><span class="line">m := cmux.New(l)</span><br><span class="line"></span><br><span class="line"><span class="comment">// 注册不同协议的 *协议匹配器*</span></span><br><span class="line">grpcL := m.Match(cmux.HTTP2HeaderField(<span class="string">"context-type"</span>, <span class="string">"application/grpc"</span>)) <span class="comment">// 使用 context-type 标识为 grpc 协议</span></span><br><span class="line">httpL := m.Match(cmux.HTTP1Fast()) <span class="comment">// 使用 cmux 内置函数标识 http1 协议</span></span><br><span class="line">trpcL := m.Match(cmux.Any()) <span class="comment">// 使用 Any 函数匹配未匹配的任意协议</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 初始化不同协议的服务实例</span></span><br><span class="line">grpcS := grpc.NewServer()</span><br><span class="line">grpchello.RegisterGreeterServer(grpcs, &amp;server&#123;&#125;)</span><br><span class="line"></span><br><span class="line">httpS := http.Server&#123;</span><br><span class="line">    Handler: &amp;helloHTTP1Handler&#123;&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">trpcS := rpc.NewServer()</span><br><span class="line">s.Register(&amp;ExampleRPCRcvr&#123;&#125;)</span><br><span class="line"></span><br><span class="line"><span class="comment">// 启动所有注册协议的服务</span></span><br><span class="line"><span class="keyword">go</span> grpcS.Serve(grpcL)</span><br><span class="line"><span class="keyword">go</span> httpS.Serve(httpL)</span><br><span class="line"><span class="keyword">go</span> trpcS.Serve(trpcL)</span><br><span class="line"></span><br><span class="line">m.Serve() <span class="comment">// 启动 cmux 服务实例</span></span><br></pre></td></tr></table></figure>
-
+        
+          <a class="article-more-a" href="/2021/01/20/cmux/#more">more >></a>
+        
       
 
       
@@ -720,6 +730,171 @@
 
 
   
+    <article id="post-关于秒杀场景的一点思考" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/11/24/关于秒杀场景的一点思考/">关于秒杀场景的一点思考</a>
+    </h1>
+  
+
+        
+        <a href="/2020/11/24/关于秒杀场景的一点思考/" class="archive-article-date">
+  	<time datetime="2020-11-23T23:29:23.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-11-24</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <blockquote>
+<p>最近在选课的业务中有遇到秒杀场景的设计及线上实践，这里稍微记录下实现和总结</p>
+</blockquote>
+<p>秒杀场景是生活中比较常见的场景，大到电商大促，小到学校抢课，都会有秒杀场景的出现。这类场景的主要特点就是瞬时流量高、高并发、需要防止超卖等，针对这些特定需要做一下针对性的措施来应对。</p>
+<p>下面就介绍一下我们这个小选课应用的秒杀场景设计。</p>
+        
+          <a class="article-more-a" href="/2020/11/24/关于秒杀场景的一点思考/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">其他</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2020/11/24/关于秒杀场景的一点思考/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-分布式锁" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/10/17/分布式锁/">分布式锁</a>
+    </h1>
+  
+
+        
+        <a href="/2020/10/17/分布式锁/" class="archive-article-date">
+  	<time datetime="2020-10-17T15:08:23.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-10-17</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h4 id="分布式锁"><a href="#分布式锁" class="headerlink" title="分布式锁"></a>分布式锁</h4><p>分布式锁也就是分布式系统中的锁。相对单个应用来说，通过锁来进行对共享资源的控制，而对于分布式应用来说，则是通过分布式锁来进行对共享资源的控制。一般会借助第三方组件来进行实现。</p>
+<p>分布式锁具有的特性：</p>
+<ul>
+<li><p>在分布系统内一个时间点只能有一台机器能获取到锁</p>
+</li>
+<li><p>能够高性能的获取和释放锁</p>
+</li>
+<li>具备可重入、非阻塞的特性，同一个机器能多次获取同一个锁，其他获取不到锁的机器能感知到失败而不必等待</li>
+<li>具备锁失效机制，自动解锁，防止死锁</li>
+</ul>
+        
+          <a class="article-more-a" href="/2020/10/17/分布式锁/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">中间件</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2020/10/17/分布式锁/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-context" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -741,6 +916,15 @@
     <div class="article-entry" itemprop="articleBody">
       
         <p>Context：上下文。专门用来简化对于处理单个请求的多个goroutine之间与请求域的数据、取消信号、截止时间等相关操作</p>
+<p>使用原则：</p>
+<ol>
+<li>对第三方调用要传入 context，用于控制远程调用</li>
+<li>不要把Context放在结构体中，要以参数的方式传递，parent Context一般为Background</li>
+<li>应该要把Context作为第一个参数传递给入口请求和出口请求链路上的每一个函数，放在第一位，变量名建议都统一，如ctx</li>
+<li>给一个函数方法传递Context的时候，不要传递nil，否则在tarce追踪的时候，就会断了连接</li>
+<li>Context的Value相关方法应该传递必须的数据，不要什么数据都使用这个传递，可用于trace调用栈追踪，也可以存鉴权信息，jwt.Claim等</li>
+<li>Context是线程安全的，可以放心的在多个goroutine中传递，对它执行 取消 操作时，所有 goroutine 都会接收到取消信号</li>
+</ol>
         
           <a class="article-more-a" href="/2020/07/20/context/#more">more >></a>
         
@@ -796,172 +980,6 @@
 
 
   
-    <article id="post-redis" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/07/03/redis/">redis学习笔记</a>
-    </h1>
-  
-
-        
-        <a href="/2020/07/03/redis/" class="archive-article-date">
-  	<time datetime="2020-07-03T12:19:38.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-07-03</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>redis具有单机10w QPS的高性能key/value数据库，一般用来做缓存、分布式锁等用途。</p>
-<p>以下做下redis的相关介绍和笔记，持续更新</p>
-        
-          <a class="article-more-a" href="/2020/07/03/redis/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">中间件</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/07/03/redis/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-http和https" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/06/20/http和https/">http和https</a>
-    </h1>
-  
-
-        
-        <a href="/2020/06/20/http和https/" class="archive-article-date">
-  	<time datetime="2020-06-20T04:48:54.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-06-20</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="http2-0-http1-1-http1-0区别"><a href="#http2-0-http1-1-http1-0区别" class="headerlink" title="http2.0 http1.1 http1.0区别"></a>http2.0 http1.1 http1.0区别</h2><p>http1.1和http1.0的区别：</p>
-<ol>
-<li>Host头处理</li>
-<li>http1.1支持长连接</li>
-<li>带宽优化</li>
-<li>错误通知的管理，在HTTP1.1中新增了24个错误状态响应码</li>
-<li>缓存处理</li>
-</ol>
-<p>http2.0和http1.1的区别：</p>
-<ol>
-<li>多路复用，多路复用允许单一的 HTTP/2 连接同时发起多重的请求-响应消息（单连接多资源的方式，减少服务端的链接压力,内存占用更少,连接吞吐量更大；由于减少TCP 慢启动时间，提高传输的速度）</li>
-<li>首部压缩</li>
-<li>http/2支持服务器推送资源</li>
-</ol>
-        
-          <a class="article-more-a" href="/2020/06/20/http和https/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">网络</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/06/20/http和https/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
   
     <nav id="page-nav">
       <a class="extend prev" rel="prev" href="/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><span class="space">&hellip;</span><a class="page-number" href="/page/6/">6</a><a class="extend next" rel="next" href="/page/3/">Next &raquo;</a>
@@ -976,7 +994,7 @@
   <div class="outer">
     <div id="footer-info">
     	<div class="footer-left">
-    		&copy; 2022 ZivvCai
+    		&copy; 2023 ZivvCai
     	</div>
       	<div class="footer-right">
       		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
@@ -1063,7 +1081,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">网络</a>
+                <a href="javascript:void(0)" class="js-tag color3">Go</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1071,19 +1089,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">运维</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">Go</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">Java</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">数据库</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1091,7 +1097,23 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">数据库</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">运维</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">网络</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">K8s</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">java</a>
               </li>
             
             <div class="clearfix"></div>

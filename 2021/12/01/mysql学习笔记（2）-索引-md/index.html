@@ -6,18 +6,18 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>mysql学习笔记（2）--索引.md | Blog</title>
+  <title>mysql学习笔记（2）--索引 | Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="InnoDB索引方案innodb的索引有hash索引和B+数索引，以页为单位进行存储，索引即数据，按数据存放格式存放的索引，只是行记录的类型不同而已。 聚簇索引主键索引，InnoDB引擎会主动创建，没有主键列和唯一索引会自动增加隐藏主键列  使用记录主键值的大小进行记录和页的排序 B+树的叶子节点存储的是完整的用户记录，包含了隐藏列 聚簇索引就是数据的存放方式">
 <meta name="keywords" content="数据库">
 <meta property="og:type" content="article">
-<meta property="og:title" content="mysql学习笔记（2）--索引.md">
+<meta property="og:title" content="mysql学习笔记（2）--索引">
 <meta property="og:url" content="http://yoursite.com/2021/12/01/mysql学习笔记（2）-索引-md/index.html">
 <meta property="og:site_name" content="Blog">
 <meta property="og:description" content="InnoDB索引方案innodb的索引有hash索引和B+数索引，以页为单位进行存储，索引即数据，按数据存放格式存放的索引，只是行记录的类型不同而已。 聚簇索引主键索引，InnoDB引擎会主动创建，没有主键列和唯一索引会自动增加隐藏主键列  使用记录主键值的大小进行记录和页的排序 B+树的叶子节点存储的是完整的用户记录，包含了隐藏列 聚簇索引就是数据的存放方式">
-<meta property="og:updated_time" content="2022-11-17T15:03:27.479Z">
+<meta property="og:updated_time" content="2023-03-19T03:31:24.767Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="mysql学习笔记（2）--索引.md">
+<meta name="twitter:title" content="mysql学习笔记（2）--索引">
 <meta name="twitter:description" content="InnoDB索引方案innodb的索引有hash索引和B+数索引，以页为单位进行存储，索引即数据，按数据存放格式存放的索引，只是行记录的类型不同而已。 聚簇索引主键索引，InnoDB引擎会主动创建，没有主键列和唯一索引会自动增加隐藏主键列  使用记录主键值的大小进行记录和页的排序 B+树的叶子节点存储的是完整的用户记录，包含了隐藏列 聚簇索引就是数据的存放方式">
   
     <link rel="alternative" href="/atom.xml" title="Blog" type="application/atom+xml">
@@ -189,7 +189,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      mysql学习笔记（2）--索引.md
+      mysql学习笔记（2）--索引
     </h1>
   
 
@@ -217,6 +217,7 @@
 <li>目录项记录中不再是主键+页号的搭配，而变成了索引列+页号的搭配</li>
 </ul>
 <h4 id="联合索引"><a href="#联合索引" class="headerlink" title="联合索引"></a>联合索引</h4><p>多个列组成的二级索引</p>
+<h4 id="索引下推"><a href="#索引下推" class="headerlink" title="索引下推"></a>索引下推</h4><p>mysql 5.6的功能，为了减少回表次数，会将索引有关的搜索条件下推到存储引擎中判断，而不是返回server层再判断，只会发生在二级索引中（Using Index Condition）（a,b,c索引，where a=xxx and c=xxx会触发索引下推，先在引擎层判断过滤之后再回表返回server层）</p>
 <p><strong>由于索引会存放数据，如果索引的数据能满足查询的需要，则不需要回表，这样的索引称为覆盖索引。</strong></p>
 <h4 id="唯一索引"><a href="#唯一索引" class="headerlink" title="唯一索引"></a>唯一索引</h4><p>索引列的值不能重复，但是可以允许NULL值，这在有NULL值的唯一索引列时候需要特别注意</p>
 <h3 id="MyISAM索引方案"><a href="#MyISAM索引方案" class="headerlink" title="MyISAM索引方案"></a>MyISAM索引方案</h3><p>索引是索引，数据是数据</p>
@@ -244,6 +245,14 @@
 <li>B+树查询效率更高。B+树使用双向链表串连所有叶子节点，区间查询效率更高（因为所有数据都在B+树的叶子节点，扫描数据库 只需扫一遍叶子结点就行了），但是B树则需要通过中序遍历才能完成查询范围的查找。</li>
 <li>B+树查询效率更稳定。B+树每次都必须查询到叶子节点才能找到数据，而B树查询的数据可能不在叶子节点，也可能在，这样就会造成查询的效率的不稳定</li>
 <li>B+树的磁盘读写代价更小。B+树的内部节点并没有指向关键字具体信息的指针，因此其内部节点相对B树更小，通常B+树矮更胖，高度小查询产生的I/O更少。</li>
+</ol>
+<h3 id="索引失效"><a href="#索引失效" class="headerlink" title="索引失效"></a>索引失效</h3><ol>
+<li>模糊匹配（like “%xx” 或者 like “%xx%”)</li>
+<li>对索引列使用函数（length(xx)=6）</li>
+<li>对索引列进行表达式计算</li>
+<li>对索引进行隐式类型转换</li>
+<li>联合索引非最左匹配</li>
+<li>where子句中的or，有条件不是索引列</li>
 </ol>
 
       
@@ -328,18 +337,18 @@
   
 <nav id="article-nav">
   
-    <a href="/2021/12/11/istio/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2021/12/27/mysql学习笔记（3）-事务-md/" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
-          istio.md
+          mysql学习笔记（3）--事务
         
       </div>
     </a>
   
   
     <a href="/2021/11/14/mysql学习笔记（1）-存储引擎-md/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">mysql学习笔记（1）--存储引擎.md</div>
+      <div class="article-nav-title">mysql学习笔记（1）--存储引擎</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -382,7 +391,7 @@
   <div class="outer">
     <div id="footer-info">
     	<div class="footer-left">
-    		&copy; 2022 ZivvCai
+    		&copy; 2023 ZivvCai
     	</div>
       	<div class="footer-right">
       		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
@@ -469,7 +478,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">网络</a>
+                <a href="javascript:void(0)" class="js-tag color3">Go</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -477,19 +486,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">运维</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">Go</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">Java</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">数据库</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -497,7 +494,23 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">数据库</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">运维</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">网络</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">K8s</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">java</a>
               </li>
             
             <div class="clearfix"></div>

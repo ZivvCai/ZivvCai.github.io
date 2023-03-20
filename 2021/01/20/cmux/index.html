@@ -8,17 +8,17 @@
   <link rel="dns-prefetch" href="http://yoursite.com">
   <title>cmux | Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="仅监听一个端口，然后根据注册的 协议匹配器（matcher） 找到对应协议的通信框架 12345678910111213141516171819202122232425262728293031// 创建监听端口的 Listenerl, err := net.Listen(&quot;tcp&quot;, &quot;:23456&quot;)if err != nil &amp;#123;    log.Fatal(err)&amp;#125;// 根">
+  <meta name="description" content="仅监听一个端口，然后根据注册的 协议匹配器（matcher） 找到对应协议的通信框架">
 <meta name="keywords" content="Go">
 <meta property="og:type" content="article">
 <meta property="og:title" content="cmux">
 <meta property="og:url" content="http://yoursite.com/2021/01/20/cmux/index.html">
 <meta property="og:site_name" content="Blog">
-<meta property="og:description" content="仅监听一个端口，然后根据注册的 协议匹配器（matcher） 找到对应协议的通信框架 12345678910111213141516171819202122232425262728293031// 创建监听端口的 Listenerl, err := net.Listen(&quot;tcp&quot;, &quot;:23456&quot;)if err != nil &amp;#123;    log.Fatal(err)&amp;#125;// 根">
-<meta property="og:updated_time" content="2022-03-20T12:43:52.256Z">
+<meta property="og:description" content="仅监听一个端口，然后根据注册的 协议匹配器（matcher） 找到对应协议的通信框架">
+<meta property="og:updated_time" content="2023-03-20T01:39:55.582Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="cmux">
-<meta name="twitter:description" content="仅监听一个端口，然后根据注册的 协议匹配器（matcher） 找到对应协议的通信框架 12345678910111213141516171819202122232425262728293031// 创建监听端口的 Listenerl, err := net.Listen(&quot;tcp&quot;, &quot;:23456&quot;)if err != nil &amp;#123;    log.Fatal(err)&amp;#125;// 根">
+<meta name="twitter:description" content="仅监听一个端口，然后根据注册的 协议匹配器（matcher） 找到对应协议的通信框架">
   
     <link rel="alternative" href="/atom.xml" title="Blog" type="application/atom+xml">
   
@@ -203,6 +203,7 @@
     <div class="article-entry" itemprop="articleBody">
       
         <p>仅监听一个端口，然后根据注册的 <strong>协议匹配器（matcher）</strong> 找到对应协议的通信框架</p>
+<a id="more"></a>
 <figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 创建监听端口的 Listener</span></span><br><span class="line">l, err := net.Listen(<span class="string">"tcp"</span>, <span class="string">":23456"</span>)</span><br><span class="line"><span class="keyword">if</span> err != <span class="literal">nil</span> &#123;</span><br><span class="line">    log.Fatal(err)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 根据创建成功的 Listener 初始化 cmux 实例</span></span><br><span class="line">m := cmux.New(l)</span><br><span class="line"></span><br><span class="line"><span class="comment">// 注册不同协议的 *协议匹配器*</span></span><br><span class="line">grpcL := m.Match(cmux.HTTP2HeaderField(<span class="string">"context-type"</span>, <span class="string">"application/grpc"</span>)) <span class="comment">// 使用 context-type 标识为 grpc 协议</span></span><br><span class="line">httpL := m.Match(cmux.HTTP1Fast()) <span class="comment">// 使用 cmux 内置函数标识 http1 协议</span></span><br><span class="line">trpcL := m.Match(cmux.Any()) <span class="comment">// 使用 Any 函数匹配未匹配的任意协议</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 初始化不同协议的服务实例</span></span><br><span class="line">grpcS := grpc.NewServer()</span><br><span class="line">grpchello.RegisterGreeterServer(grpcs, &amp;server&#123;&#125;)</span><br><span class="line"></span><br><span class="line">httpS := http.Server&#123;</span><br><span class="line">    Handler: &amp;helloHTTP1Handler&#123;&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">trpcS := rpc.NewServer()</span><br><span class="line">s.Register(&amp;ExampleRPCRcvr&#123;&#125;)</span><br><span class="line"></span><br><span class="line"><span class="comment">// 启动所有注册协议的服务</span></span><br><span class="line"><span class="keyword">go</span> grpcS.Serve(grpcL)</span><br><span class="line"><span class="keyword">go</span> httpS.Serve(httpL)</span><br><span class="line"><span class="keyword">go</span> trpcS.Serve(trpcL)</span><br><span class="line"></span><br><span class="line">m.Serve() <span class="comment">// 启动 cmux 服务实例</span></span><br></pre></td></tr></table></figure>
 
       
@@ -297,8 +298,8 @@
     </a>
   
   
-    <a href="/2020/07/20/context/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">context</div>
+    <a href="/2020/11/24/关于秒杀场景的一点思考/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">关于秒杀场景的一点思考</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -341,7 +342,7 @@
   <div class="outer">
     <div id="footer-info">
     	<div class="footer-left">
-    		&copy; 2022 ZivvCai
+    		&copy; 2023 ZivvCai
     	</div>
       	<div class="footer-right">
       		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
@@ -428,7 +429,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">网络</a>
+                <a href="javascript:void(0)" class="js-tag color3">Go</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -436,19 +437,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">运维</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">Go</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">Java</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">数据库</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -456,7 +445,23 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">数据库</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">运维</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">网络</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">K8s</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">java</a>
               </li>
             
             <div class="clearfix"></div>

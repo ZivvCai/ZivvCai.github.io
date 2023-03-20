@@ -8,17 +8,17 @@
   <link rel="dns-prefetch" href="http://yoursite.com">
   <title>mysql学习笔记（4）--隔离级别和MVCC | Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="�����Ҹ��� Ī��������������������������Ӧ��">
+  <meta name="description" content="事务并发的一致性问题 脏写：一个事务修改了另一个未提交事务修改的数据 脏读：一个事务读到了另一个未提交事务修改的数据 不可重复读：一个事务修改了另一个未提交事务读取的数据，也就是一个事务两次读取数据不一致 幻读：主要是针对范围数据查询，第二次读取查到了不同的数据  事务的隔离级别 READ UNCOMMITED：读未提交 READ COMMITED：读提交 REPEATABLE READ：可重复读">
 <meta name="keywords" content="数据库">
 <meta property="og:type" content="article">
 <meta property="og:title" content="mysql学习笔记（4）--隔离级别和MVCC">
 <meta property="og:url" content="http://yoursite.com/2022/01/06/mysql学习笔记（4）-隔离级别和MVCC/index.html">
 <meta property="og:site_name" content="Blog">
-<meta property="og:description" content="�����Ҹ��� Ī��������������������������Ӧ��">
-<meta property="og:updated_time" content="2022-11-17T15:04:01.028Z">
+<meta property="og:description" content="事务并发的一致性问题 脏写：一个事务修改了另一个未提交事务修改的数据 脏读：一个事务读到了另一个未提交事务修改的数据 不可重复读：一个事务修改了另一个未提交事务读取的数据，也就是一个事务两次读取数据不一致 幻读：主要是针对范围数据查询，第二次读取查到了不同的数据  事务的隔离级别 READ UNCOMMITED：读未提交 READ COMMITED：读提交 REPEATABLE READ：可重复读">
+<meta property="og:updated_time" content="2023-03-19T07:48:53.497Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="mysql学习笔记（4）--隔离级别和MVCC">
-<meta name="twitter:description" content="�����Ҹ��� Ī��������������������������Ӧ��">
+<meta name="twitter:description" content="事务并发的一致性问题 脏写：一个事务修改了另一个未提交事务修改的数据 脏读：一个事务读到了另一个未提交事务修改的数据 不可重复读：一个事务修改了另一个未提交事务读取的数据，也就是一个事务两次读取数据不一致 幻读：主要是针对范围数据查询，第二次读取查到了不同的数据  事务的隔离级别 READ UNCOMMITED：读未提交 READ COMMITED：读提交 REPEATABLE READ：可重复读">
   
     <link rel="alternative" href="/atom.xml" title="Blog" type="application/atom+xml">
   
@@ -202,7 +202,84 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        
+        <h3 id="事务并发的一致性问题"><a href="#事务并发的一致性问题" class="headerlink" title="事务并发的一致性问题"></a>事务并发的一致性问题</h3><ul>
+<li>脏写：一个事务修改了另一个未提交事务修改的数据</li>
+<li>脏读：一个事务读到了另一个未提交事务修改的数据</li>
+<li>不可重复读：一个事务修改了另一个未提交事务读取的数据，也就是一个事务两次读取数据不一致</li>
+<li>幻读：主要是针对范围数据查询，第二次读取查到了不同的数据</li>
+</ul>
+<h3 id="事务的隔离级别"><a href="#事务的隔离级别" class="headerlink" title="事务的隔离级别"></a>事务的隔离级别</h3><ul>
+<li>READ UNCOMMITED：读未提交</li>
+<li>READ COMMITED：读提交</li>
+<li>REPEATABLE READ：可重复读</li>
+<li>SERIALIZABLE：可串行化</li>
+</ul>
+<p>各个隔离级别中可出现的问题</p>
+<table>
+<thead>
+<tr>
+<th>隔离级别</th>
+<th>脏读</th>
+<th>不可重复读</th>
+<th>幻读</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>RU</td>
+<td>可能</td>
+<td>可能</td>
+<td>可能</td>
+</tr>
+<tr>
+<td>RC</td>
+<td>不可能</td>
+<td>可能</td>
+<td>可能</td>
+</tr>
+<tr>
+<td>RR</td>
+<td>不可能</td>
+<td>不可能</td>
+<td>可能</td>
+</tr>
+<tr>
+<td>SERIALIZABLE</td>
+<td>不可能</td>
+<td>不可能</td>
+<td>不可能</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Mysql中RR的隔离级别可以很大程度上禁止幻读现象的发生</strong></p>
+<h3 id="MVCC原理"><a href="#MVCC原理" class="headerlink" title="MVCC原理"></a>MVCC原理</h3><p>从前面事务的学习中了解到，undo日志会通过事务id、主键列和roll_point形成一个版本链，版本链的头节点就是当前的最新值，利用这个版本链来控制并发事务访问相同记录的行为，就叫做多版本并发控制（MVCC）。</p>
+<h4 id="ReadView（一致性视图）"><a href="#ReadView（一致性视图）" class="headerlink" title="ReadView（一致性视图）"></a>ReadView（一致性视图）</h4><p>为了判断版本链中的哪个版本是当前事务可见的，在不同隔离级别下会在不同时机生成ReadView。</p>
+<p>ReadView的内容：</p>
+<ul>
+<li>m_ids：在生成ReadView时，当前系统中活跃的（也就是未提交的）读写事务的事务id列表</li>
+<li>min_trx_id：在生成ReadView时，当前系统中活跃的读写事务id的最小值，也就是m_ids的最小值</li>
+<li>max_trx_id：在生成Readv时，当前系统准备分配给下一个事务的事务id，不是m_ids的最大值</li>
+<li>creator_trx_id：生成该ReadView时的事务自己的事务id</li>
+</ul>
+<p>判断是否能访问某个版本的具体判断逻辑：</p>
+<ul>
+<li>如果被访问版本的trx_id属性值与ReadView中的creator_trx_id值相同，意味着事务在访问它自己修改过的记录，所以该版本可以被当前事务访问</li>
+<li>如果被访问版本的trx_id属性值小于ReadView中min_trx_id的值，表明生成该版本的事务在当前事务产生前就已经提交，可以被当前事务访问</li>
+<li>如果被访问版本的trx_id属性值大于ReadView中max_trx_id的值，表明生成该版本的事务在生成ReadView之后才开启，所以不能被当前事务访问</li>
+<li>如果被访问版本的trx_id属性值在ReadView的min_trx_id和max_trx_id之间，则需要判断trx_id的属性值是否在m_ids中，如果在，说明创建ReadView时生成该版本的事务正在活跃中（也就是未提交），则不能被当前事务访问，如果不在，说明创建ReadView时生成该版本的事务已经提交，则可以被当前事务访问</li>
+</ul>
+<p><strong>只有在增删改具体记录的时候才会分配事务id，查询不会分配事务id，也就是查询的事务id为0，也就是creator_trx_id为0</strong></p>
+<h4 id="二级索引与MVCC"><a href="#二级索引与MVCC" class="headerlink" title="二级索引与MVCC"></a>二级索引与MVCC</h4><ul>
+<li>二级索引页面有保存最新修改页面的事务id（PAGE_MAX_TRX_ID），会先根据该事务id判断是否小于ReadView的min_trx_id，如果是，则所有记录都对ReadView可见</li>
+<li>如果不是，则需要通过主键值进行回表再按上面的逻辑判断</li>
+</ul>
+<h4 id="RC和RR"><a href="#RC和RR" class="headerlink" title="RC和RR"></a>RC和RR</h4><p>两者非常大的一个区别在于<strong>生成ReadView的时机不同</strong>，当然，还有锁的不同等，后面再细说</p>
+<p>对于RC：每次查询都生成一个ReadView，这就导致两次读可能数据不一致的情况</p>
+<p>对于RR：只有第一次查询的时候生成ReadView</p>
+<h4 id="MVCC总结"><a href="#MVCC总结" class="headerlink" title="MVCC总结"></a>MVCC总结</h4><p>所谓MVCC也就是指再RC、RR隔离级别的事务中执行普通的SELECT操作时，访问记录的版本链的过程。</p>
+<p>只有我们在进行普通的SELECT查询时，MVCC才生效。</p>
+<p>对于delete mark标记的数据，因为需要支持MVCC还不能立即删除掉（如果删除掉会导致其他事务再次读取该记录的时候找不到数据），会有后台purge线程来执行删除，根据最早生成的ReadView来判断是否可以删除，如果最早的ReadView不再访问它们，则可以直接删除并释放空间。</p>
+
       
 
       
@@ -296,7 +373,7 @@
   
   
     <a href="/2021/12/27/mysql学习笔记（3）-事务-md/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">mysql学习笔记（3）--事务.md</div>
+      <div class="article-nav-title">mysql学习笔记（3）--事务</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -339,7 +416,7 @@
   <div class="outer">
     <div id="footer-info">
     	<div class="footer-left">
-    		&copy; 2022 ZivvCai
+    		&copy; 2023 ZivvCai
     	</div>
       	<div class="footer-right">
       		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
@@ -426,7 +503,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">网络</a>
+                <a href="javascript:void(0)" class="js-tag color3">Go</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -434,19 +511,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">运维</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">Go</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">Java</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">数据库</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -454,7 +519,23 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">数据库</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">运维</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">网络</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">K8s</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">java</a>
               </li>
             
             <div class="clearfix"></div>
