@@ -182,323 +182,6 @@
           <div id="js-content" class="content-ll">
             
   
-    <article id="post-mysql学习笔记（1）-存储引擎-md" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2021/11/14/mysql学习笔记（1）-存储引擎-md/">mysql学习笔记（1）--存储引擎</a>
-    </h1>
-  
-
-        
-        <a href="/2021/11/14/mysql学习笔记（1）-存储引擎-md/" class="archive-article-date">
-  	<time datetime="2021-11-13T23:55:52.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-11-14</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="Mysql常用的存储引擎"><a href="#Mysql常用的存储引擎" class="headerlink" title="Mysql常用的存储引擎"></a>Mysql常用的存储引擎</h3><p>所谓存储引擎，就是提供存取真实数据的功能。</p>
-<p>Mysql查看当前服务器支持的存储引擎命令<figure class="highlight plain"><figcaption><span>ENGINES``` 根据SUPPORT列判断即可。</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">设置表的存储引擎</span><br><span class="line"></span><br><span class="line">```mysql</span><br><span class="line">CREATE TABLE 表名(</span><br><span class="line">建表语句;</span><br><span class="line">) ENGINE = 存储引擎名称;</span><br><span class="line"></span><br><span class="line">ALTER TABLE 表名 ENGINE = 存储引擎名称;</span><br></pre></td></tr></table></figure></p>
-        
-          <a class="article-more-a" href="/2021/11/14/mysql学习笔记（1）-存储引擎-md/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">数据库</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2021/11/14/mysql学习笔记（1）-存储引擎-md/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-kong" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2021/07/23/kong/">Kong</a>
-    </h1>
-  
-
-        
-        <a href="/2021/07/23/kong/" class="archive-article-date">
-  	<time datetime="2021-07-23T00:23:27.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-07-23</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="Kong网关"><a href="#Kong网关" class="headerlink" title="Kong网关"></a>Kong网关</h3><p>Kong是一款基于OpenResty（Nginx + Lua模块）编写的高可用、易扩展的开源网关。</p>
-<p>Kong是基于NGINX和Apache Cassandra或PostgreSQL构建的，能提供易于使用的RESTful API来操作和配置API管理系统，所以它可以水平扩展多个Kong服务器，通过前置的负载均衡配置把请求均匀地分发到各个Server，来应对大批量的网络请求。 </p>
-<p>Kong是一个在 Nginx 中运行的Lua应用程序，并且可以通过lua-nginx模块实现，Kong不是用这个模块编译Nginx，而是 OpenResty 一起发布，OpenResty已经包含了 lua-nginx-module， OpenResty 不是 Nginx的分支，而是一组扩展其功能的模块。它的核心是实现数据库抽象，路由和插件管理，插件可以存在于单独的代码库中，并且可以在几行代码中注入到请求生命周期的任何位置。</p>
-        
-          <a class="article-more-a" href="/2021/07/23/kong/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">中间件</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2021/07/23/kong/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-gRPC" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2021/07/10/gRPC/">gRPC</a>
-    </h1>
-  
-
-        
-        <a href="/2021/07/10/gRPC/" class="archive-article-date">
-  	<time datetime="2021-07-10T02:56:03.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-07-10</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>RPC 远程过程调用，就是提供一套机制，使得应用程序之前可以进行通信，也遵从server/client模型。使用的时候client调用server提供的接口就像是调用本地函数一样。</p>
-<p>gRPC的优势：</p>
-<ol>
-<li>gRPC使用http2.0作为底层的传输协议</li>
-<li>可以通过protobuf来定义接口，可以提供严格的接口约束，也可以和前端事先约定接口并加快并行开发速度</li>
-<li>通过protobuf可以将数据序列化为二进制编码，能大幅度减少需要传输的数据量，从而提高性能</li>
-<li>gRPC可以方便的支持流式通信</li>
-</ol>
-        
-          <a class="article-more-a" href="/2021/07/10/gRPC/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Go</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2021/07/10/gRPC/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-minikube从宿主机拉取镜像" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2021/06/20/minikube从宿主机拉取镜像/">minikube从宿主机拉取镜像</a>
-    </h1>
-  
-
-        
-        <a href="/2021/06/20/minikube从宿主机拉取镜像/" class="archive-article-date">
-  	<time datetime="2021-06-20T04:51:32.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-06-20</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>达梦数据库</p>
-<p>环境准备</p>
-<p>docker、minikube、达梦docker镜像（官网下载之后可直接docker import导入）</p>
-<p>搭建docker本地私有仓库</p>
-        
-          <a class="article-more-a" href="/2021/06/20/minikube从宿主机拉取镜像/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">K8s</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2021/06/20/minikube从宿主机拉取镜像/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
     <article id="post-mongo" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -951,6 +634,327 @@
       
         <p class="article-more-link">
           <a class="article-more-a" href="/2020/07/20/context/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-redis" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/07/03/redis/">redis学习笔记</a>
+    </h1>
+  
+
+        
+        <a href="/2020/07/03/redis/" class="archive-article-date">
+  	<time datetime="2020-07-03T12:19:38.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-07-03</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>redis具有单机10w QPS的高性能key/value数据库，一般用来做缓存、分布式锁等用途。</p>
+<p>以下做下redis的相关介绍和笔记，持续更新</p>
+        
+          <a class="article-more-a" href="/2020/07/03/redis/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">中间件</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2020/07/03/redis/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-http和https" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/06/20/http和https/">http和https</a>
+    </h1>
+  
+
+        
+        <a href="/2020/06/20/http和https/" class="archive-article-date">
+  	<time datetime="2020-06-20T04:48:54.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-06-20</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="http2-0-http1-1-http1-0区别"><a href="#http2-0-http1-1-http1-0区别" class="headerlink" title="http2.0 http1.1 http1.0区别"></a>http2.0 http1.1 http1.0区别</h2><p>http1.1和http1.0的区别：</p>
+<ol>
+<li>Host头处理</li>
+<li>http1.1支持长连接</li>
+<li>带宽优化</li>
+<li>错误通知的管理，在HTTP1.1中新增了24个错误状态响应码</li>
+<li>缓存处理</li>
+</ol>
+<p>http2.0和http1.1的区别：</p>
+<ol>
+<li>多路复用，多路复用允许单一的 HTTP/2 连接同时发起多重的请求-响应消息（单连接多资源的方式，减少服务端的链接压力,内存占用更少,连接吞吐量更大；由于减少TCP 慢启动时间，提高传输的速度）</li>
+<li>首部压缩</li>
+<li>http/2支持服务器推送资源</li>
+</ol>
+        
+          <a class="article-more-a" href="/2020/06/20/http和https/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">网络</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2020/06/20/http和https/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-Go" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/03/26/Go/">Go</a>
+    </h1>
+  
+
+        
+        <a href="/2020/03/26/Go/" class="archive-article-date">
+  	<time datetime="2020-03-26T13:00:43.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-03-26</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>Go日常使用记录</p>
+        
+          <a class="article-more-a" href="/2020/03/26/Go/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Go</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2020/03/26/Go/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-mysql" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/10/20/mysql/">mysql</a>
+    </h1>
+  
+
+        
+        <a href="/2019/10/20/mysql/" class="archive-article-date">
+  	<time datetime="2019-10-20T03:02:55.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-10-20</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>查看死锁：</p>
+<p>SELECT * FROM INFORMATION_SCHEMA.INNODB_TRX</p>
+<p>kill 线程ID（就是上面命令的trx_mysql_thread_id列）</p>
+<p>查看是否锁表show OPEN TABLES where In_use &gt; 0;</p>
+        
+          <a class="article-more-a" href="/2019/10/20/mysql/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">数据库</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2019/10/20/mysql/">展开全文 >></a>
         </p>
       
 

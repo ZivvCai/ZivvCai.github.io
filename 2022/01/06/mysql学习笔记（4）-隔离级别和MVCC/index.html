@@ -8,17 +8,17 @@
   <link rel="dns-prefetch" href="http://yoursite.com">
   <title>mysql学习笔记（4）--隔离级别和MVCC | Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="事务并发的一致性问题 脏写：一个事务修改了另一个未提交事务修改的数据 脏读：一个事务读到了另一个未提交事务修改的数据 不可重复读：一个事务修改了另一个未提交事务读取的数据，也就是一个事务两次读取数据不一致 幻读：主要是针对范围数据查询，第二次读取查到了不同的数据  事务的隔离级别 READ UNCOMMITED：读未提交 READ COMMITED：读提交 REPEATABLE READ：可重复读">
+  <meta name="description" content="事务并发的一致性问题 脏写：一个事务修改了另一个未提交事务修改的数据 脏读：一个事务读到了另一个未提交事务修改的数据 不可重复读：一个事务修改了另一个未提交事务读取的数据，也就是一个事务两次读取数据不一致 幻读：主要是针对范围数据查询，第二次读取查到了不同的数据">
 <meta name="keywords" content="数据库">
 <meta property="og:type" content="article">
 <meta property="og:title" content="mysql学习笔记（4）--隔离级别和MVCC">
 <meta property="og:url" content="http://yoursite.com/2022/01/06/mysql学习笔记（4）-隔离级别和MVCC/index.html">
 <meta property="og:site_name" content="Blog">
-<meta property="og:description" content="事务并发的一致性问题 脏写：一个事务修改了另一个未提交事务修改的数据 脏读：一个事务读到了另一个未提交事务修改的数据 不可重复读：一个事务修改了另一个未提交事务读取的数据，也就是一个事务两次读取数据不一致 幻读：主要是针对范围数据查询，第二次读取查到了不同的数据  事务的隔离级别 READ UNCOMMITED：读未提交 READ COMMITED：读提交 REPEATABLE READ：可重复读">
-<meta property="og:updated_time" content="2023-03-19T07:48:53.497Z">
+<meta property="og:description" content="事务并发的一致性问题 脏写：一个事务修改了另一个未提交事务修改的数据 脏读：一个事务读到了另一个未提交事务修改的数据 不可重复读：一个事务修改了另一个未提交事务读取的数据，也就是一个事务两次读取数据不一致 幻读：主要是针对范围数据查询，第二次读取查到了不同的数据">
+<meta property="og:updated_time" content="2023-03-20T03:24:06.724Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="mysql学习笔记（4）--隔离级别和MVCC">
-<meta name="twitter:description" content="事务并发的一致性问题 脏写：一个事务修改了另一个未提交事务修改的数据 脏读：一个事务读到了另一个未提交事务修改的数据 不可重复读：一个事务修改了另一个未提交事务读取的数据，也就是一个事务两次读取数据不一致 幻读：主要是针对范围数据查询，第二次读取查到了不同的数据  事务的隔离级别 READ UNCOMMITED：读未提交 READ COMMITED：读提交 REPEATABLE READ：可重复读">
+<meta name="twitter:description" content="事务并发的一致性问题 脏写：一个事务修改了另一个未提交事务修改的数据 脏读：一个事务读到了另一个未提交事务修改的数据 不可重复读：一个事务修改了另一个未提交事务读取的数据，也就是一个事务两次读取数据不一致 幻读：主要是针对范围数据查询，第二次读取查到了不同的数据">
   
     <link rel="alternative" href="/atom.xml" title="Blog" type="application/atom+xml">
   
@@ -208,6 +208,7 @@
 <li>不可重复读：一个事务修改了另一个未提交事务读取的数据，也就是一个事务两次读取数据不一致</li>
 <li>幻读：主要是针对范围数据查询，第二次读取查到了不同的数据</li>
 </ul>
+<a id="more"></a>
 <h3 id="事务的隔离级别"><a href="#事务的隔离级别" class="headerlink" title="事务的隔离级别"></a>事务的隔离级别</h3><ul>
 <li>READ UNCOMMITED：读未提交</li>
 <li>READ COMMITED：读提交</li>

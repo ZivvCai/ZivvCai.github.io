@@ -6,17 +6,19 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Archives | Blog</title>
+  <title>缓存学习笔记.md | Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="�����Ҹ��� Ī��������������������������Ӧ��">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Blog">
-<meta property="og:url" content="http://yoursite.com/archives/page/6/index.html">
+  <meta name="description" content="缓存及常见问题缓存是将那些经常读取且不经常修改的数据或者那些复杂IO、数据读取等耗时操作获取到的数据暂存起来，等到下次需要这些数据时，先从缓存中读取数据，如果没找到则从内存或数据库或磁盘中去查找数据。对于一个服务，其性能瓶颈往往都在DB，尤其是使用传统的关系型数据库进行存储时，缓存的目的是为了提高性能。">
+<meta name="keywords" content="中间件">
+<meta property="og:type" content="article">
+<meta property="og:title" content="缓存学习笔记.md">
+<meta property="og:url" content="http://yoursite.com/2022/07/15/缓存深度学习笔记-md/index.html">
 <meta property="og:site_name" content="Blog">
-<meta property="og:description" content="�����Ҹ��� Ī��������������������������Ӧ��">
+<meta property="og:description" content="缓存及常见问题缓存是将那些经常读取且不经常修改的数据或者那些复杂IO、数据读取等耗时操作获取到的数据暂存起来，等到下次需要这些数据时，先从缓存中读取数据，如果没找到则从内存或数据库或磁盘中去查找数据。对于一个服务，其性能瓶颈往往都在DB，尤其是使用传统的关系型数据库进行存储时，缓存的目的是为了提高性能。">
+<meta property="og:updated_time" content="2023-03-20T03:28:23.611Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Blog">
-<meta name="twitter:description" content="�����Ҹ��� Ī��������������������������Ӧ��">
+<meta name="twitter:title" content="缓存学习笔记.md">
+<meta name="twitter:description" content="缓存及常见问题缓存是将那些经常读取且不经常修改的数据或者那些复杂IO、数据读取等耗时操作获取到的数据暂存起来，等到下次需要这些数据时，先从缓存中读取数据，如果没找到则从内存或数据库或磁盘中去查找数据。对于一个服务，其性能瓶颈往往都在DB，尤其是使用传统的关系型数据库进行存储时，缓存的目的是为了提高性能。">
   
     <link rel="alternative" href="/atom.xml" title="Blog" type="application/atom+xml">
   
@@ -180,215 +182,192 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-缓存深度学习笔记-md" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      缓存学习笔记.md
+    </h1>
+  
+
+        
+        <a href="/2022/07/15/缓存深度学习笔记-md/" class="archive-article-date">
+  	<time datetime="2022-07-14T16:09:51.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-07-15</time>
+</a>
+        
+      </header>
     
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="缓存及常见问题"><a href="#缓存及常见问题" class="headerlink" title="缓存及常见问题"></a>缓存及常见问题</h3><p>缓存是将那些经常读取且不经常修改的数据或者那些复杂IO、数据读取等耗时操作获取到的数据暂存起来，等到下次需要这些数据时，先从缓存中读取数据，如果没找到则从内存或数据库或磁盘中去查找数据。对于一个服务，其性能瓶颈往往都在DB，尤其是使用传统的关系型数据库进行存储时，缓存的目的是为了提高性能。</p>
+<a id="more"></a>
+<h4 id="本地缓存"><a href="#本地缓存" class="headerlink" title="本地缓存"></a>本地缓存</h4><p>本地缓存就是直接使用机器的内存</p>
+<p>特点：</p>
+<ul>
+<li>速度快，能节省网络开销</li>
+<li>可能出现OOM和频繁GC影响性能</li>
+<li>过期时间设置可能不够细致（视具体框架而定）</li>
+<li>不一定有持久化方案</li>
+</ul>
+<h4 id="分布式缓存"><a href="#分布式缓存" class="headerlink" title="分布式缓存"></a>分布式缓存</h4><p>分布式缓存一般就是指使用第三方高性能组件来实现，比如redis、MemCache等</p>
+<p>特点：</p>
+<ul>
+<li>会有网络开销，但也是基于内存，性能比db高很多</li>
+<li>对服务影响较小，不会出现OOM和频繁GC的情况</li>
+<li>过期时间和淘汰策略支持比较完备，一般也都有持久化方案</li>
+</ul>
+<h4 id="缓存一致性问题"><a href="#缓存一致性问题" class="headerlink" title="缓存一致性问题"></a>缓存一致性问题</h4><h5 id="查询数据"><a href="#查询数据" class="headerlink" title="查询数据"></a>查询数据</h5><p>查询数据的流程比较简单，先去缓存中查询，未找到则去db里面查找，找到后设置结果数据到缓存中。</p>
+<h5 id="更新数据"><a href="#更新数据" class="headerlink" title="更新数据"></a>更新数据</h5><p>涉及到修改db和更新/删除缓存的时间顺序，每一种都有可能出现脏数据的情况，相对来说<strong>先更新db，再删除缓存</strong>这种场景是出现脏数据条件最严格的，在对缓存一致性有容忍度的情况下一般采用此种方案</p>
+<ul>
+<li>先更新db，再更新缓存（读写并发容易产生脏数据）</li>
+<li>先更新缓存，再更新db（同上）</li>
+<li>先删除缓存，再更新db（同上，先删除缓存还可能增加缓存击穿的概率，可以采用延迟双删（可异步）的策略解决脏数据的问题，不过延迟的时间需要合理设置）</li>
+<li>先更新db，再删除缓存（需要读写并发，且写db操作要快于读操作才可能出现，概率小）</li>
+</ul>
+<p>针对<strong>先更新db，再删除缓存</strong>这种最常用方案，如果删除缓存失败了该如何处理？</p>
+<p>常用解决方案：</p>
+<ul>
+<li>增加重试功能，通过MQ进行失败重试。会增加代码复杂度</li>
+<li>单独起服务监听Mysql的binlog日志来操作，可参考Canal实现</li>
+</ul>
+<h4 id="缓存常见问题"><a href="#缓存常见问题" class="headerlink" title="缓存常见问题"></a>缓存常见问题</h4><h5 id="缓存穿透"><a href="#缓存穿透" class="headerlink" title="缓存穿透"></a>缓存穿透</h5><p>缓存穿透指的是查db为空的值，在缓存中没有保存，导致每次请求都直接落到db。</p>
+<p>解决方案：</p>
+<ol>
+<li>给查询结果为空的数据也在缓存中设置空值，不过过期时间可以设置稍微短一点</li>
+<li>布隆过滤器，通过提前设置结果集，通过布隆过滤器的bitmap很容易判断是否存在</li>
+</ol>
+<h5 id="缓存击穿"><a href="#缓存击穿" class="headerlink" title="缓存击穿"></a>缓存击穿</h5><p>缓存击穿指的是一个热key突然过期，导致大量重复请求过来直接落到db。</p>
+<p>解决方案：</p>
+<ol>
+<li>保证热key永不过期，可以是逻辑永不过期，物理使用定时刷新</li>
+<li>使用互斥锁，或者singleflight，将重复请求去重处理，只处理一个，其余的重复请求挂起等待</li>
+</ol>
+<h5 id="缓存雪崩"><a href="#缓存雪崩" class="headerlink" title="缓存雪崩"></a>缓存雪崩</h5><p>缓存雪崩指的是大量的key在同一时间过期，导致大量的请求直接落到db。</p>
+<p>解决方案：</p>
+<ol>
+<li>给key的过期时间加上随机数，避免同一时间大量key过期</li>
+</ol>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
       
       
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2017" class="archive-year">2017</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/12/20/JsonNote/" class="archive-article-date">
-  	<time datetime="2017-12-20T08:03:55.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-12-20</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/12/20/JsonNote/">JsonNote</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">其他</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">中间件</a>
         		</li>
       		
 		</ul>
 	</div>
 
-          
+      
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2022/07/15/缓存深度学习笔记-md/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/11/19/ajaxNote/" class="archive-article-date">
-  	<time datetime="2017-11-19T05:16:04.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-11-19</time>
-</a>
+<nav id="article-nav">
+  
+  
+    <a href="/2022/04/19/Kafka学习笔记/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Kafka学习笔记</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
+        
+        
+    </div>
+</aside>
+
+
+
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/11/19/ajaxNote/">ajaxNote</a>
-    </h1>
+  
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">其他</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/11/12/Typora/" class="archive-article-date">
-  	<time datetime="2017-11-12T02:54:04.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-11-12</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/11/12/Typora/">Typora</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">其他</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/10/20/Regex/" class="archive-article-date">
-  	<time datetime="2017-10-20T02:57:32.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-10-20</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/10/20/Regex/">Regex</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">其他</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/10/10/Git/" class="archive-article-date">
-  	<time datetime="2017-10-10T02:54:35.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-10-10</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/10/10/Git/">Git</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">其他</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
-  
-
-    
-    <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/archives/page/5/">&laquo; Prev</a><a class="page-number" href="/archives/">1</a><span class="space">&hellip;</span><a class="page-number" href="/archives/page/4/">4</a><a class="page-number" href="/archives/page/5/">5</a><span class="page-number current">6</span>
-    </nav>
   
 
 
@@ -412,8 +391,8 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,

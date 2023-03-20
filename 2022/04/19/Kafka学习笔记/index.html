@@ -6,17 +6,19 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Archives | Blog</title>
+  <title>Kafka学习笔记 | Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="�����Ҹ��� Ī��������������������������Ӧ��">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Blog">
-<meta property="og:url" content="http://yoursite.com/archives/page/6/index.html">
+  <meta name="description" content="Kafka是采用Scala语言开发的一个多分区、多副本且基于Zookeeper协调的分布式消息系统。目前Kafka已经被定位为一个分布式流式处理系统，它以高吞吐、高持久化、可水平拓展、支持流式数据处理等多种特性被广泛使用。 一般常见的使用场景 我们业务基本上都是使用的Kafka消息系统这个特性  日志采集，比如我们现在使用的ELK、EFK等等，都可以通过Kafka做中转 消息队列，异步消息发送使用">
+<meta name="keywords" content="中间件">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Kafka学习笔记">
+<meta property="og:url" content="http://yoursite.com/2022/04/19/Kafka学习笔记/index.html">
 <meta property="og:site_name" content="Blog">
-<meta property="og:description" content="�����Ҹ��� Ī��������������������������Ӧ��">
+<meta property="og:description" content="Kafka是采用Scala语言开发的一个多分区、多副本且基于Zookeeper协调的分布式消息系统。目前Kafka已经被定位为一个分布式流式处理系统，它以高吞吐、高持久化、可水平拓展、支持流式数据处理等多种特性被广泛使用。 一般常见的使用场景 我们业务基本上都是使用的Kafka消息系统这个特性  日志采集，比如我们现在使用的ELK、EFK等等，都可以通过Kafka做中转 消息队列，异步消息发送使用">
+<meta property="og:updated_time" content="2023-03-20T03:26:45.477Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Blog">
-<meta name="twitter:description" content="�����Ҹ��� Ī��������������������������Ӧ��">
+<meta name="twitter:title" content="Kafka学习笔记">
+<meta name="twitter:description" content="Kafka是采用Scala语言开发的一个多分区、多副本且基于Zookeeper协调的分布式消息系统。目前Kafka已经被定位为一个分布式流式处理系统，它以高吞吐、高持久化、可水平拓展、支持流式数据处理等多种特性被广泛使用。 一般常见的使用场景 我们业务基本上都是使用的Kafka消息系统这个特性  日志采集，比如我们现在使用的ELK、EFK等等，都可以通过Kafka做中转 消息队列，异步消息发送使用">
   
     <link rel="alternative" href="/atom.xml" title="Blog" type="application/atom+xml">
   
@@ -180,215 +182,358 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-Kafka学习笔记" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Kafka学习笔记
+    </h1>
+  
+
+        
+        <a href="/2022/04/19/Kafka学习笔记/" class="archive-article-date">
+  	<time datetime="2022-04-19T10:25:36.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-04-19</time>
+</a>
+        
+      </header>
     
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>Kafka是采用Scala语言开发的一个多分区、多副本且基于Zookeeper协调的分布式消息系统。目前Kafka已经被定位为一个分布式流式处理系统，它以高吞吐、高持久化、可水平拓展、支持流式数据处理等多种特性被广泛使用。</p>
+<p><strong>一般常见的使用场景</strong></p>
+<p>我们业务基本上都是使用的Kafka消息系统这个特性</p>
+<ul>
+<li>日志采集，比如我们现在使用的ELK、EFK等等，都可以通过Kafka做中转</li>
+<li>消息队列，异步消息发送使用，比如我们业务中使用的消息通知，全校通知不可能直接都实时发送，都会先把消息发送到Kafka，后续再进行慢慢消费推送。也相当于起到一个流量削峰的作用</li>
+<li>审计日志上报等</li>
+</ul>
+<a id="more"></a>
+<h3 id="基础概念"><a href="#基础概念" class="headerlink" title="基础概念"></a>基础概念</h3><ul>
+<li>Producer：生产者，发送消息的一方。负责发送消息投递到Kafka</li>
+<li>Consumer：消费者，消费消息的一方。负责从Kafka中取出消息进行相应的业务逻辑的处理</li>
+<li>Broker：服务代理节点。可以是一个独立的Kafka服务节点或者Kafka服务实例。一个或多个Broker组成了Kafka服务器</li>
+<li>Topic：主题，Kafka中消息的逻辑概念，以主题进行消息的分类。生产者负责发送消息到特定的主题，消费者从特定主题中消费消息</li>
+<li>Partition：分区，一个主题可以是多个分区，分区在存储层面可以看做是一个可追加的log文件，消息被追加到log文件的时候都会分配一个偏移量offset，offset是消息在分区中的唯一标识，Kafka通过它来保证消息在分区内的顺序，不过offset并不跨越分区，因此，<strong>Kafka保证的是分区有序而不是主题有序</strong></li>
+<li>Replica：副本，Kafka为分区引入了多副本机制，通过增加副本数量可以提升容灾能力。同一个分区的不同副本保存的是相同的消息，副本之间是“一主多从”的关系，leader副本负责读写请求，follower副本只负责与leader副本的消息同步。副本处于不同broker中，当leader副本出现故障时，从follower副本中重新选举新的leader副本对外提供服务。Kafka通过多副本的机制实现了故障的自动转移，当Kafka集群中的某个broker失效时仍能保证服务可用</li>
+</ul>
+<h4 id="分区与副本"><a href="#分区与副本" class="headerlink" title="分区与副本"></a>分区与副本</h4><p>分区中的所有副本统称为AR（Assigned Replicas）。所有与leader副本保持<strong>一定程度</strong>同步的副本（包括leader副本在内）组成ISR（In-Sync Replicas），ISR是AR的一个子集。与leader副本同步滞后过多的副本（不包括leader副本）组成OSR（Out-of-Sync Replicas）。在正常情况下，所有副本都会在一定程度上和leader副本同步，也就是ISR=AR，OSR=空。当leader副本发生故障的时候，只有<strong>ISR中的副本</strong>才有资格选举称为新的leader副本。</p>
+<p><strong>一定程度</strong>指的是可忍受的滞后范围</p>
+<p><strong>HW</strong>：High Watermark，俗称高水位，它标识了一个特定的消息偏移量，消费者只能拉取到这个offset之前的消息</p>
+<p>Log Start Offset：为日志文件起始偏移量</p>
+<p><strong>LEO</strong>：Log End Offset，为日志文件中下一条待写入消息的offset</p>
+<p>分区ISR集合中的每个副本都会维护自身的LEO，而ISR集合中<strong>最小的LEO</strong>即为分区的<strong>HW</strong>，对消费者而言只能消费HW之前的消息</p>
+<p>Kafka的复制机制既不是完全的同步复制，也不是单纯的异步复制。同步复制要求所有能工作的follower副本都要复制完，这条消息才会被确认提交，这种复制方式极大地影响了性能。而单纯的异步复制，follower副本异步地从leader副本中复制数据，数据只要被leader副本写入就被认为已经成功提交，这种情况下如果follower副本都还没复制完leader副本突然间就宕机了，就会造成数据丢失。Kafka使用的这种ISR的方式有效地权衡了<strong>数据可靠性和性能</strong>之间的关系</p>
+<h4 id="生产者"><a href="#生产者" class="headerlink" title="生产者"></a>生产者</h4><h5 id="重要的生产者参数"><a href="#重要的生产者参数" class="headerlink" title="重要的生产者参数"></a>重要的生产者参数</h5><p><strong>acks</strong></p>
+<p>用来指定分区中必须要有多少副本收到这条消息，之后生产者才会认为这条消息是成功写入的。它涉及消息的可靠性和吞吐量之间的权衡</p>
+<ul>
+<li>acks=1。默认值即为1。生产者发送消息之后，只要分区的leader副本成功写入消息，那么它就会收到来自服务端的成功响应。如果消息无法写入leader副本，则会返回一个错误响应，生产者可以选择重发消息。是消息可靠性和吞吐量之间的折中方案。</li>
+<li>acks=0。生产者发送消息之后不需要等待任何服务端的响应。如果在消息从发送到写入Kafka中的过程中出现了某些异常，导致Kafka并没有收到这条消息，那么生产者也无从得知，消息也就丢失了。acks配置为0可以使吞吐量达到最大</li>
+<li>acks=-1或者all。生产者在消息发送后，需要等待ISR集合中的所有副本都成功写入消息之后才能收到来自服务端的成功响应。acks配置成-1或all能达到最强的可靠性。如果ISR中只有leader副本，则会退化成acks=1的情况。需要配合min.insync.replicas（ISR集合中最小副本个数）等参数的联动才能达到更高的消息可靠性。</li>
+</ul>
+<p><strong>max.request.size</strong></p>
+<p>用来限制生产者客户端能发送的消息的最大值，默认1MB。</p>
+<p><strong>retries和retry.backoff.ms</strong></p>
+<p>retries用来配置生产者重试的次数，默认值为0，即在发生异常的时候不进行任何重试动作。</p>
+<p>retry.backoff.ms用来配置两次重试之间的时间间隔。</p>
+<p><strong>compression.type</strong></p>
+<p>用来指定消息的压缩方式，默认值为“none”，即默认情况下消息不会被压缩。可选值有gzip，snappy和lz4。对消息压缩可以极大地减少网络传输量、降低网络I/O，从而提高整体的性能。是一种时间换空间的优化方式。</p>
+<p><strong>connection.max.idle.ms</strong></p>
+<p>用来指定在多久之后关闭闲置的连接，默认值是54000（ms），即9分钟。</p>
+<p><strong>request.timeout.ms</strong></p>
+<p>用来配置Producer等待请求响应的最长时间，默认值是30000（ms），请求超时后可以选择重试。</p>
+<h4 id="消费者"><a href="#消费者" class="headerlink" title="消费者"></a>消费者</h4><p>消费者负责订阅Kafka中的主题，并且从订阅的主题上拉取消息。</p>
+<p><strong>消费者组</strong></p>
+<p>每个消费者都有一个对应的消费者组，当消息发布到主题后，只会被投递给订阅它的每个消费组中的一个消费者。每一个分区只能被一个消费组的一个消费者所消费。</p>
+<p>消费者和消费组这种模型可以让整体的消费能力具备横向伸缩性，我们可以增加（减少）消费者的个数来提高（降低）整体的消费能力。对于分区数固定的情况，如果消费者过多，出现了<strong>消费者个数大于分区个数</strong>的情况，就会有消费者分配不到任何分区。</p>
+<p><strong>消息投递方式</strong></p>
+<p>得益于消费者和消费组模型</p>
+<ul>
+<li>点对点投递：如果所有的消费者都隶属于<strong>同一个</strong>消费组，那么所有的消息都会均衡地投递给每一个消费者，即每条消息只会被一个消费者处理。</li>
+<li>发布/订阅模式：如果所有的消费者都隶属于<strong>不同的</strong>消费组，那么所有的消息都会被广播给所有消费者，即每条消息都会被所有消费者处理。</li>
+</ul>
+<h5 id="位移提交"><a href="#位移提交" class="headerlink" title="位移提交"></a>位移提交</h5><p>对于Kafka中的分区来说，它的每条消息都有唯一的offset，用来表示消息在分区中对应的位置。对于消费者而言，它也有一个offset的概念，消费者使用offset来表示消费到分区中某个消息所在的位置。</p>
+<p>一般消息位移需要持久化保存，如果只存在内存中的话可能会由于再均衡或其他原因导致无法知晓之前的消费位移。在之前的消费者客户端中是保存在Zookeeper中的，在新的消费者客户端中，消费位移存储在Kafka内部主题__consumer_offsets中。</p>
+<p>消费者在消费完消息之后需要执行消费位移的提交。消费者需要提交的消费位移是<strong>下一条需要拉取的消息的位置</strong>。</p>
+<p>消费位移的提交时机，很可能会导致消息的重复消费或消息丢失现象。在Kafka中有默认自动提交，由消费者客户端参数enable.auto.commit配置，默认为true。当然这个默认提交不是每消费一条消息就提交一次，而是定期提交，这个定期的周期由客户端参数auto.commit.interval.ms配置，默认值为5s。</p>
+<p>在Kafka消费的编程逻辑中位移提交是一大难点，自动提交消费位移的方式虽然方便，但随之而来的是重复消费和消息丢失的问题。我们可以通过减小位移提交的间隔时间来减小重复消息的窗口大小，但是并不能避免重复消费的发生，而且也会使位移提交更为频繁。</p>
+<p>手动提交位移的方式更灵活，可以由业务人员根据程序的逻辑在合适的位置进行提交。可以分为同步提交和异步提交。同步提交在执行的时候消费者线程会被阻塞，而异步提交则不会阻塞消费者线程，可以增强消费者的性能，但是异步提交如果出现异常也可能出现重复消费的情况，可以通过一个递增的序号来维护异步提交的顺序，如果遇到提交失败需要重试，就判断下序号值。</p>
+<h5 id="再均衡"><a href="#再均衡" class="headerlink" title="再均衡"></a>再均衡</h5><p>Rebalance，是指分区的所属权从一个消费者转移到另一个消费者的行为，它为消费组具备高可用性和可伸缩性提供保障，使我们可以既方便又安全地删除消费组内的消费者或网往消费组内添加消费者。</p>
+<p>在再均衡发生期间，消费组内的消费者是无法读取消息的。比如一个消费者消费完一个分区的部分消息后还没来得及提交位移就发生了再均衡操作，之后这个分区又被分配给了消费组内的另一个消费者，原来被消费完的那部分消息又被重新消费了一遍，导致重复消费。一般情况下，应该尽量避免不必要的再均衡操作发生。</p>
+<h4 id="主题和分区"><a href="#主题和分区" class="headerlink" title="主题和分区"></a>主题和分区</h4><p>从Kafka底层实现来说，主题和分区都是逻辑上的概念，分区可以有一至多个副本，每个副本对应一个日志文件，每个日志文件对应一至多个日志分段，每个日志分段还可以细分为索引文件、日志存储文件和快照文件等。</p>
+<p>主题和分区都是提供给上层用户的抽象，而在副本层面或更加确切地说是Log层面才有实际物理上的存在。同一个分区中的<strong>多个副本</strong>必须分布在<strong>不同的broker</strong>中，这样才能提供有效的数据冗余。</p>
+<h5 id="分区的管理"><a href="#分区的管理" class="headerlink" title="分区的管理"></a>分区的管理</h5><p><strong>优先副本的选举</strong></p>
+<p>分区使用多副本的机制来提升可靠性，但只有leader副本对外提供读写服务，而follower副本只负责在内部进行消息的同步。如果leader副本不可用，就意味着整个分区不可用，此时就需要从follower副本中选举出一个新的leader副本来继续对外提供服务。</p>
+<p>创建主题的时候，该主题的分区和副本会尽可能均匀地分布在Kafka集群的各个broker节点上，对应的leader副本分配也比较均匀。但当broker节点重启的时候，会触发leader副本的重新选举，选举完了之后就会导致集群的负载不均衡，从而影响整体的健壮性和稳定性。</p>
+<p>为了能够有效治理负载失衡的情况，Kafka引入了<strong>优先副本</strong>的概念，<strong>也就是AR集合列表中的第一个副本</strong>。理想情况下，优先副本就是该分区的leader副本，Kafka只要保证优先副本均匀分布在Kafka集群中，就能保证所有分区的leader副本的均匀分布。所谓的<strong>优先副本的选举</strong>也就是指通过一定的方式促使优先副本选举为leader副本，以此来促进集群的负载均衡，这一行为也可以称为“分区平衡”。</p>
+<p>Kafka中有提供自动平衡的功能，auto.leader.rebalance.enable参数默认为true，即默认开启。Kafka的控制器会启动一个定时任务，这个定时任务会轮询所有的broker节点，计算每个节点的分区不平衡率是否达到leader.imbalance.per.broker.percentage参数配置的值，如果超过则会自动执行优先副本的选举动作以求分区平衡。<strong>此操作会带来负面的性能问题，引起业务阻塞等</strong>，谨慎使用。建议通过配置监控手动在业务低峰期进行调整。</p>
+<h5 id="分区重分配"><a href="#分区重分配" class="headerlink" title="分区重分配"></a>分区重分配</h5><p>在集群扩容、broker节点失效的场景下，让分区副本再次进行合理的分配。</p>
+<p>Kafka提供了kafka-reassign-partitions.sh脚本来执行分区重分配的工作。具体步骤：</p>
+<ol>
+<li>首先创建需要一个包含主题清单的JSON文件<code>bin/kafka-topics.sh --zookeeper localhost:2181/kafka --create --topic topoc-reassign --replication-factor 2 --partitions 4</code></li>
+<li>其次根据主题清单和broker节点清单生成一份重分配方案<code>bin/kafka-reassign-partitons.sh --zookeeper localhost:2181/kafka --generate --topics-to-move-json-file reassign.json</code></li>
+<li>最后根据这份重分配方案执行具体的重分配动作<code>bin/kafka-reassign-partitions.sh --zookeeper localhost:2181/kafka --execute --reassignment-json-file project.json</code></li>
+</ol>
+<p>分区重分配的基本原理是先通过控制器为每个分区添加新副本，新的副本将从分区的leader副本那里复制所有的数据。需要占用额外的资源，比如网络和磁盘，会对集群的性能造成很大的影响。在执行分区重分配的过程动作之前最好先关闭或重启broker，这样这个broker节点就不再是任何分区的leader了，它的分区就可以被分配给集群中的其他broker。这样可以减少broker间的流量复制，以此提升重分配的性能，以及减少对集群的影响。</p>
+<h5 id="如何选择合适的分区数"><a href="#如何选择合适的分区数" class="headerlink" title="如何选择合适的分区数"></a>如何选择合适的分区数</h5><p>视具体情况而定。</p>
+<p>从吞吐量方面考虑，增加合适的分区数可以在一定程度上提升整体的吞吐量。</p>
+<p>如果是基于key计算的主题，不建议在创建完主题之后在增加分区数，建议在创建时就规划好固定的分区数。由于具有相同key的数据可以写入同一个分区，如果需要对同一个key的消息进行顺序消费，那么分区的数量发生变化就会导致有序性得不到保证。</p>
+<p>如果对于主题中的所有消息都要能够顺序消费，在这种情况下创建主题可以设定分区数为1，通过分区的有序性来保证主题的有序。</p>
+<p>一般情况下，根据预估的吞吐量、是否与key相关的规则及是否需要顺序消费来设定分区数即可，后期也可以通过增加分区数、增加broker或分区重分配来进行改进。建议将分区数设定为集群中broker的倍数，一般默认3个即可。</p>
+<h4 id="日志存储"><a href="#日志存储" class="headerlink" title="日志存储"></a>日志存储</h4><p>Kafka一个分区对应一个日志Log，为了防止日志过大，又引入了日志分段的概念，将Log切分成多个LogSegment，相当于一个巨型文件被平均分配为多个相对较小的文件，这样也便于清理和维护。</p>
+<p>Log在物理上只以文件夹的形式存储，而每个LogSegment对应于磁盘上的一个日志文件和两个索引文件，以及其他可能的文件（事务文件等）。</p>
+<p>在Log中追加消息是顺序写入的，只有最后一个LogSegment才能执行写入操作。日志文件和两个索引文件都是根据基准偏移量（baseOffset）命名的，名称固定20位数字，没有达到则用0补充。</p>
+<h5 id="日志索引"><a href="#日志索引" class="headerlink" title="日志索引"></a>日志索引</h5><p>每个日志分段对应的两个索引文件，主要是用来提高查找消息的效率。偏移量索引文件用来建立消息偏移量（offset）到物理地址之间的映射关系，方便快速定位消息所在的物理位置；时间戳索引文件则根据指定的时间戳（timestamp）来查找对应的偏移量信息。</p>
+<p>Kafka中的索引文件以<strong>稀疏索引</strong>的方式构造消息的索引，也就是索引并不是连续。稀疏索引通过<strong>MappedByteBuffer</strong>将索引文件映射到内存中（mmap+write零拷贝技术），以加快索引的查询速度，查找指定的偏移量时，使用<strong>二分法</strong>来快速定位偏移量的位置。</p>
+<p>定位到日志具体日志分段LogSegment的方法是用了<strong>跳跃表</strong>的结构，Kafka的每个日志对象中使用了ConcurrentSkipListMap来保存各个日志分段，每个日志分段的baseOffset作为key，这样可以根据指定偏移量来快速定位到消息所在的日志分段。</p>
+<h5 id="日志清理"><a href="#日志清理" class="headerlink" title="日志清理"></a>日志清理</h5><ul>
+<li>日志删除：按照一定的策略直接删除不符合条件的日志<ul>
+<li>有专门的日志删除任务来周期性的检测和删除不符合保留条件的日志的分段文件</li>
+<li>三种日志保留策略：基于时间的保留策略、基于日志大小的保留策略、基于日志起始偏移量的保留策略</li>
+</ul>
+</li>
+<li>日志压缩：针对每个消息的key进行整合，对于有相同key的不同value值，只保留最后一个版本<ul>
+<li>类似redis的RDB持久化模式，都是只关注最新的状态，不关注历史版本的状态</li>
+<li>Kafka提供了一个墓碑消息（tombstone）的概念，如果一条消息的key不为null，但是其value为null，则称此消息为墓碑消息。日志清理线程发现墓碑消息时会先进行常规的清理，并保留墓碑消息一段时间</li>
+</ul>
+</li>
+</ul>
+<p><strong>日志删除是指清除整个日志分段，日志压缩是指针对相同key的消息的合并清理</strong></p>
+<h5 id="磁盘存储"><a href="#磁盘存储" class="headerlink" title="磁盘存储"></a>磁盘存储</h5><p>Kafka在设计时采用了文件追加的方式来写入消息，即只能在日志文件的尾部追加新的消息，并且也不允许修改已写入的消息，这种方式属于典型的<strong>顺序写盘</strong>的操作</p>
+<h5 id="页缓存"><a href="#页缓存" class="headerlink" title="页缓存"></a>页缓存</h5><p>页缓存是操作系统实现的一种主要的磁盘缓存，以此来减少对磁盘I/O的操作。</p>
+<p>对于Java来说：对象的内存开销非常大，通常会是真实数据大小的几倍甚至更多，空间使用率底下；Java的内存回收会随着堆内存的增多而变得越来越慢。基于此，使用文件系统并依赖于页缓存的做法明显要优于维护一个进程内缓存或其他结构，至少我们可以省去了一份进程内部的缓存消耗，同时还可以通过结构紧凑的字节码来替代使用对象的方式节省更多的空间，也不用担心GC带来的性能问题。此外，即使Kafka服务重启，页缓存还是会保持有效，然而进程内的缓存则需要重建。交给操作系统来负责也极大地简化了代码逻辑。</p>
+<p>Kafka中大量使用了页缓存，这是Kafka实现高吞吐量的重要因素之一。Kafka也提供了同步刷盘及间断性刷盘（fsync）功能，同步刷盘可以提高消息的可靠性，防止由于机器掉电等异常造成处于页缓存而没有及时写入磁盘的消息丢失。不过一般不建议这么做，刷盘的任务就应该交由操作系统去调配，消息的可靠性应该由<strong>多副本机制</strong>来进行保障，而不是由同步刷盘这种严重影响性能的方式来保障。</p>
+<h5 id="零拷贝"><a href="#零拷贝" class="headerlink" title="零拷贝"></a>零拷贝</h5><p>所谓的零拷贝是指将数据直接从磁盘文件复制到网卡设备中（通过DMA技术），而不需要经由应用程序之手。</p>
+<p>索引文件mmap+write</p>
+<p>日志文件sendfile()</p>
+<h4 id="Kafka服务端"><a href="#Kafka服务端" class="headerlink" title="Kafka服务端"></a>Kafka服务端</h4><h5 id="时间轮"><a href="#时间轮" class="headerlink" title="时间轮"></a>时间轮</h5><p>Kafka有大量的延时操作，基于时间轮的概念自定义实现了一个用于延时功能的定时器。JDK中Timer和DelayQueue的插入和删除操作的平均时间复杂度为O(nlogn)并不能满足Kafka的高性能要求，而基于时间轮可以将插入和删除操作的时间复杂度都降为O(1)。在Netty、Quartz、ZooKeeper等组件中都存在时间轮的身影。</p>
+<p>用TimingWheel做任务添加和删除操作，用DelayQueue做时间推进工作，相辅相成。</p>
+<h5 id="优雅关闭"><a href="#优雅关闭" class="headerlink" title="优雅关闭"></a>优雅关闭</h5><p>使用ControlledShutDown的方式关闭Kafka，一是可以让消息完全同步到磁盘上，在服务下次重新上线时不需要进行日志的恢复操作；二是在关闭服务之前，会对其上的leader副本进行迁移，这样就可以减少分区的不可用时间。</p>
+<h5 id="分区leader的选举"><a href="#分区leader的选举" class="headerlink" title="分区leader的选举"></a>分区leader的选举</h5><p>按照AR集合中副本的顺序查找第一个存活的副本，并且这个副本在ISR集合中。只要不发生重分配的情况，AR集合内部副本的顺序是保持不变的。</p>
+<p>当发生优先副本的选举时，直接将优先副本设置为leader即可（AR集合中的第一个副本即为优先副本）</p>
+<h4 id="Kafka客户端"><a href="#Kafka客户端" class="headerlink" title="Kafka客户端"></a>Kafka客户端</h4><h5 id="分区分配策略"><a href="#分区分配策略" class="headerlink" title="分区分配策略"></a>分区分配策略</h5><ul>
+<li>RangeAssignor：默认策略，原理是按照消费者总数和分区总数进行整除运算来获得一个跨度，然后将分区按照跨度进行平均分配，以保证分区尽可能均匀地分配给所有的消费者</li>
+<li>RoundRobinAssignor：原理是将消费组内的所有消费者及消费者订阅的所有主题的分区按字典序排序，然后通过轮询的方式逐个将分区依次分配给每个消费者</li>
+<li>StickyAssignor：主要有两个目的：1. 分区的分配要尽可能均匀；2. 分区的分配尽可能与上次分配的保持相同。也就是如果发生再均衡操作（有消费者脱离消费组等），会尽可能的让前后两次分配相同，减少不必要的分区移动，进而减少系统资源的损耗及其他异常情况的发生</li>
+</ul>
+<p>可以自定义分区策略。按照Kafka默认的消费逻辑设定，一个分区只能被一个消费组内的一个消费者消费。但可以通过自定义分区策略来打破这个设定，实现组内广播的效果，但消费位移需要自己保存。</p>
+<h5 id="再均衡-1"><a href="#再均衡-1" class="headerlink" title="再均衡"></a>再均衡</h5><p>触发再均衡操作的情况：</p>
+<ul>
+<li>有新的消费者加入消费组</li>
+<li>有消费者宕机下线，网络延迟等超时未发送心跳都会被当做下线</li>
+<li>有消费者主动退出消费组</li>
+<li>消费组对应的组协调器节点发生了变更</li>
+<li>消费组内所订阅的任一主题或者主题的分区数量发生变化</li>
+</ul>
+<p>再均衡操作需要耗费性能，频繁出现影响很大，需要尽量避免<strong>再均衡</strong>操作</p>
+<h5 id="消息传输保障"><a href="#消息传输保障" class="headerlink" title="消息传输保障"></a>消息传输保障</h5><ol>
+<li>at least once：至少一次，消息不可能丢失，但可能重复</li>
+<li>at most once：至多一次，消息不可能重复，但可能丢失</li>
+<li>exactly once：恰好一次，每条消息肯定会被传输一次且仅传输一次</li>
+</ol>
+<p>对于生产者：向Kafka发送消息时，一旦消息被成功提交到日志文件，由于多副本机制的存在（acks=-1），消息就不可能丢失，如果消息发送到Kafka时网络问题导致异常，生产者可以进行多次重试来确保消息写入了Kafka，重试的过程可能造成消息重复写入，所以Kafka对生产者提供的传输保障为at least once</p>
+<p>对于消费者：取决于消费消息的具体逻辑和提交位移的顺序。如果先处理逻辑再提交位移，那么可能重复消费，at least once；如果先提交位移，在处理逻辑，那么可能丢失，at most once</p>
+<p>如果要保证exactly的语义，那么就需要引入<strong>幂等</strong>和<strong>事务</strong>来实现了</p>
+<p>业务上保证消息不丢失其实<strong>at least once</strong>语义就可以，重复消费的问题可以在业务上加以处理。</p>
+<h5 id="幂等"><a href="#幂等" class="headerlink" title="幂等"></a>幂等</h5><p>幂等只会保证单个生成者会话中单个分区的幂等。Kafka也并不会保证消息内容的幂等。</p>
+<h5 id="事务"><a href="#事务" class="headerlink" title="事务"></a>事务</h5><p>幂等性不能跨多个分区运作，而事务可以保证对多个分区写入操作的原子性。可以将消费消息、生产消息、提交位移当做原子操作处理，同时成功或失败。</p>
+<p>isolation.level：默认read_uncommited，意思是消费端可以看到未提交的事务；可选read_commited，意思是消费端看不到未提交的事务。</p>
+<h4 id="可靠性"><a href="#可靠性" class="headerlink" title="可靠性"></a>可靠性</h4><p>对于分布式系统来说，解决数据丢失的问题一个很有效的手段就是数据副本，通过在不同节点上持久化同一份数据做数据冗余。</p>
+<p>从生产者发出的一条消息首先会被写入分区的leader副本，往往还需等待ISR集合中的所有follower副本都同步完之后才能被认为已经提交，之后才会更新分区的HW，进而消费者才得以消费这条消息。</p>
+<h5 id="副本失效"><a href="#副本失效" class="headerlink" title="副本失效"></a>副本失效</h5><p>当ISR集合中的一个follower副本滞后leader副本的时间超过replica.lag.time.max.ms参数时，则会判定为同步失败，此时副本就是失效副本。</p>
+<p>一般两种情况会导致副本失效：</p>
+<ul>
+<li>follower副本进程卡住，在一段时间内根本没有向leader副本发起同步请求，比如频繁的FullGC</li>
+<li>follower副本进程同步过慢，在一段时间内都无法追赶上leader副本，比如I/O开销过大</li>
+</ul>
+<h5 id="LEO和HW"><a href="#LEO和HW" class="headerlink" title="LEO和HW"></a>LEO和HW</h5><p>在一个分区中，leader副本所在的节点会记录所有副本的LEO，而follower副本所在的节点只会记录自身的LEO，而不会记录其他副本的LEO；对HW而言，各个副本所在的节点都只记录它自身的HW。</p>
+<p>0.11版本前：采用基于HW的同步机制，会导致消息丢失（follower的HW不能比leader的HW高，会发生日志截断）；之后的版本通过引入Leader Epoch（在截断之前通过LE来判断）来解决这个问题。</p>
+<h5 id="为什么不支持读写分离"><a href="#为什么不支持读写分离" class="headerlink" title="为什么不支持读写分离?"></a>为什么不支持读写分离?</h5><p>主写从读的缺点：</p>
+<ul>
+<li>数据一致性问题。主从同步必然会有一个延时的时间窗口，这个时间窗口内会导致数据不一致的情况发生</li>
+<li>延时问题，主从同步需要经过网络，无法避免</li>
+</ul>
+<p>主写从读主要解决的问题就是均摊负载，但是它也不能做到完全的负载均衡，对于数据写的压力还都是在主库，比较适合读多写少的场景。而Kafka是通过分区和副本将负载均衡到各个broker节点上，只要分区和副本合适，就不会造成负载分配不均衡。</p>
+<p>一般造成负载分配不均衡的场景：</p>
+<ul>
+<li>broker端的分区分配不均</li>
+<li>生成者写入消息不均，只往某个副本中写入大量消息</li>
+<li>消费者消费消息不均，只消费某部分副本</li>
+<li>leader副本的切换不均，broker宕机、分区副本的重分配等</li>
+</ul>
+<p>在配合监控告警、运维等情况下，一般都能达到很大程度上的负载均衡</p>
+<p>Kafka只支持主写主读的优点：</p>
+<ul>
+<li>可以简化代码的实现逻辑，减少出错的可能</li>
+<li>将负载粒度细化均摊，与主写从读相比，不仅负载效能更好，而且对用户可控</li>
+<li>没有延时的影响</li>
+<li>在副本稳定的情况下，不会出现数据不一致的情况</li>
+</ul>
+<h5 id="日志同步机制"><a href="#日志同步机制" class="headerlink" title="日志同步机制"></a>日志同步机制</h5><ul>
+<li>少数服从多数：优势是系统的延迟取决于最快的那几个节点，可以绕开最慢副本的确认信息，降低提交的延迟；劣势就是它所能容忍的失败follower数较少，比如要容忍1个follower失败，就必须有3个副本</li>
+<li>ISR模型：Kafka使用的日志同步机制，在f+1个副本的配置下，最多能容忍f个副本失败，选举过程也简单。</li>
+</ul>
+<h5 id="最大程度上增加可靠性"><a href="#最大程度上增加可靠性" class="headerlink" title="最大程度上增加可靠性"></a>最大程度上增加可靠性</h5><ul>
+<li>副本数越多越能增加可靠性，但同样会引起性能的下降，磁盘、网络资源的浪费，一般3~5个即可保证绝大多数场景可靠性的要求</li>
+<li>生成者客户端参数acks=-1，提交消息时必须ISR集合中的副本全部同步之后才返回提交成功，可以很大程度上提高消息的可靠性</li>
+<li>适当增加客户端失败重试次数，可能会导致重复消费，需要业务处理，也可能会影响顺序性</li>
+<li>ISR集合中的最少副本数可以适当提高，默认为1，可以调整至2，不过如果只剩一个会导致消息无法写入</li>
+<li>Kafka有提供同步刷盘的功能，但一般来说不推荐，可靠性保障不应该由同步刷盘这种极其损耗性能的操作来保障，而应该采用多副本的机制来保障</li>
+<li>消费端位移的提交，对于可靠性要求比较高的场景建议手动提交位移，可以在业务逻辑处理完后进行提交，这样能达到at least once语义，不过重复消息需要业务处理，对于一直不能消费成功的消息，可以暂存到死信队列中，以便后续的故障排除</li>
+<li>对于消费端，由于提交位移的存在，可以手动进行消息回溯，有机会对漏掉的消息进行回补，进一步提高可靠性</li>
+</ul>
+<h3 id="Kafka三大问题："><a href="#Kafka三大问题：" class="headerlink" title="Kafka三大问题："></a>Kafka三大问题：</h3><h4 id="Kafka为什么快，吞吐量高？（上述小结）"><a href="#Kafka为什么快，吞吐量高？（上述小结）" class="headerlink" title="Kafka为什么快，吞吐量高？（上述小结）"></a>Kafka为什么快，吞吐量高？（上述小结）</h4><ul>
+<li>顺序写</li>
+<li>页缓存</li>
+<li>零拷贝</li>
+</ul>
+<h4 id="Kafka如何顺序消费"><a href="#Kafka如何顺序消费" class="headerlink" title="Kafka如何顺序消费"></a>Kafka如何顺序消费</h4><ul>
+<li>只设置一个分区，通过分区的有序性实现主题的有序性</li>
+</ul>
+<h4 id="Kafka如何保证消息不丢失"><a href="#Kafka如何保证消息不丢失" class="headerlink" title="Kafka如何保证消息不丢失"></a>Kafka如何保证消息不丢失</h4><ul>
+<li>生产端<ul>
+<li>消息确认提交后才返回acks=-1或all（ISR集合都确认同步才返回）</li>
+</ul>
+</li>
+<li>Kafka服务器<ul>
+<li>多副本机制</li>
+<li>同步刷盘（不建议）</li>
+</ul>
+</li>
+<li>消费端<ul>
+<li>消费位移手动提交</li>
+</ul>
+</li>
+</ul>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
       
       
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2017" class="archive-year">2017</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/12/20/JsonNote/" class="archive-article-date">
-  	<time datetime="2017-12-20T08:03:55.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-12-20</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/12/20/JsonNote/">JsonNote</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">其他</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">中间件</a>
         		</li>
       		
 		</ul>
 	</div>
 
-          
+      
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2022/04/19/Kafka学习笔记/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/11/19/ajaxNote/" class="archive-article-date">
-  	<time datetime="2017-11-19T05:16:04.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-11-19</time>
-</a>
+<nav id="article-nav">
+  
+    <a href="/2022/07/15/缓存深度学习笔记-md/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          缓存学习笔记.md
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2022/01/20/Gorm适配达梦/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Gorm适配达梦</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
+        
+        
+    </div>
+</aside>
+
+
+
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/11/19/ajaxNote/">ajaxNote</a>
-    </h1>
+  
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">其他</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/11/12/Typora/" class="archive-article-date">
-  	<time datetime="2017-11-12T02:54:04.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-11-12</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/11/12/Typora/">Typora</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">其他</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/10/20/Regex/" class="archive-article-date">
-  	<time datetime="2017-10-20T02:57:32.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-10-20</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/10/20/Regex/">Regex</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">其他</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/10/10/Git/" class="archive-article-date">
-  	<time datetime="2017-10-10T02:54:35.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-10-10</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/10/10/Git/">Git</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">其他</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
-  
-
-    
-    <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/archives/page/5/">&laquo; Prev</a><a class="page-number" href="/archives/">1</a><span class="space">&hellip;</span><a class="page-number" href="/archives/page/4/">4</a><a class="page-number" href="/archives/page/5/">5</a><span class="page-number current">6</span>
-    </nav>
   
 
 
@@ -412,8 +557,8 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,
